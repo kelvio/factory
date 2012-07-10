@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @emitente.nome %>
+</p>
+
+
+<%= link_to 'Edit', edit_emitente_path(@emitente) %> |
+<%= link_to 'Back', emitentes_path %>

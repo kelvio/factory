@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @cliente.nome %>
+</p>
+
+
+<%= link_to t('cliente.show.edit_link_label'), edit_cliente_path(@cliente) %> |
+<%= link_to t('cliente.show.back_link_label'), clientes_path %>

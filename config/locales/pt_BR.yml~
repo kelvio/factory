@@ -1,0 +1,125 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+pt_BR:
+  #Banco
+  banco:
+    index:
+      title:  Lista de bancos
+      show_link_label: Detalhes
+      edit_link_label: Editar
+      destroy_link_label: Remover
+      new_button_label: Novo Banco
+    show:
+      edit_link_label: Editar
+      back_link_label: Voltar
+    edit:
+      title: Editaring banco
+      show_link_label: Detalhes      
+      back_link_label: Voltar
+    new:
+      title: Novo banco  
+      back_link_label: Voltar
+      
+  #Cheque
+  cheque:
+    index:
+      title:  Lista de cheques
+      show_link_label: Detalhes
+      edit_link_label: Editar
+      destroy_link_label: Remover
+      new_button_label: Novo Cheque
+    show:
+      edit_link_label: Editar
+      back_link_label: Voltar
+    edit:
+      title: Editaring cheque
+      show_link_label: Detalhes      
+      back_link_label: Voltar
+    new:
+      title: Novo cheque  
+      back_link_label: Voltar
+      
+  #Cliente
+  cliente:
+    index:
+      title:  Lista de clientes
+      show_link_label: Detalhes
+      edit_link_label: Editar
+      destroy_link_label: Remover
+      new_button_label: Novo cliente
+    show:
+      edit_link_label: Editar
+      back_link_label: Voltar
+    edit:
+      title: Editaring cliente
+      show_link_label: Detalhes      
+      back_link_label: Voltar
+    new:
+      title: Novo cliente
+      back_link_label: Voltar
+      
+  #Emitente 
+  emitente:
+    index:
+      title:  Lista de emitentes
+      show_link_label: Detalhes
+      edit_link_label: Editar
+      destroy_link_label: Remover
+      new_button_label: Novo emitente
+    show:
+      edit_link_label: Editar
+      back_link_label: Voltar
+    edit:
+      title: Editaring emitente
+      show_link_label: Detalhes      
+      back_link_label: Voltar
+    new:
+      title: Novo emitente  
+      back_link_label: Voltar
+  
+  #HistoricoCheque
+  historico_cheque:
+    index:
+      title:  Lista de HistoricoCheque
+      show_link_label: Detalhes
+      edit_link_label: Editar
+      destroy_link_label: Remover
+      new_button_label: Novo Banco
+    show:
+      edit_link_label: Editar
+      back_link_label: Voltar
+    edit:
+      title: Editaring HistoricoCheque
+      show_link_label: Detalhes      
+      back_link_label: Voltar
+    new:
+      title: Novo HistoricoCheque  
+      back_link_label: Voltar
+      
+  #Socio
+  socio:
+    index:
+      title:  Lista de Socio
+      show_link_label: Detalhes
+      edit_link_label: Editar
+      destroy_link_label: Remover
+      new_button_label: Novo Socio
+    show:
+      edit_link_label: Editar
+      back_link_label: Voltar
+    edit:
+      title: Editaring Socio
+      show_link_label: Detalhes      
+      back_link_label: Voltar
+    new:
+      title: Novo Socio  
+      back_link_label: Voltar
+      
+  #Session
+  session:
+    new:
+      title: Login
+      cpf: CPF
+      senha: Senha
+      submit_button: Submit

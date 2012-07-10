@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Numero:</b>
+  <%= @cheque.numero %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%= @cheque.valor %>
+</p>
+
+<p>
+  <b>Vencimento:</b>
+  <%= @cheque.vencimento %>
+</p>
+
+<p>
+  <b>Agencia:</b>
+  <%= @cheque.agencia %>
+</p>
+
+<p>
+  <b>Conta:</b>
+  <%= @cheque.conta %>
+</p>
+
+<p>
+  <b>Banco:</b>
+  <%= @cheque.banco %>
+</p>
+
+<p>
+  <b>Emitente:</b>
+  <%= @cheque.emitente %>
+</p>
+
+<p>
+  <b>Cliente:</b>
+  <%= @cheque.cliente %>
+</p>
+
+<p>
+  <b>Socio:</b>
+  <%= @cheque.socio %>
+</p>
+
+
+<%= link_to 'Edit', edit_cheque_path(@cheque) %> |
+<%= link_to 'Back', cheques_path %>

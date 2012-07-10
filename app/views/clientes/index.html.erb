@@ -1,0 +1,27 @@
+<h1><%= t('cliente.index.title') %></h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clientes.each do |cliente| %>
+  <tr>
+    <td><%= cliente.nome %></td>
+    <td><%= link_to t('cliente.index.show_link_label'), cliente %></td>
+    <td><%= link_to t('cliente.index.edit_link_label'), edit_cliente_path(cliente) %></td>
+    <td><%= link_to t('cliente.index.destroy_link_label'), cliente, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= will_paginate @clientes %>
+
+<br />
+
+<%= link_to t('cliente.index.new_button_label'), new_cliente_path %>

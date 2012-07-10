@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Factory</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <p>
+        <strong>Factory</strong> versão <%= application_version %>
+    </p>
+    <div style="text-align: right;">
+        <strong>
+        <% if logged_in? %>
+            <%= link_to t('session.logout'), logout_path %>
+        <% else %>
+            <%= link_to t('session.login'), login_path %>
+        <% end %>        
+        </strong>
+    </div>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  numero: 0000001
+  valor: 9.99
+  vencimento: 2012-07-09
+  agencia: 000001
+  conta: 0000001
+  banco: 1
+  emitente: 1
+  cliente: 1
+  socio: 1
+
+two:
+  numero: 000000002
+  valor: 9.99
+  vencimento: 2012-07-09
+  agencia: 000002
+  conta: 0000900-x
+  banco: 1
+  emitente: 1
+  cliente: 1
+  socio: 1

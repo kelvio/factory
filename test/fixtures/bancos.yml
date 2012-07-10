@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: Banco do Brasil
+  codigo: 001
+
+two:
+  nome: Itaú
+  codigo: 002

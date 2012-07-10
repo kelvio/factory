@@ -1,0 +1,6 @@
+<center>
+    <h1>Áreas do sistema</h1>
+    <ul>
+        <li><%= link_to 'Bancos', bancos_path %></li>
+    </ul>
+</center>

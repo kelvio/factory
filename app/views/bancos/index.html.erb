@@ -1,0 +1,28 @@
+<h1><%= t('banco.index.title') %></h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Codigo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bancos.each do |banco| %>
+  <tr>
+    <td><%= banco.nome %></td>
+    <td><%= banco.codigo %></td>
+    <td><%= link_to t('banco.index.show_link_label'), banco %></td>
+    <td><%= link_to t('banco.index.edit_link_label'), edit_banco_path(banco) %></td>
+    <td><%= link_to t('banco.index.destroy_link_label'), banco, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @bancos %>
+
+<br />
+
+<%= link_to t('banco.index.new_button_label'), new_banco_path %>

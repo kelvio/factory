@@ -1,0 +1,15 @@
+<h1><%= t('session.new.title') %></h1>
+
+<%= form_tag session_path do %>
+  <div class="field">
+    <%= label_tag :cpf, t('session.new.cpf') %><br />
+    <%= text_field_tag :cpf %>
+  </div>
+  <div class="field">
+    <%= label_tag :senha, t('session.new.senha') %><br />
+    <%= password_field_tag :senha %>
+  </div>
+  <div class="actions">
+    <%= submit_tag t('session.new.submit_button') %>
+  </div>
+<% end %>

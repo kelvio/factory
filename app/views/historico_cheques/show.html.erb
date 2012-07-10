@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Entrada:</b>
+  <%= @historico_cheque.entrada %>
+</p>
+
+<p>
+  <b>Saida:</b>
+  <%= @historico_cheque.saida %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%= @historico_cheque.descricao %>
+</p>
+
+<p>
+  <b>Cheque:</b>
+  <%= @historico_cheque.cheque %>
+</p>
+
+
+<%= link_to t('historico_cheque.show.edit_link_label') , edit_historico_cheque_path(@historico_cheque) %> |
+<%= link_to t('historico_cheque.show.back_link_label'), historico_cheques_path %>

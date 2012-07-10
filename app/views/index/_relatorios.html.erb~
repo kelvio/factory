@@ -1,0 +1,13 @@
+<script type="text/javascript">
+    $(function() {
+        $("#accordion-relatorios").accordion({ header: "h3", fillSpace: true }); 
+    });
+</script>
+<div id="accordion-operacoes" style="min-height: 800px;">
+    <div>
+	    <h3><a href="#">Vendas</a></h3>
+        <div id="categoria_produto">
+        Em construção...
+        </div>
+	</div>
+</div>

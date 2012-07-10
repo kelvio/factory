@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    $(function() {
+        $("#accordion").accordion({ header: "h3", fillSpace: true });        
+        $('#clientes').load('<%= clientes_path %>', function() {});
+        $('#fornecedores').load('<%= fornecedors_path %>', function() {});
+        $('#produtos').load('<%= produtos_path %>', function() {});
+        $('#categoria_produto').load('<%= categoria_produtos_path %>', function() {});
+        $('#usuarios').load('<%= usuarios_path %>', function() {});
+    });
+</script>
+<div id="accordion" style="min-height: 800px;">
+    <div>
+	    <h3><a href="#">Categorias de Produto</a></h3>
+        <div id="categoria_produto">
+        <%= image_tag "loading.gif" %> <br /> ...
+        </div>
+	</div>
+    <div>
+	    <h3><a href="#">Clientes</a></h3>
+        <div id="clientes">
+        <%= image_tag "loading.gif" %> <br /> ...
+        </div>
+	</div>
+	<div>
+    	<h3><a href="#">Fornecedores</a></h3>
+    	<div id="fornecedores">
+    	<%= image_tag "loading.gif" %> <br /> ...
+    	</div>
+	</div>
+	<div>
+	    <h3><a href="#">Produtos</a></h3>
+        <div id="produtos">
+        <%= image_tag "loading.gif" %> <br /> ...
+        </div>
+	</div>
+	<div>
+	    <h3><a href="#">Usuários</a></h3>
+        <div id="usuarios">
+        <%= image_tag "loading.gif" %> <br /> ...
+        </div>
+	</div>
+	
+</div>

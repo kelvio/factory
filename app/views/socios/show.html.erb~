@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @socio.nome %>
+</p>
+
+<p>
+  <b>Percentual:</b>
+  <%= @socio.percentual %>
+</p>
+
+<p>
+  <b>Cpf:</b>
+  <%= @socio.cpf %>
+</p>
+
+<p>
+  <b>Senha:</b>
+  <%= @socio.senha %>
+</p>
+
+
+<%= link_to 'Edit', edit_socio_path(@socio) %> |
+<%= link_to 'Back', socios_path %>

@@ -1,0 +1,23 @@
+<h1><%= t('emitente.index.title') %></h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @emitentes.each do |emitente| %>
+  <tr>
+    <td><%= emitente.nome %></td>
+    <td><%= link_to t('emitente.index.show_link_label') , emitente %></td>
+    <td><%= link_to t('emitente.index.edit_link_label'), edit_emitente_path(emitente) %></td>
+    <td><%= link_to t('emitente.index.destroy_link_label'), emitente, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('emitente.index.new_button_label'), new_emitente_path %>

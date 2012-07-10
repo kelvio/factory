@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: Sócio1
+  percentual: 10
+  cpf: 03674090113
+  senha: 123456789
+
+two:
+  nome: Sócio2
+  percentual: 90
+  cpf: 03674090115
+  senha: 123456789

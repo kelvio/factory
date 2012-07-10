@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  numero: MyString
+  valor: 9.99
+  vencimento: 2012-07-09
+  agencia: MyString
+  conta: MyString
+  banco: 
+  emitente: 
+  cliente: 
+  socio: 
+
+two:
+  numero: MyString
+  valor: 9.99
+  vencimento: 2012-07-09
+  agencia: MyString
+  conta: MyString
+  banco: 
+  emitente: 
+  cliente: 
+  socio: 

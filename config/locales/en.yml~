@@ -1,0 +1,129 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+
+  #Banco
+  banco:
+    index:
+      title:  Listing bancos
+      show_link_label: Show
+      edit_link_label: Edit
+      destroy_link_label: Destroy
+      new_button_label: New Banco
+    show:
+      edit_link_label: Edit
+      back_link_label: Back
+    edit:
+      title: Editing banco
+      show_link_label: Show      
+      back_link_label: Back
+    new:
+      title: New banco  
+      back_link_label: Back
+      
+  #Cheque
+  cheque:
+    index:
+      title:  Listing cheques
+      show_link_label: Show
+      edit_link_label: Edit
+      destroy_link_label: Destroy
+      new_button_label: New Cheque
+    show:
+      edit_link_label: Edit
+      back_link_label: Back
+    edit:
+      title: Editing cheque
+      show_link_label: Show      
+      back_link_label: Back
+    new:
+      title: New cheque  
+      back_link_label: Back
+      
+  #Cliente
+  cliente:
+    index:
+      title:  Listing clientes
+      show_link_label: Show
+      edit_link_label: Edit
+      destroy_link_label: Destroy
+      new_button_label: New cliente
+    show:
+      edit_link_label: Edit
+      back_link_label: Back
+    edit:
+      title: Editing cliente
+      show_link_label: Show      
+      back_link_label: Back
+    new:
+      title: New cliente
+      back_link_label: Back
+      
+  #Emitente 
+  emitente:
+    index:
+      title:  Listing emitentes
+      show_link_label: Show
+      edit_link_label: Edit
+      destroy_link_label: Destroy
+      new_button_label: New emitente
+    show:
+      edit_link_label: Edit
+      back_link_label: Back
+    edit:
+      title: Editing emitente
+      show_link_label: Show      
+      back_link_label: Back
+    new:
+      title: New emitente  
+      back_link_label: Back
+  
+  #HistoricoCheque
+  historico_cheque:
+    index:
+      title:  Listing HistoricoCheque
+      show_link_label: Show
+      edit_link_label: Edit
+      destroy_link_label: Destroy
+      new_button_label: New Banco
+    show:
+      edit_link_label: Edit
+      back_link_label: Back
+    edit:
+      title: Editing HistoricoCheque
+      show_link_label: Show      
+      back_link_label: Back
+    new:
+      title: New HistoricoCheque  
+      back_link_label: Back
+      
+  #Socio
+  socio:
+    index:
+      title:  Listing Socio
+      show_link_label: Show
+      edit_link_label: Edit
+      destroy_link_label: Destroy
+      new_button_label: New Socio
+    show:
+      edit_link_label: Edit
+      back_link_label: Back
+    edit:
+      title: Editing Socio
+      show_link_label: Show      
+      back_link_label: Back
+    new:
+      title: New Socio  
+      back_link_label: Back
+  
+  #Session
+  session:
+    new:
+      title: Login
+      cpf: CPF
+      senha: Senha
+      submit_button: Submit
+  
+  
+  
