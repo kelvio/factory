@@ -1,0 +1,7 @@
+class Banco < ActiveRecord::Base
+  attr_accessible :codigo, :nome
+  
+  def to_s
+    return :nome
+  end
+end

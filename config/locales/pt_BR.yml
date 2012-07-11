@@ -10,6 +10,7 @@ pt_BR:
       edit_link_label: Editar
       destroy_link_label: Remover
       new_button_label: Novo Banco
+      search_button_label: Pesquisar
     show:
       edit_link_label: Editar
       back_link_label: Voltar
@@ -29,6 +30,7 @@ pt_BR:
       edit_link_label: Editar
       destroy_link_label: Remover
       new_button_label: Novo Cheque
+      search_button_label: Pesquisar
     show:
       edit_link_label: Editar
       back_link_label: Voltar
@@ -39,7 +41,16 @@ pt_BR:
     new:
       title: Novo cheque  
       back_link_label: Voltar
-      
+    form:
+      emitente:
+        no_selection_label: Selecione
+      banco:
+        no_selection_label: Selecione
+      cliente:
+        no_selection_label: Selecione
+      situacao_cheque:
+        no_selection_label: Selecione
+        
   #Cliente
   cliente:
     index:
@@ -48,6 +59,7 @@ pt_BR:
       edit_link_label: Editar
       destroy_link_label: Remover
       new_button_label: Novo cliente
+      search_button_label: Pesquisar
     show:
       edit_link_label: Editar
       back_link_label: Voltar
@@ -67,6 +79,7 @@ pt_BR:
       edit_link_label: Editar
       destroy_link_label: Remover
       new_button_label: Novo emitente
+      search_button_label: Pesquisar
     show:
       edit_link_label: Editar
       back_link_label: Voltar
@@ -86,6 +99,7 @@ pt_BR:
       edit_link_label: Editar
       destroy_link_label: Remover
       new_button_label: Novo Banco
+      search_button_label: Pesquisar
     show:
       edit_link_label: Editar
       back_link_label: Voltar
@@ -100,11 +114,12 @@ pt_BR:
   #Socio
   socio:
     index:
-      title:  Lista de Socio
+      title:  Lista de Socios
       show_link_label: Detalhes
       edit_link_label: Editar
       destroy_link_label: Remover
       new_button_label: Novo Socio
+      search_button_label: Pesquisar
     show:
       edit_link_label: Editar
       back_link_label: Voltar
@@ -115,7 +130,29 @@ pt_BR:
     new:
       title: Novo Socio  
       back_link_label: Voltar
-      
+  
+  #Despesa
+  despesa:
+    index:
+      title:  Lista de Despesas
+      show_link_label: Detalhes
+      edit_link_label: Editar
+      destroy_link_label: Remover
+      new_button_label: Nova Despesas
+      search_button_label: Pesquisar
+    show:
+      edit_link_label: Editar
+      back_link_label: Voltar
+    edit:
+      title: Editando Despesa
+      show_link_label: Detalhes    
+      back_link_label: Voltar
+    new:
+      title: Nova Despesa  
+      back_link_label: Voltar
+    form:
+      tipo_despesa:
+        no_selection_label: Selecione
   #Session
   session:
     logout: Entrar
@@ -125,3 +162,8 @@ pt_BR:
       cpf: CPF
       senha: Senha
       submit_button: Submit
+      
+  #Relatório
+  relatorio:
+    index:
+      title: Relatórios

@@ -1,0 +1,5 @@
+class AddTipoJurosIdToCheque < ActiveRecord::Migration
+  def change
+    add_column :cheques, :tipo_juros_id, :integer
+  end
+end

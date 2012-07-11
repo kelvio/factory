@@ -1,0 +1,83 @@
+class TipoContaController < ApplicationController
+  # GET /tipo_conta
+  # GET /tipo_conta.json
+  def index
+    @tipo_conta = TipoContum.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @tipo_conta }
+    end
+  end
+
+  # GET /tipo_conta/1
+  # GET /tipo_conta/1.json
+  def show
+    @tipo_contum = TipoContum.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => @tipo_contum }
+    end
+  end
+
+  # GET /tipo_conta/new
+  # GET /tipo_conta/new.json
+  def new
+    @tipo_contum = TipoContum.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render :json => @tipo_contum }
+    end
+  end
+
+  # GET /tipo_conta/1/edit
+  def edit
+    @tipo_contum = TipoContum.find(params[:id])
+  end
+
+  # POST /tipo_conta
+  # POST /tipo_conta.json
+  def create
+    @tipo_contum = TipoContum.new(params[:tipo_contum])
+
+    respond_to do |format|
+      if @tipo_contum.save
+        format.html { redirect_to @tipo_contum, :notice => 'Tipo contum was successfully created.' }
+        format.json { render :json => @tipo_contum, :status => :created, :location => @tipo_contum }
+      else
+        format.html { render :action => "new" }
+        format.json { render :json => @tipo_contum.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /tipo_conta/1
+  # PUT /tipo_conta/1.json
+  def update
+    @tipo_contum = TipoContum.find(params[:id])
+
+    respond_to do |format|
+      if @tipo_contum.update_attributes(params[:tipo_contum])
+        format.html { redirect_to @tipo_contum, :notice => 'Tipo contum was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render :action => "edit" }
+        format.json { render :json => @tipo_contum.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /tipo_conta/1
+  # DELETE /tipo_conta/1.json
+  def destroy
+    @tipo_contum = TipoContum.find(params[:id])
+    @tipo_contum.destroy
+
+    respond_to do |format|
+      format.html { redirect_to tipo_conta_url }
+      format.json { head :no_content }
+    end
+  end
+end

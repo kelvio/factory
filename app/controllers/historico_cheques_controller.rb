@@ -1,4 +1,7 @@
 class HistoricoChequesController < ApplicationController
+
+  before_filter :authenticate
+  
   # GET /historico_cheques
   # GET /historico_cheques.json
   def index

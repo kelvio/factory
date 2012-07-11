@@ -1,5 +1,18 @@
 <h1><%= t('banco.index.title') %></h1>
 
+
+
+<% form_tag bancos_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :nome, params[:nome] %>
+    <%= submit_tag t('banco.index.search_button_label'), :name => nil %>
+  </p>
+<% end %>
+
+
+
+<br />
+
 <table>
   <tr>
     <th>Nome</th>
@@ -19,6 +32,9 @@
   </tr>
 <% end %>
 </table>
+
+<br />
+<%= will_paginate @bancos %>
 
 <br />
 

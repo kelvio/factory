@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  descricao: MyString
+  socio: 
+  tipo_operacao_financeira: 
+  valor: 9.99
+
+two:
+  descricao: MyString
+  socio: 
+  tipo_operacao_financeira: 
+  valor: 9.99

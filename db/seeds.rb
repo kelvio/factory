@@ -5,3 +5,30 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
+
+#SituacaoCheque
+SituacaoCheque.create([{:nome => 'Aberto'}, {:nome => 'Compensado'}, {:nome => 'Postergado'}])
+
+#TipoDespesa
+TipoDespesa.create([{:nome => 'Societaria - Relativa ao percentual do sócio'}, {:nome => 'Fixa - Dividida igualmente entre os sócios'}])
+
+#Banco
+Banco.create([{:nome => 'Banco do Brasil', :codigo => '001'}])
+
+#Cliente
+Cliente.create([{:nome => 'Cliente da Silva'}])
+
+#Emitente
+Emitente.create([{:nome => 'Emitente da Silva'}])
+
+#TipoOperacaoFinanceira
+TipoOperacaoFinanceira.create([{:nome => 'Troca de cheque'}])
+
+#Socio
+Socio.create([{:nome => 'Sócio da Silva', :cpf => '03674090112', :senha => '123'}])
+
+#Capital
+Capital.create([{:montante_aplicado => 0, :montante_real => 0}])
+
+#TipoJuros
+TipoJuro.create([{:nome => 'Simples'}, {:nome => 'Composto'}])

@@ -11,6 +11,7 @@ en:
       edit_link_label: Edit
       destroy_link_label: Destroy
       new_button_label: New Banco
+      search_button_label: Search
     show:
       edit_link_label: Edit
       back_link_label: Back
@@ -30,6 +31,7 @@ en:
       edit_link_label: Edit
       destroy_link_label: Destroy
       new_button_label: New Cheque
+      search_button_label: Search
     show:
       edit_link_label: Edit
       back_link_label: Back
@@ -40,7 +42,13 @@ en:
     new:
       title: New cheque  
       back_link_label: Back
-      
+    form:
+      emitente:
+        no_selection_label: Select
+      banco:
+        no_selection_label: Select  
+      cliente:
+        no_selection_label: Select    
   #Cliente
   cliente:
     index:
@@ -49,6 +57,7 @@ en:
       edit_link_label: Edit
       destroy_link_label: Destroy
       new_button_label: New cliente
+      search_button_label: Search
     show:
       edit_link_label: Edit
       back_link_label: Back
@@ -68,6 +77,7 @@ en:
       edit_link_label: Edit
       destroy_link_label: Destroy
       new_button_label: New emitente
+      search_button_label: Search
     show:
       edit_link_label: Edit
       back_link_label: Back
@@ -87,6 +97,7 @@ en:
       edit_link_label: Edit
       destroy_link_label: Destroy
       new_button_label: New Banco
+      search_button_label: Search
     show:
       edit_link_label: Edit
       back_link_label: Back
@@ -106,6 +117,7 @@ en:
       edit_link_label: Edit
       destroy_link_label: Destroy
       new_button_label: New Socio
+      search_button_label: Search
     show:
       edit_link_label: Edit
       back_link_label: Back
@@ -117,8 +129,37 @@ en:
       title: New Socio  
       back_link_label: Back
   
+  #Despesa
+  despesa:
+    index:
+      title:  Listing Despesa
+      show_link_label: Show
+      edit_link_label: Edit
+      destroy_link_label: Destroy
+      new_button_label: New Despesa
+      search_button_label: Search
+    show:
+      edit_link_label: Edit
+      back_link_label: Back
+    edit:
+      title: Editing Conta
+      show_link_label: Show      
+      back_link_label: Back
+    new:
+      title: New Conta  
+      back_link_label: Back
+    form:
+      tipo_despesa:
+        no_selection_label: Select
+  
+  #Relatório
+  relatorio:
+    index:
+      title: Report  
   #Session
   session:
+    logout: Logout
+    login: Login
     new:
       title: Login
       cpf: CPF

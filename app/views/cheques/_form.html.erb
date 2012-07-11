@@ -32,20 +32,28 @@
     <%= f.text_field :conta %>
   </div>
   <div class="field">
+    <%= f.label :taxa_juros %><br />
+    <%= f.text_field :taxa_juros %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_juro %><br />
+    <%= f.select(:tipo_juro_id, options_from_collection_for_select(TipoJuro.all, :id, :nome), {:include_blank => t('cheque.form.banco.no_selection_label')}) %>
+  </div>
+  <div class="field">
     <%= f.label :banco %><br />
-    <%= f.text_field :banco %>
+    <%= f.select(:banco_id, options_from_collection_for_select(Banco.all, :id, :nome), {:include_blank => t('cheque.form.banco.no_selection_label')}) %>
   </div>
   <div class="field">
     <%= f.label :emitente %><br />
-    <%= f.text_field :emitente %>
+    <%= f.select(:emitente_id, options_from_collection_for_select(Emitente.all, :id, :nome), {:include_blank => t('cheque.form.emitente.no_selection_label')}) %>
   </div>
   <div class="field">
     <%= f.label :cliente %><br />
-    <%= f.text_field :cliente %>
+    <%= f.select(:cliente_id, options_from_collection_for_select(Cliente.all, :id, :nome), {:include_blank => t('cheque.form.cliente.no_selection_label')}) %>
   </div>
   <div class="field">
-    <%= f.label :socio %><br />
-    <%= f.text_field :socio %>
+    <%= f.label :situacao_cheque %><br />
+    <%= f.select(:situacao_cheque_id, options_from_collection_for_select(SituacaoCheque.all, :id, :nome), {:include_blank => t('cheque.form.situacao_cheque.no_selection_label')}) %>
   </div>
   <div class="actions">
     <%= f.submit %>

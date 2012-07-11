@@ -1,8 +1,11 @@
 class EmitentesController < ApplicationController
+
+  before_filter :authenticate
+  
   # GET /emitentes
   # GET /emitentes.json
   def index
-    @emitentes = Emitente.paginate(:page => params[:page], :per_page => 20)
+    @emitentes = Emitente.where(['nome LIKE ?', "%#{params[:nome]}%"]).paginate(:page => params[:page], :per_page => 20)
 
     respond_to do |format|
       format.html # index.html.erb

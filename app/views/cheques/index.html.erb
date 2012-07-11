@@ -1,5 +1,13 @@
 <h1><%= t('cheque.index.title') %></h1>
 
+<%= form_tag cheques_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :numero, params[:numero] %>
+    <%= submit_tag t('cheque.index.search_button_label'), :name => nil %>
+  </p>
+<% end %>
+
+
 <table>
   <tr>
     <th>Numero</th>

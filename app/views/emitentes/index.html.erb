@@ -1,5 +1,13 @@
 <h1><%= t('emitente.index.title') %></h1>
 
+<%= form_tag emitentes_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :nome, params[:nome] %>
+    <%= submit_tag t('emitente.index.search_button_label'), :name => nil %>
+  </p>
+<% end %>
+
+
 <table>
   <tr>
     <th>Nome</th>

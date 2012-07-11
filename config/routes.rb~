@@ -1,4 +1,22 @@
 Factory::Application.routes.draw do
+  resources :operacao_financeiras
+
+  resources :tipo_operacao_financeiras
+
+  resources :parcela_despesas
+
+  resources :despesas
+
+  resources :tipo_despesas
+
+  resources :conta
+
+  resources :tipo_conta
+
+  resources :contas
+
+  resources :tipo_contas
+
   resources :historico_cheques
 
   resources :cheques
@@ -18,7 +36,7 @@ Factory::Application.routes.draw do
   
   #Index
   resource :index
-  match '/home' => "index#index", :as => 'home'
+  match '/' => "index#index", :as => 'home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

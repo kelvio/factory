@@ -26,7 +26,7 @@
 
 <br />
 
-<%= will_paginate @emitentes %>
+<%= will_paginate @socios %>
 
 <br />
 

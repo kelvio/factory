@@ -1,5 +1,13 @@
 <h1><%= t('socio.index.title') %></h1>
 
+<%= form_tag socios_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :nome, params[:nome] %>
+    <%= submit_tag t('socio.index.search_button_label'), :name => nil %>
+  </p>
+<% end %>
+
+
 <table>
   <tr>
     <th>Nome</th>

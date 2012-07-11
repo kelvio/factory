@@ -1,0 +1,5 @@
+class AddSituacaoChequeIdToHistoricoCheque < ActiveRecord::Migration
+  def change
+    add_column :historico_cheques, :situacao_cheque_id, :integer
+  end
+end

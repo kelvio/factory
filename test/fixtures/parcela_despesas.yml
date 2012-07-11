@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  despesa: 
+  vencimento: 2012-07-11
+  valor: 9.99
+
+two:
+  despesa: 
+  vencimento: 2012-07-11
+  valor: 9.99

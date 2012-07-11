@@ -1,4 +1,18 @@
 Factory::Application.routes.draw do
+  resources :tipo_juros
+
+  resources :situacao_cheques
+
+  resources :operacao_financeiras
+
+  resources :tipo_operacao_financeiras
+
+  resources :parcela_despesas
+
+  resources :despesas
+
+  resources :tipo_despesas
+
   resources :historico_cheques
 
   resources :cheques
@@ -10,6 +24,8 @@ Factory::Application.routes.draw do
   resources :emitentes
 
   resources :bancos
+
+  resources :relatorios
   
   #Sessions
   resource :session

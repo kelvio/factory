@@ -1,10 +1,11 @@
 class BancosController < ApplicationController
+  
+  before_filter :authenticate
+  
   # GET /bancos
   # GET /bancos.json
-  def index
-  
-    @bancos = Banco.paginate(:page => params[:page], :per_page => 20)
-
+  def index  
+    @bancos = Banco.where(['nome LIKE ?', "%#{params[:nome]}%"]).paginate(:page => params[:page], :per_page => 20)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @bancos }

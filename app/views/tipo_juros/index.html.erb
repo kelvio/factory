@@ -1,0 +1,23 @@
+<h1>Listing tipo_juros</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tipo_juros.each do |tipo_juro| %>
+  <tr>
+    <td><%= tipo_juro.nome %></td>
+    <td><%= link_to 'Show', tipo_juro %></td>
+    <td><%= link_to 'Edit', edit_tipo_juro_path(tipo_juro) %></td>
+    <td><%= link_to 'Destroy', tipo_juro, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tipo juro', new_tipo_juro_path %>

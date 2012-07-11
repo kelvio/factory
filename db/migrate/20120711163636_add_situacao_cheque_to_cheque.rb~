@@ -1,0 +1,6 @@
+class AddSituacaoChequeToCheque < ActiveRecord::Migration
+  def change
+    add_column :cheques, :situacao_cheque_id, :integer
+    add_index :cheques, :situacao_cheque_id
+  end
+end

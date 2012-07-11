@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery
   before_filter :set_locale
+  
      
   protected       
   
@@ -28,6 +29,14 @@ class ApplicationController < ActionController::Base
     # Make current_user available in templates as a helper
     helper_method :current_user
     
+    def montante_aplicado
+      return Capital.find(1).montante_aplicado #Capital da factory        
+    end
+    
+    def montante_real
+      return Capital.find(1).montante_real #Capital da factory        
+    end
+    
     # Filter method to enforce a login requirement
     # Apply as a before_fileter on any controller want to protected
     def authenticate
@@ -36,7 +45,7 @@ class ApplicationController < ActionController::Base
     
     # Predicate method to test for a logged in user
     def logged_in?
-        current_user.is_a? User
+        current_user.is_a? Socio
     end
     
     # Make logged_in? available in templates as a helper

@@ -1,0 +1,61 @@
+<%= form_for(@cheque) do |f| %>
+  <% if @cheque.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cheque.errors.count, "error") %> prohibited this cheque from being saved:</h2>
+
+      <ul>
+      <% @cheque.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :numero %><br />
+    <%= f.text_field :numero %>
+  </div>
+  <div class="field">
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </div>
+  <div class="field">
+    <%= f.label :vencimento %><br />
+    <%= f.date_select :vencimento %>
+  </div>
+  <div class="field">
+    <%= f.label :agencia %><br />
+    <%= f.text_field :agencia %>
+  </div>
+  <div class="field">
+    <%= f.label :conta %><br />
+    <%= f.text_field :conta %>
+  </div>
+  <div class="field">
+    <%= f.label :taxa_juros %><br />
+    <%= f.text_field :taxa_juros %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_juro %><br />
+    <%= f.select(:tipo_juros_id, options_from_collection_for_select(TipoJuro.all, :id, :nome), {:include_blank => t('cheque.form.banco.no_selection_label')}) %>
+  </div>
+  <div class="field">
+    <%= f.label :banco %><br />
+    <%= f.select(:banco_id, options_from_collection_for_select(Banco.all, :id, :nome), {:include_blank => t('cheque.form.banco.no_selection_label')}) %>
+  </div>
+  <div class="field">
+    <%= f.label :emitente %><br />
+    <%= f.select(:emitente_id, options_from_collection_for_select(Emitente.all, :id, :nome), {:include_blank => t('cheque.form.emitente.no_selection_label')}) %>
+  </div>
+  <div class="field">
+    <%= f.label :cliente %><br />
+    <%= f.select(:cliente_id, options_from_collection_for_select(Cliente.all, :id, :nome), {:include_blank => t('cheque.form.cliente.no_selection_label')}) %>
+  </div>
+  <div class="field">
+    <%= f.label :situacao_cheque %><br />
+    <%= f.select(:situacao_cheque_id, options_from_collection_for_select(SituacaoCheque.all, :id, :nome), {:include_blank => t('cheque.form.situacao_cheque.no_selection_label')}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -6,8 +6,25 @@
 </p>
 
 <p>
+  <b>Taxa de juros:</b>
+  <%= @cheque.taxa_juros %>
+</p>
+
+<p>
+  <b>Tipo de juros:</b>
+  <%= @cheque.tipo_juros %>
+</p>
+
+
+
+<p>
   <b>Valor:</b>
   <%= @cheque.valor %>
+</p>
+
+<p>
+  <b>Valor atual:</b>
+  <%= @cheque.valor_atual %>
 </p>
 
 <p>
@@ -44,7 +61,10 @@
   <b>Socio:</b>
   <%= @cheque.socio %>
 </p>
+<p>
+  <b>Situação:</b>
+  <%= @cheque.situacao_cheque %>
+</p>
 
-
-<%= link_to 'Edit', edit_cheque_path(@cheque) %> |
-<%= link_to 'Back', cheques_path %>
+<%= link_to t('cheque.show.edit_link_label'), edit_cheque_path(@cheque) %> |
+<%= link_to t('cheque.show.back_link_label'), cheques_path %>

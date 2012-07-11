@@ -8,7 +8,7 @@
 </head>
 <body>
     <p>
-        <strong>Factory</strong> versão <%= application_version %>
+        <strong><%= link_to 'Factory', home_path %></strong> versão <%= application_version %>
     </p>
     <div style="text-align: right;">
         <strong>
@@ -18,7 +18,11 @@
             <%= link_to t('session.login'), login_path %>
         <% end %>        
         </strong>
+        <p><b>Montante real da factory:</b><%= montante_real %></p>
+        <p><b>Montante aplicado da factory:</b><%= montante_aplicado %></p>
     </div>
+
+    
 
 <%= yield %>
 

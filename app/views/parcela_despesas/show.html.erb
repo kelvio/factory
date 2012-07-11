@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Despesa:</b>
+  <%= @parcela_despesa.despesa %>
+</p>
+
+<p>
+  <b>Vencimento:</b>
+  <%= @parcela_despesa.vencimento %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%= @parcela_despesa.valor %>
+</p>
+
+
+<%= link_to 'Edit', edit_parcela_despesa_path(@parcela_despesa) %> |
+<%= link_to 'Back', parcela_despesas_path %>

@@ -20,4 +20,8 @@
 
 <br />
 
+<%= will_paginate @clientes %>
+
+<br />
+
 <%= link_to t('cliente.index.new_button_label'), new_cliente_path %>

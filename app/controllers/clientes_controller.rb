@@ -1,8 +1,11 @@
 class ClientesController < ApplicationController
+  
+  before_filter :authenticate
+  
   # GET /clientes
   # GET /clientes.json
   def index
-    @clientes = Cliente.paginate(:page => params[:page], :per_page => 20)
+    @clientes = Cliente.where(['nome LIKE ?', "%#{params[:nome]}%"]).paginate(:page => params[:page], :per_page => 20)
 
     respond_to do |format|
       format.html # index.html.erb

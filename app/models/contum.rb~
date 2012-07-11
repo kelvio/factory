@@ -1,0 +1,8 @@
+class Contum < ActiveRecord::Base
+  belongs_to :tipo_contum
+  attr_accessible :nome, :tipo_conta, :tipo_conta_id
+  
+  def to_s
+    return self.nome
+  end
+end

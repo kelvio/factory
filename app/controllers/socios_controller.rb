@@ -1,8 +1,11 @@
 class SociosController < ApplicationController
+
+  before_filter :authenticate
+
   # GET /socios
   # GET /socios.json
   def index
-    @socios = Socio.paginate(:page => params[:page], :per_page => 20)
+    @socios = Socio.where(['nome LIKE ?', "%#{params[:nome]}%"]).paginate(:page => params[:page], :per_page => 20)
 
     respond_to do |format|
       format.html # index.html.erb
