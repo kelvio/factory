@@ -1,16 +1,8 @@
 <%= form_for(@cheque) do |f| %>
-  <% if @cheque.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cheque.errors.count, "error") %> prohibited this cheque from being saved:</h2>
-
-      <ul>
-      <% @cheque.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  
+  <%= render 'shared/error', :object => @cheque %>
+  
+  <div class="box-left">
   <div class="field">
     <%= f.label :numero %><br />
     <%= f.text_field :numero %>
@@ -54,6 +46,7 @@
   <div class="field">
     <%= f.label :situacao_cheque %><br />
     <%= f.select(:situacao_cheque_id, options_from_collection_for_select(SituacaoCheque.all, :id, :nome), {:include_blank => t('cheque.form.situacao_cheque.no_selection_label')}) %>
+  </div>
   </div>
   <div class="actions">
     <%= f.submit %>

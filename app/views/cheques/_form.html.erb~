@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="box-left">
   <div class="field">
     <%= f.label :numero %><br />
     <%= f.text_field :numero %>
@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :tipo_juro %><br />
-    <%= f.select(:tipo_juros_id, options_from_collection_for_select(TipoJuro.all, :id, :nome), {:include_blank => t('cheque.form.banco.no_selection_label')}) %>
+    <%= f.select(:tipo_juro_id, options_from_collection_for_select(TipoJuro.all, :id, :nome), {:include_blank => t('cheque.form.banco.no_selection_label')}) %>
   </div>
   <div class="field">
     <%= f.label :banco %><br />
@@ -54,6 +54,7 @@
   <div class="field">
     <%= f.label :situacao_cheque %><br />
     <%= f.select(:situacao_cheque_id, options_from_collection_for_select(SituacaoCheque.all, :id, :nome), {:include_blank => t('cheque.form.situacao_cheque.no_selection_label')}) %>
+  </div>
   </div>
   <div class="actions">
     <%= f.submit %>

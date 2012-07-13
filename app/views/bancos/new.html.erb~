@@ -1,5 +1,7 @@
-<h1>New banco</h1>
+<h1><%= t('banco.new.title') %></h1>
 
+<div class="box-left">
 <%= render 'form' %>
+</div>
 
-<%= link_to 'Back', bancos_path %>
+<%= link_to t('banco.new.back_link_label'), bancos_path %>

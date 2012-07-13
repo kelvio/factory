@@ -1,12 +1,9 @@
-<center>
-    <h1>Áreas do sistema</h1>
-    <ul>
-        <li><%= link_to 'Bancos', bancos_path %></li>
-        <li><%= link_to 'Cheques', cheques_path %></li>
-        <li><%= link_to 'Clientes', clientes_path %></li>
-        <li><%= link_to 'Emitentes', emitentes_path %></li>
-        <li><%= link_to 'Sócios', socios_path %></li>
-        <li><%= link_to 'Tipos de despesas', tipo_despesas_path %></li>
-        <li><%= link_to 'Despesas', despesas_path %></li>
-    </ul>
-</center>
+<h1>Acesso rápido</h1>
+
+<%= render 'shared/buttons', :buttons => [
+    {:link => cheques_path, :image => 'home.png', :label => 'Cheques'},
+    {:link => despesas_path, :image => 'home.png', :label => 'Despesas'},
+    {:link => bancos_path, :image => 'home.png', :label => 'Bancos'},
+    {:link => relatorios_path, :image => 'home.png', :label => 'Relatórios'}
+    ] %>
+

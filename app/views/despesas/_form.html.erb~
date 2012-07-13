@@ -10,18 +10,19 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="box-left">   
   <div class="field">
     <%= f.label :nome %><br />
     <%= f.text_field :nome %>
   </div>
   <div class="field">
     <%= f.label :tipo_despesa %><br />
-    <%= f.text_field :tipo_despesa %>
+    <%= f.select(:tipo_despesa_id, options_from_collection_for_select(TipoDespesa.all, :id, :nome), {:include_blank => t('despesa.form.tipo_despesa.no_selection_label')}) %>
   </div>
   <div class="field">
     <%= f.label :valor %><br />
     <%= f.text_field :valor %>
+  </div>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,6 +1,6 @@
-<h1>Editing socio</h1>
+<h1><%= t('socio.edit.title') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @socio %> |
-<%= link_to 'Back', socios_path %>
+<%= link_to t('socio.edit.show_link_label'), @socio %> |
+<%= link_to t('socio.back_link_label'), socios_path %>

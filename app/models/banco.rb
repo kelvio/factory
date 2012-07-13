@@ -1,6 +1,9 @@
 class Banco < ActiveRecord::Base
   attr_accessible :codigo, :nome
   
+  validates :codigo, :presence => true, :uniqueness => true, :numericality => true
+  validates :nome, :presence => true, :length => { :within => 3 ... 255}
+  
   def to_s
     return self.nome
   end

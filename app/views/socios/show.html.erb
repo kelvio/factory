@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
-
+<h1>Sócio</h1>
+<div class="box-left">
 <p>
   <b>Nome:</b>
   <%= @socio.nome %>
@@ -14,12 +14,8 @@
   <b>Cpf:</b>
   <%= @socio.cpf %>
 </p>
+</div>
+<br />
+<input type="button" onclick="location.href='<%= edit_socio_path(@socio) %>'" value="<%= t('socio.show.edit_link_label') %>" />
+<input type="button" onclick="location.href='<%= socios_path %>'" value="<%= t('socio.show.back_link_label') %>" />
 
-<p>
-  <b>Senha:</b>
-  <%= @socio.senha %>
-</p>
-
-
-<%= link_to t('socio.show.edit_link_label'), edit_socio_path(@socio) %> |
-<%= link_to t('socio.show.back_link_label') , socios_path %>

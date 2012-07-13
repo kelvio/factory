@@ -2,29 +2,88 @@
 <html>
 <head>
   <title>Factory</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag  "style", :media => "all" %>
+  <%= stylesheet_link_tag  "jquery-ui-1.8.21.custom", :media => "all" %>
+  <%= javascript_include_tag "jquery" %>
+  <%= javascript_include_tag "interface" %>
+  <%= javascript_include_tag "jquery-ui-1.8.21.custom.min.js" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+               
+        $('#corpo').fadeIn(400);
+        $('#dock2').Fisheye(
+				{
+					maxWidth: 60,
+					items: 'a',
+					itemsText: 'span',
+					container: '.dock-container2',
+					itemWidth: 40,
+					proximity: 80,
+					alignment : 'left',
+					valign: 'bottom',
+					halign : 'center'
+				}
+			);
+    });               
+    </script>
 </head>
 <body>
-    <p>
-        <strong><%= link_to 'Factory', home_path %></strong> versão <%= application_version %>
-    </p>
-    <div style="text-align: right;">
-        <strong>
-        <% if logged_in? %>
-            <%= link_to t('session.logout'), logout_path %>
-        <% else %>
-            <%= link_to t('session.login'), login_path %>
-        <% end %>        
-        </strong>
-        <p><b>Montante real da factory:</b><%= montante_real %></p>
-        <p><b>Montante aplicado da factory:</b><%= montante_aplicado %></p>
+    <div class="ui-widget">
+        <div class="ui-state-highlight ui-corner-all" style="margin-top: 5px; padding: 0 .7em;">
+	        <p>
+		        <strong><%= link_to 'Factory', home_path %></strong> versão <%= application_version %>
+		    </p>
+		    <% if notice != nil %>
+		    <p id="notice"><%= notice %></p>
+		    <% end %>
+		    
+		    <% if logged_in? %>
+		    <p>
+                <b>Montante real da factory:</b><%= montante_real %> <br />
+                <b>Montante aplicado da factory:</b><%= montante_aplicado %> <br />
+            </p>
+	        <% end %>
+        </div>
     </div>
-
+    <div id="corpo">       
+    <%= yield %>	
+    </div>    
     
-
-<%= yield %>
-
+<!--dock -->
+<% if logged_in? %>
+<div style="bottom: 0px; position: fixed; width: 100%; margin: auto; " >
+<div class="dock" id="dock2" >    
+    <div class="dock-container2">
+        <a class="dock-item2" href="<%= home_path %>"><span>Início</span><%= image_tag 'home.png' %></a>
+        <a class="dock-item2" href="<%= bancos_path %>"><span>Bancos</span><%= image_tag 'banco.png' %></a> 
+	    <a class="dock-item2" href="<%= cheques_path %>"><span>Cheques</span><%= image_tag 'cheque.png' %></a> 
+	    <a class="dock-item2" href="<%= clientes_path %>"><span>Clientes</span><%= image_tag 'cliente.png' %></a> 
+	    <a class="dock-item2" href="<%= emitentes_path %>"><span>Emitentes</span><%= image_tag 'emitente.png' %></a> 
+	    <a class="dock-item2" href="<%= socios_path %>"><span>Sócios</span><%= image_tag 'socio.png' %></a> 
+	    <a class="dock-item2" href="<%= despesas_path %>"><span>Despesas</span><%= image_tag 'despesa.png' %></a> 
+	    <a class="dock-item2" href="<%= relatorios_path %>"><span>Relatórios</span><%= image_tag 'relatorio.png' %></a> 
+	    <a class="dock-item2" href="<%= logout_path %>"><span>Sair</span><%= image_tag 'link.png' %></a> 
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#dock2').Fisheye(
+				{
+					maxWidth: 60,
+					items: 'a',
+					itemsText: 'span',
+					container: '.dock-container2',
+					itemWidth: 40,
+					proximity: 80,
+					alignment : 'left',
+					valign: 'bottom',
+					halign : 'center'
+				}
+			);
+    });
+</script>
+<% end %>	   
 </body>
 </html>

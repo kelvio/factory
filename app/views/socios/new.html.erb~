@@ -1,5 +1,6 @@
-<h1>New socio</h1>
+<h1><%= t('socio.new.title') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', socios_path %>
+
+

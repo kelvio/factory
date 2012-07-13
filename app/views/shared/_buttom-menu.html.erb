@@ -1,0 +1,12 @@
+<div id="button-menu">
+<% buttons.each do |button| %>
+    <div class="button">
+        <div class="icon">
+            <a href="<%= button[:link] %>" >
+            <%= image_tag button[:image] %>
+            <span><%= button[:label] %></span>
+            </a>
+        </div>
+    </div>
+<% end %>
+</div>

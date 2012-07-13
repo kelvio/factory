@@ -1,16 +1,8 @@
 <%= form_for(@socio) do |f| %>
-  <% if @socio.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@socio.errors.count, "error") %> prohibited this socio from being saved:</h2>
 
-      <ul>
-      <% @socio.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= render 'shared/error', :object => @socio %>
+    
+  <div class="box-left">
   <div class="field">
     <%= f.label :nome %><br />
     <%= f.text_field :nome %>
@@ -25,9 +17,15 @@
   </div>
   <div class="field">
     <%= f.label :senha %><br />
-    <%= f.text_field :senha %>
+    <%= f.password_field :senha %>
+  </div>
+  <div class="field">
+    <%= f.label :senha_confirmation %><br />
+    <%= f.password_field :senha_confirmation %>
+  </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <input type="button" onclick="location.href='<%= socios_path %>'" value="<%= t('socio.new.back_link_label') %>" />
+    <%= f.submit %>    
   </div>
 <% end %>

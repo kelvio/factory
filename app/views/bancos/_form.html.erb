@@ -1,16 +1,8 @@
 <%= form_for(@banco) do |f| %>
-  <% if @banco.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@banco.errors.count, "error") %> prohibited this banco from being saved:</h2>
-
-      <ul>
-      <% @banco.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  
+  <%= render 'shared/error', :object => @banco %>
+  
+  <div class="box-left">
   <div class="field">
     <%= f.label :nome %><br />
     <%= f.text_field :nome %>
@@ -18,6 +10,7 @@
   <div class="field">
     <%= f.label :codigo %><br />
     <%= f.text_field :codigo %>
+  </div>
   </div>
   <div class="actions">
     <%= f.submit %>
