@@ -1,13 +1,17 @@
 <h1><%= t('cliente.index.title') %></h1>
-
+<center>
+<div class="box-center">
 <%= form_tag clientes_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :nome, params[:nome] %>
     <%= submit_tag t('cliente.index.search_button_label'), :name => nil %>
   </p>
 <% end %>
+</div>
 
-
+<div class="box-left">
+<div class="list">
+<center>
 <table>
   <tr>
     <th>Nome</th>
@@ -25,11 +29,13 @@
   </tr>
 <% end %>
 </table>
-
+</div>
+</div>
+</center>
 <br />
 
 <%= will_paginate @clientes %>
 
 <br />
+<input type="button" onclick="location.href='<%= new_cliente_path %>'" value="<%= t('cliente.index.new_button_label') %>" />
 
-<%= link_to t('cliente.index.new_button_label'), new_cliente_path %>

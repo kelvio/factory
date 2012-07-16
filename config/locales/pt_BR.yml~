@@ -48,6 +48,9 @@ pt_BR:
         no_selection_label: Selecione
       cliente:
         no_selection_label: Selecione
+      situacao_cheque:
+        no_selection_label: Selecione
+        
   #Cliente
   cliente:
     index:

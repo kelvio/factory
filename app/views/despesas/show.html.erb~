@@ -1,0 +1,21 @@
+<h1>Despesa</h1>
+<div class="box-left">
+
+<p>
+  <b>Nome:</b>
+  <%= @despesa.nome %>
+</p>
+
+<p>
+  <b>Tipo despesa:</b>
+  <%= @despesa.tipo_despesa %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%= @despesa.valor %>
+</p>
+</div>
+
+<%= link_to 'Edit', edit_despesa_path(@despesa) %> |
+<%= link_to 'Back', despesas_path %>

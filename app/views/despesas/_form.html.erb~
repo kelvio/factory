@@ -1,15 +1,7 @@
 <%= form_for(@despesa) do |f| %>
-  <% if @despesa.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@despesa.errors.count, "error") %> prohibited this despesa from being saved:</h2>
-
-      <ul>
-      <% @despesa.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  
+  <%= render 'shared/error', :object => @despesa %>
+  
   <div class="box-left">   
   <div class="field">
     <%= f.label :nome %><br />
@@ -25,6 +17,7 @@
   </div>
   </div>
   <div class="actions">
+    <input type="button" onclick="location.href='<%= socios_path %>'" value="<%= t('socio.new.back_link_label') %>" />
     <%= f.submit %>
   </div>
 <% end %>

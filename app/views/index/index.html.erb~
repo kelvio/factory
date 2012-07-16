@@ -4,6 +4,6 @@
     {:link => cheques_path, :image => 'home.png', :label => 'Cheques'},
     {:link => despesas_path, :image => 'home.png', :label => 'Despesas'},
     {:link => bancos_path, :image => 'home.png', :label => 'Bancos'},
-    {:link => bancos_path, :image => 'home.png', :label => 'Relatórios'}
+    {:link => relatorios_path, :image => 'home.png', :label => 'Relatórios'}
     ] %>
 

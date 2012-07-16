@@ -43,14 +43,33 @@ en:
       title: New cheque  
       back_link_label: Back
     form:
+      tipo_juro:       
+        hint: Type of juro
+        no_selection_label: Select
       emitente:
+        hint: Emitente
         no_selection_label: Select
       banco:
+        hint: Banco
         no_selection_label: Select  
       cliente:
+        hint: Cliente
         no_selection_label: Select    
       situacao_cheque:
+        hint: Situation of cheque
         no_selection_label: Select
+      numero:
+        hint: Number
+      valor:
+        hint: Value
+      vencimento:
+        hint: Good for
+      agencia:
+        hint: Agencia
+      conta:
+        hint: Conta
+      taxa_juros:
+        hint: Taxa juros
   #Cliente
   cliente:
     index:
@@ -165,7 +184,9 @@ en:
     new:
       title: Login
       cpf: CPF
+      cpf_hint: The CPF
       senha: Senha
+      senha_hint: The password
       submit_button: Submit
   
   

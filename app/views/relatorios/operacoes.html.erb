@@ -1,0 +1,27 @@
+<h1>Operações financeiras</h1>
+
+<div class="box-left">
+<div class="list">
+<center>
+<table>
+  <tr>
+    <th>Data</th>
+    <th>Descrição</th>
+    <th>Sócio</th>
+    <th>Tipo de operação</th>
+    <th>Valor</th>
+  </tr>
+
+<% @operacao_financeiras.each do |operacao_financeira| %>
+  <tr>
+    <td><%= operacao_financeira.created_at %></td>
+    <td><%= operacao_financeira.descricao %></td>
+    <td><%= operacao_financeira.socio %></td>
+    <td><%= operacao_financeira.tipo_operacao_financeira %></td>
+    <td><%= operacao_financeira.valor %></td>
+  </tr>
+<% end %>
+</table>
+</center>
+</div>
+</div>

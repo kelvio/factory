@@ -32,6 +32,10 @@ Factory::Application.routes.draw do
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
   
+  #Relatórios
+  resource :relatorios
+  match '/relatorios_operacoes' => "relatorios#operacoes", :as => "relatorios_operacoes"
+  
   #Index
   resource :index
   match '/' => "index#index", :as => 'home'

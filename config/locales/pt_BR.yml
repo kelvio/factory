@@ -158,10 +158,13 @@ pt_BR:
     logout: Entrar
     login: Sair
     new:
+      new:
       title: Login
       cpf: CPF
+      cpf_hint: The CPF
       senha: Senha
-      submit_button: Submit
+      senha_hint: The password
+      submit_button: Submit      
       
   #Relatório
   relatorio:

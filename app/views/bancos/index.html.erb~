@@ -2,7 +2,7 @@
 
 
 
-<% form_tag bancos_path, :method => 'get' do %>
+<%= form_tag bancos_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :nome, params[:nome] %>
     <%= submit_tag t('banco.index.search_button_label'), :name => nil %>
@@ -12,7 +12,9 @@
 
 
 <br />
-
+<div class="box-left">
+<div class="list">
+<center>
 <table>
   <tr>
     <th>Nome</th>
@@ -32,10 +34,13 @@
   </tr>
 <% end %>
 </table>
+</center>
+</div>
+</div>
 
 <br />
 <%= will_paginate @bancos %>
 
 <br />
 
-<%= link_to t('banco.index.new_button_label'), new_banco_path %>
+<input type="button" onclick="location.href='<%= new_banco_path %>'" value="<%= t('banco.index.new_button_label') %>" />

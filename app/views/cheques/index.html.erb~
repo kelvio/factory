@@ -1,5 +1,19 @@
 <h1><%= t('cheque.index.title') %></h1>
 
+<center>
+<div class="box-center">
+<%= form_tag cheques_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :numero, params[:numero] %>
+    <%= submit_tag t('cheque.index.search_button_label'), :name => nil %>
+  </p>
+<% end %>
+</div>
+</center>
+
+<div class="box-left">
+<div class="list">
+<center>
 <table>
   <tr>
     <th>Numero</th>
@@ -19,7 +33,7 @@
 <% @cheques.each do |cheque| %>
   <tr>
     <td><%= cheque.numero %></td>
-    <td><%= cheque.valor %></td>
+    <td><%= number_to_currency cheque.valor %></td>
     <td><%= cheque.vencimento %></td>
     <td><%= cheque.agencia %></td>
     <td><%= cheque.conta %></td>
@@ -34,9 +48,13 @@
 <% end %>
 </table>
 
+</div>
+</div>
+</center>
+
 <br />
 <%= will_paginate @cheques %>
 
 <br />
+<input type="button" onclick="location.href='<%= new_cheque_path %>'" value="<%= t('cheque.index.new_button_label') %>" />
 
-<%= link_to 'New Cheque', new_cheque_path %>

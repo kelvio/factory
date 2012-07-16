@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(:version => 20120711195204) do
 
   create_table "socios", :force => true do |t|
     t.string   "nome"
-    t.decimal  "percentual"
+    t.decimal  "capital"
     t.string   "cpf"
     t.string   "senha"
     t.datetime "created_at", :null => false

@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @banco %> |
-<%= link_to 'Back', bancos_path %>
+<%= link_to t('banco.edit.show_link_label'), @banco %> |
+<%= link_to t('banco.edit.back_link_label'), bancos_path %>

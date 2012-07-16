@@ -37,9 +37,14 @@ class ApplicationController < ActionController::Base
       return Capital.find(1).montante_real #Capital da factory        
     end
     
+    def montante_factory
+      return montante_real + montante_aplicado
+    end
+    
     #Disponibiliza métodos para os templates como um helper
     helper_method :montante_real
     helper_method :montante_aplicado
+    helper_method :montante_factory
     
     # Filter method to enforce a login requirement
     # Apply as a before_fileter on any controller want to protected

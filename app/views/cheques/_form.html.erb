@@ -1,54 +1,80 @@
+
 <%= form_for(@cheque) do |f| %>
   
   <%= render 'shared/error', :object => @cheque %>
   
-  <div class="box-left">
-  <div class="field">
-    <%= f.label :numero %><br />
-    <%= f.text_field :numero %>
-  </div>
-  <div class="field">
-    <%= f.label :valor %><br />
-    <%= f.text_field :valor %>
-  </div>
-  <div class="field">
-    <%= f.label :vencimento %><br />
-    <%= f.date_select :vencimento %>
-  </div>
-  <div class="field">
-    <%= f.label :agencia %><br />
-    <%= f.text_field :agencia %>
-  </div>
-  <div class="field">
-    <%= f.label :conta %><br />
-    <%= f.text_field :conta %>
-  </div>
-  <div class="field">
-    <%= f.label :taxa_juros %><br />
-    <%= f.text_field :taxa_juros %>
-  </div>
   <div class="field">
     <%= f.label :tipo_juro %><br />
     <%= f.select(:tipo_juro_id, options_from_collection_for_select(TipoJuro.all, :id, :nome), {:include_blank => t('cheque.form.banco.no_selection_label')}) %>
+    <p class="hint"><%= t('cheque.form.tipo_juro.hint') %></p>
   </div>
+  
   <div class="field">
     <%= f.label :banco %><br />
     <%= f.select(:banco_id, options_from_collection_for_select(Banco.all, :id, :nome), {:include_blank => t('cheque.form.banco.no_selection_label')}) %>
+    <p class="hint"><%= t('cheque.form.banco.hint') %></p>
   </div>
+  
   <div class="field">
     <%= f.label :emitente %><br />
     <%= f.select(:emitente_id, options_from_collection_for_select(Emitente.all, :id, :nome), {:include_blank => t('cheque.form.emitente.no_selection_label')}) %>
+    <p class="hint"><%= t('cheque.form.emitente.hint') %></p>
   </div>
+  
   <div class="field">
     <%= f.label :cliente %><br />
     <%= f.select(:cliente_id, options_from_collection_for_select(Cliente.all, :id, :nome), {:include_blank => t('cheque.form.cliente.no_selection_label')}) %>
+    <p class="hint"><%= t('cheque.form.cliente.hint') %></p>
   </div>
+  
   <div class="field">
     <%= f.label :situacao_cheque %><br />
     <%= f.select(:situacao_cheque_id, options_from_collection_for_select(SituacaoCheque.all, :id, :nome), {:include_blank => t('cheque.form.situacao_cheque.no_selection_label')}) %>
+    <p class="hint"><%= t('cheque.form.situacao_cheque.hint') %></p>
   </div>
+
+  
+  <div class="field">
+    <%= f.label :numero %><br />
+    <%= f.text_field :numero %>
+    <p class="hint"><%= t('cheque.form.numero.hint') %></p>
   </div>
+  
+  <div class="field">
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+    <p class="hint"><%= t('cheque.form.valor.hint') %></p>
+  </div>
+  
+  <div class="field">
+    <%= f.label :vencimento %><br />
+    <%= f.date_select :vencimento %>
+    <p class="hint"><%= t('cheque.form.vencimento.hint') %></p>
+  </div>
+  
+  <div class="field">
+    <%= f.label :agencia %><br />
+    <%= f.text_field :agencia %>
+    <p class="hint"><%= t('cheque.form.agencia.hint') %></p>
+  </div>
+  
+  <div class="field">
+    <%= f.label :conta %><br />
+    <%= f.text_field :conta %>
+    <p class="hint"><%= t('cheque.form.conta.hint') %></p>
+  </div>
+  
+  <div class="field">
+    <%= f.label :taxa_juros %><br />
+    <%= f.text_field :taxa_juros %>
+    <p class="hint"><%= t('cheque.form.taxa_juros.hint') %></p>
+  </div>
+  
+  
+  
   <div class="actions">
+    <input type="button" onclick="location.href='<%= cheques_path %>'" value="<%= t('cheque.new.back_link_label') %>" />
     <%= f.submit %>
   </div>
+  
 <% end %>

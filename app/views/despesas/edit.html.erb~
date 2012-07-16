@@ -1,0 +1,6 @@
+<h1>Editing despesa</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @despesa %> |
+<%= link_to 'Back', despesas_path %>

@@ -4,10 +4,6 @@
 </div>
 </center>
 
-<div class="box-left">
-<div class="list">
-<center>
-
 <table>
   <tr>
     <th>Nome</th>
@@ -20,7 +16,9 @@
 
 
 
-
+<div class="box-left">
+<div class="list">
+<center>
 <% @despesas.each do |despesa| %>
   <tr>
     <td><%= despesa.nome %></td>

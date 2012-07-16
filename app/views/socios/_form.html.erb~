@@ -1,27 +1,15 @@
 <%= form_for(@socio) do |f| %>
+
   <%= render 'shared/error', :object => @socio %>
-  
-  <% if @socio.errors.any? %>
-    <div class="ui-widget">
-		<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
-			<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
-		    <strong><%= pluralize(@socio.errors.count, "error") %>:</strong> prohibited this socio from being saved:</p>		    
-                <% @socio.errors.full_messages.each do |msg| %>
-                <%= msg %> <br />
-                <% end %>            
-                <br />
-	    </div>
-    </div>
-    <br />
-  <% end %>
+    
   <div class="box-left">
   <div class="field">
     <%= f.label :nome %><br />
     <%= f.text_field :nome %>
   </div>
   <div class="field">
-    <%= f.label :percentual %><br />
-    <%= f.text_field :percentual %>
+    <%= f.label :valor_investido %><br />
+    <%= f.text_field :valor_investido %>
   </div>
   <div class="field">
     <%= f.label :cpf %><br />

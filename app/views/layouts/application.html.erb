@@ -34,14 +34,18 @@
 	        <p>
 		        <strong><%= link_to 'Factory', home_path %></strong> versão <%= application_version %>
 		    </p>
+		    
 		    <% if notice != nil %>
 		    <p id="notice"><%= notice %></p>
 		    <% end %>
 		    
 		    <% if logged_in? %>
+		    <p>Logado como  <b><%= current_user.nome %></b></p>
 		    <p>
-                <b>Montante real da factory:</b><%= montante_real %> <br />
-                <b>Montante aplicado da factory:</b><%= montante_aplicado %> <br />
+                <b>Montante real da factory:</b><%= number_to_currency montante_real %> <br />
+                <b>Montante aplicado da factory:</b><%= number_to_currency montante_aplicado %> <br />
+                <b>Montante da factory (ganho realizado + não ganho não realizado):</b> <%= number_to_currency montante_factory %> <br />
+                <b>Minha porcentagem individual hoje:</b><%= number_to_percentage(current_user.percentual,  :precision => 0) %> <br />
             </p>
 	        <% end %>
         </div>

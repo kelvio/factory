@@ -1,10 +1,8 @@
-<p id="notice"><%= notice %></p>
-
+<div class="box-left">
 <p>
   <b>Nome:</b>
   <%= @cliente.nome %>
 </p>
+</div>
 
 
-<%= link_to t('cliente.show.edit_link_label'), edit_cliente_path(@cliente) %> |
-<%= link_to 'Back', clientes_path %>

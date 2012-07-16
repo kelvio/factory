@@ -1,4 +1,8 @@
 Factory::Application.routes.draw do
+  resources :tipo_juros
+
+  resources :situacao_cheques
+
   resources :operacao_financeiras
 
   resources :tipo_operacao_financeiras
@@ -8,14 +12,6 @@ Factory::Application.routes.draw do
   resources :despesas
 
   resources :tipo_despesas
-
-  resources :conta
-
-  resources :tipo_conta
-
-  resources :contas
-
-  resources :tipo_contas
 
   resources :historico_cheques
 
@@ -28,11 +24,17 @@ Factory::Application.routes.draw do
   resources :emitentes
 
   resources :bancos
+
+  resources :relatorios
   
   #Sessions
   resource :session
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
+  
+  #Relatórios
+  resource :relatorios
+  match '/relatorios#operacoes' => "relatorios#operacoes", :as => "relatorios_operacoes"
   
   #Index
   resource :index

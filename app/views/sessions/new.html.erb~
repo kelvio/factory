@@ -1,20 +1,20 @@
 <h1><%= t('session.new.title') %></h1>
 <center>
 <div style="width: 350px; height: 190px;" class="box-center">
-    <div class="left">
         <%= form_tag session_path do %>
         <div class="field">
             <%= label_tag :cpf, t('session.new.cpf') %><br />
             <%= text_field_tag(:cpf, {}, {:required => 'required'}) %>
+            <p class="hint">The CPF</p>
         </div>
         <div class="field">
             <%= label_tag :senha, t('session.new.senha') %><br />
             <%= password_field_tag(:senha, {}, {:required => 'required'}) %>            
+            <p class="hint">The Senha</p>
         </div>
         <div class="actions">
             <%= submit_tag t('session.new.submit_button') %>
         </div>
         <% end %>
-    </div>
 </div>
 </center>

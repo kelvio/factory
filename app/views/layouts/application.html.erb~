@@ -34,14 +34,18 @@
 	        <p>
 		        <strong><%= link_to 'Factory', home_path %></strong> versão <%= application_version %>
 		    </p>
+		    
 		    <% if notice != nil %>
 		    <p id="notice"><%= notice %></p>
 		    <% end %>
 		    
 		    <% if logged_in? %>
+		    <p>Logado como  <b><%= current_user.nome %></b></p>
 		    <p>
-                <b>Montante real da factory:</b><%= montante_real %> <br />
-                <b>Montante aplicado da factory:</b><%= montante_aplicado %> <br />
+                <b>Montante real da factory:</b><%= number_to_currency montante_real %> <br />
+                <b>Montante aplicado da factory:</b><%= number_to_currency montante_aplicado %> <br />
+                <b>Montante da factory (ganho realizado + não realizado):</b> <%= number_to_currency montante_factory %> <br />
+                <b>Minha porcentagem individual hoje:</b><%= number_to_percentage(current_user.percentual,  :precision => 0) %> <br />
             </p>
 	        <% end %>
         </div>
@@ -63,7 +67,7 @@
 	    <a class="dock-item2" href="<%= socios_path %>"><span>Sócios</span><%= image_tag 'socio.png' %></a> 
 	    <a class="dock-item2" href="<%= despesas_path %>"><span>Despesas</span><%= image_tag 'despesa.png' %></a> 
 	    <a class="dock-item2" href="<%= relatorios_path %>"><span>Relatórios</span><%= image_tag 'relatorio.png' %></a> 
-	    <a class="dock-item2" href="<%= logout_path %>"><span>Sair</span><%= image_tag 'link.png' %></a> 
+	    <a class="dock-item2" href="<%= logout_path %>"><span>Sair</span><%= image_tag 'sair.png' %></a> 
     </div>
 </div>
 </div>

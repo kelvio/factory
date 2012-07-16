@@ -1,35 +1,10 @@
-<p id="notice"><%= notice %></p>
+<h1>Cheque</h1>
+<div class="box-left">
+
 
 <p>
   <b>Numero:</b>
   <%= @cheque.numero %>
-</p>
-
-<p>
-  <b>Taxa de juros:</b>
-  <%= @cheque.taxa_juros %>
-</p>
-
-<p>
-  <b>Tipo de juros:</b>
-  <%= @cheque.tipo_juros %>
-</p>
-
-
-
-<p>
-  <b>Valor:</b>
-  <%= @cheque.valor %>
-</p>
-
-<p>
-  <b>Valor atual:</b>
-  <%= @cheque.valor_atual %>
-</p>
-
-<p>
-  <b>Vencimento:</b>
-  <%= @cheque.vencimento %>
 </p>
 
 <p>
@@ -66,5 +41,50 @@
   <%= @cheque.situacao_cheque %>
 </p>
 
-<%= link_to t('cheque.show.edit_link_label'), edit_cheque_path(@cheque) %> |
-<%= link_to t('cheque.show.back_link_label'), cheques_path %>
+
+<p>
+  <b>Taxa de juros:</b>
+  <%= number_to_percentage(@cheque.taxa_juros, :precision => 1)  %>
+</p>
+
+<p>
+  <b>Tipo de juros:</b>
+  <%= @cheque.tipo_juro %>
+</p>
+
+<p>
+  <b>Taxa diária:</b>
+  <%= number_to_currency @cheque.valor_taxa_diaria %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%= number_to_currency @cheque.valor %>
+</p>
+
+<p>
+  <b>Valor do cheque acumulado até hoje:</b>
+  <%= number_to_currency @cheque.valor_atual %>
+</p>
+
+<p>
+  <b>Vencimento:</b>
+  <%= @cheque.vencimento %>
+</p>
+
+<p>
+  <b>Número total de dias desde o cadastro até o vencimento:</b>
+  <%= @cheque.numero_dias %>
+</p>
+
+<p>
+  <b>Número de dias desde o cadastro até hoje:</b>
+  <%= @cheque.numero_dias_hoje %>
+</p>
+
+</div>
+
+<br />
+<input type="button" onclick="location.href='<%= edit_cheque_path(@cheque) %>'" value="<%= t('cheque.show.edit_link_label') %>" />
+<input type="button" onclick="location.href='<%= cheques_path %>'" value="<%= t('cheque.show.back_link_label') %>" />
+
