@@ -2,7 +2,7 @@ class OperacaoFinanceira < ActiveRecord::Base
   belongs_to :socio
   belongs_to :tipo_operacao_financeira
   
-  attr_accessible :descricao, :valor
+  attr_accessible :descricao, :valor, :socio, :tipo_operacao_financeira
   
   validates :socio, :presence => true
   validates :tipo_operacao_financeira, :presence => true

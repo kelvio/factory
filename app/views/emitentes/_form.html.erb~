@@ -6,9 +6,11 @@
   <div class="field">
     <%= f.label :nome %><br />
     <%= f.text_field :nome %>
+    <p class="hint"><%= t('emitente.form.nome.hint') %></p>
   </div>
   </div>
   <div class="actions">
+    <input type="button" onclick="location.href='<%= emitentes_path %>'" value="<%= t('emitente.new.back_link_label') %>" />
     <%= f.submit %>
   </div>
 <% end %>

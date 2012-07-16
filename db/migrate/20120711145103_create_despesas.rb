@@ -3,8 +3,6 @@ class CreateDespesas < ActiveRecord::Migration
     create_table :despesas do |t|
       t.string :nome
       t.references :tipo_despesa
-      t.decimal :valor
-
       t.timestamps
     end
     add_index :despesas, :tipo_despesa_id

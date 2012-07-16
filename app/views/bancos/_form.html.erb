@@ -5,11 +5,13 @@
   <div class="box-left">
   <div class="field">
     <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
+    <%= f.text_field(:nome, {:required => 'required'}) %>
+    <p class="hint"><%= t('banco.form.nome.hint') %></p>
   </div>
   <div class="field">
     <%= f.label :codigo %><br />
-    <%= f.text_field :codigo %>
+    <%= f.text_field(:codigo,  {:required => 'required'}) %>
+    <p class="hint"><%= t('banco.form.codigo.hint') %></p>
   </div>
   </div>
   <div class="actions">

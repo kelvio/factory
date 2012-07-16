@@ -12,7 +12,6 @@
   <tr>
     <th>Nome</th>
     <th>Tipo despesa</th>
-    <th>Valor</th>
     <th></th>
     <th></th>
     <th></th>
@@ -25,7 +24,6 @@
   <tr>
     <td><%= despesa.nome %></td>
     <td><%= despesa.tipo_despesa %></td>
-    <td><%= despesa.valor %></td>
     <td><%= link_to 'Show', despesa %></td>
     <td><%= link_to 'Edit', edit_despesa_path(despesa) %></td>
     <td><%= link_to 'Destroy', despesa, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>

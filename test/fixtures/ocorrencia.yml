@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  valor: 9.99
+  vencimento: 2012-07-16
+  situacao_ocorrencia: 
+  despesa: 
+
+two:
+  valor: 9.99
+  vencimento: 2012-07-16
+  situacao_ocorrencia: 
+  despesa: 

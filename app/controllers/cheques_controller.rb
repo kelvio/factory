@@ -48,48 +48,19 @@ class ChequesController < ApplicationController
     
     respond_to do |format|
       begin
-        ActiveRecord::Base.transaction do
-          
-          #Cadastra cheque
-          if !@cheque.save
-            raise ActiveRecord::Rollback
-          end
-          
-          #Registra histórico do cheque
-          historico_cheque = HistoricoCheque.new
-          historico_cheque.cheque = @cheque
-          historico_cheque.descricao = 'Cadastro'
-          if !historico_cheque.save
-            raise ActiveRecord::Rollback
-          end
-                              
-          #Registra operação financeira
-          operacao_financeira = OperacaoFinanceira.new
-          operacao_financeira.socio = Socio.find(session[:user_id])
-          operacao_financeira.tipo_operacao_financeira = TipoOperacaoFinanceira.find(1) #Operação financeira para cheque
-          operacao_financeira.descricao = 'Troca de cheque.'
-          operacao_financeira.valor = @cheque.valor
-          
-          if !operacao_financeira.save
-            raise ActiveRecord::Rollback
-          end
-          
-          #Incrementa valor aplicado, decrementa o valor real e atualiza o capital da factory
-          capital = Capital.find(1) #Capital da factory
-          capital.montante_real -= @cheque.valor
-          capital.montante_aplicado += @cheque.valor
-          
-          if !capital.save
-            raise ActiveRecord::Rollback
-          end
-          
-          format.html { redirect_to @cheque, :notice => 'Cheque was successfully created.' }
-          format.json { render :json => @cheque, :status => :created, :location => @cheque }
-        end
-      rescue ActiveRecord::Rollback
+        Cheque.transaction do          
+          @cheque.save!   
+          OperacaoFinanceira.create({:socio => Socio.find(session[:user_id]),
+           :tipo_operacao_financeira => TipoOperacaoFinanceira.find(1),
+           :descricao => 'Troca de cheque',
+           :valor => @cheque.valor})                                                                                      
+        end        
+        format.html { redirect_to @cheque, :notice => 'Cheque was successfully created.' }
+        format.json { render :json => @cheque, :status => :created, :location => @cheque }
+      rescue ActiveRecord::Rollback, ActiveRecord::RecordInvalid
         format.html { render :action => "new" }
         format.json { render :json => @cheque.errors, :status => :unprocessable_entity }
-      end
+      end            
     end    
   end
 
@@ -104,35 +75,13 @@ class ChequesController < ApplicationController
     
     respond_to do |format|
       begin
-        if @cheque.update_attributes(params[:cheque])
-          
-          #Registra histórico do cheque
-          historico_cheque = HistoricoCheque.new
-          historico_cheque.cheque = @cheque
-          historico_cheque.descricao = 'Atualização de informações'
-          historico_cheque.situacao_cheque = @cheque.situacao_cheque
-          if !historico_cheque.save
-            raise ActiveRecord::Rollback
-          end
-          
-          if situacao_anterior.id == 1 #Aberto
-            if @cheque.situacao_cheque.id == 2 #Compensado
-              
-              #Move valor do montante_aplicado e vai para o montante_real
-              capital = Capital.find(1) #Caixa da factory
-              capital.montante_aplicado -= @cheque.valor
-              capital.montante_real += @cheque.valor_atual
-              if !capital.save
-                raise ActiveRecord::Rollback
-              end
-            end            
-          end
+        if @cheque.update_attributes(params[:cheque])                                                  
           format.html { redirect_to @cheque, :notice => 'Cheque was successfully updated.' }
           format.json { head :no_content }
         else
           raise ActiveRecord::Rollback
         end
-      rescue ActiveRecord::Rollback
+      rescue ActiveRecord::Rollback, ActiveRecord::RecordInvalid
         format.html { render :action => "edit" }
         format.json { render :json => @cheque.errors, :status => :unprocessable_entity }
       end      

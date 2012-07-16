@@ -1,0 +1,25 @@
+<h1>Ítem de despesa</h1>
+<div class="box-left">
+<p>
+  <b>Valor:</b>
+  <%= @item.valor %>
+</p>
+
+<p>
+  <b>Vencimento:</b>
+  <%= @item.vencimento %>
+</p>
+
+<p>
+  <b>Situacao item:</b>
+  <%= @item.situacao_item %>
+</p>
+
+<p>
+  <b>Despesa:</b>
+  <%= @item.despesa %>
+</p>
+</div>
+<br />
+<input type="button" onclick="location.href='<%= edit_item_path(@item) %>'" value="<%= t('item.show.edit_link_label') %>" />
+<input type="button" onclick="location.href='<%= items_path %>'" value="<%= t('item.show.back_link_label') %>" />

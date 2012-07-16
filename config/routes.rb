@@ -1,4 +1,14 @@
 Factory::Application.routes.draw do
+  resources :items
+
+  resources :situacao_items
+
+  resources :ocorrencia
+
+  resources :situacao_ocorrencia
+
+  resources :periodicidade_despesas
+
   resources :tipo_juros
 
   resources :situacao_cheques
@@ -6,11 +16,11 @@ Factory::Application.routes.draw do
   resources :operacao_financeiras
 
   resources :tipo_operacao_financeiras
-
-  resources :parcela_despesas
-
+  resources :parcela_despesa
+  
+  
   resources :despesas
-
+  
   resources :tipo_despesas
 
   resources :historico_cheques

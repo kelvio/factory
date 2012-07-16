@@ -1,0 +1,9 @@
+class CreatePeriodicidadeDespesas < ActiveRecord::Migration
+  def change
+    create_table :periodicidade_despesas do |t|
+      t.string :nome
+      t.integer :numero_dias
+      t.timestamps
+    end
+  end
+end

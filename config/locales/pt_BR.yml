@@ -21,6 +21,9 @@ pt_BR:
     new:
       title: Novo banco  
       back_link_label: Voltar
+    form:
+      nome:
+        hint: Nome do banco
       
   #Cheque
   cheque:
@@ -42,14 +45,33 @@ pt_BR:
       title: Novo cheque  
       back_link_label: Voltar
     form:
+      tipo_juro:       
+        hint: Tipo de juro
+        no_selection_label: Selecione
       emitente:
+        hint: Pessoa que emitiu o cheque
         no_selection_label: Selecione
       banco:
-        no_selection_label: Selecione
+        hint: Banco
+        no_selection_label: Selecione  
       cliente:
-        no_selection_label: Selecione
+        hint: O cliente que está em poder do cheque
+        no_selection_label: Selecione    
       situacao_cheque:
+        hint: Situação do cheque
         no_selection_label: Selecione
+      numero:
+        hint: Número do cheque
+      valor:
+        hint: Valor do cheque
+      vencimento:
+        hint: Data de vencimento do cheque
+      agencia:
+        hint: Agência
+      conta:
+        hint: Conta
+      taxa_juros:
+        hint: Taxa de juros
         
   #Cliente
   cliente:
@@ -70,7 +92,9 @@ pt_BR:
     new:
       title: Novo cliente
       back_link_label: Voltar
-      
+    form:
+      nome:
+        hint: Nome do cliente   
   #Emitente 
   emitente:
     index:
@@ -90,7 +114,11 @@ pt_BR:
     new:
       title: Novo emitente  
       back_link_label: Voltar
-  
+    form:
+      nome:
+        hint: Nome do emitente
+        
+        
   #HistoricoCheque
   historico_cheque:
     index:
@@ -130,7 +158,9 @@ pt_BR:
     new:
       title: Novo Socio  
       back_link_label: Voltar
-  
+    form:
+      nome:
+        hint: Nome do sócio
   #Despesa
   despesa:
     index:
@@ -153,6 +183,8 @@ pt_BR:
     form:
       tipo_despesa:
         no_selection_label: Selecione
+        hint: Tipo de despesa
+        
   #Session
   session:
     logout: Entrar

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120711195204) do
+ActiveRecord::Schema.define(:version => 20120716194905) do
 
   create_table "bancos", :force => true do |t|
     t.string   "nome"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(:version => 20120711195204) do
   create_table "despesas", :force => true do |t|
     t.string   "nome"
     t.integer  "tipo_despesa_id"
-    t.decimal  "valor"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -85,6 +84,18 @@ ActiveRecord::Schema.define(:version => 20120711195204) do
   add_index "historico_cheques", ["cheque_id"], :name => "index_historico_cheques_on_cheque_id"
   add_index "historico_cheques", ["situacao_cheque_id"], :name => "index_historico_cheques_on_situacao_cheque_id"
 
+  create_table "items", :force => true do |t|
+    t.decimal  "valor"
+    t.date     "vencimento"
+    t.integer  "situacao_item_id"
+    t.integer  "despesa_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "items", ["despesa_id"], :name => "index_items_on_despesa_id"
+  add_index "items", ["situacao_item_id"], :name => "index_items_on_situacao_item_id"
+
   create_table "operacao_financeiras", :force => true do |t|
     t.string   "descricao"
     t.integer  "socio_id"
@@ -97,16 +108,6 @@ ActiveRecord::Schema.define(:version => 20120711195204) do
   add_index "operacao_financeiras", ["socio_id"], :name => "index_operacao_financeiras_on_socio_id"
   add_index "operacao_financeiras", ["tipo_operacao_financeira_id"], :name => "index_operacao_financeiras_on_tipo_operacao_financeira_id"
 
-  create_table "parcela_despesas", :force => true do |t|
-    t.integer  "despesa_id"
-    t.date     "vencimento"
-    t.decimal  "valor"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "parcela_despesas", ["despesa_id"], :name => "index_parcela_despesas_on_despesa_id"
-
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -118,6 +119,12 @@ ActiveRecord::Schema.define(:version => 20120711195204) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "situacao_cheques", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "situacao_items", :force => true do |t|
     t.string   "nome"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

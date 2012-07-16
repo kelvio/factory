@@ -1,0 +1,3 @@
+class PeriodicidadeDespesa < ActiveRecord::Base
+  attr_accessible :nome
+end

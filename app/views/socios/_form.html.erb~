@@ -5,23 +5,28 @@
   <div class="box-left">
   <div class="field">
     <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
+    <%= f.text_field(:nome, {:required => 'required'}) %>
+    <p class="hint"><%= t('socio.form.nome.hint') %></p>
   </div>
   <div class="field">
-    <%= f.label :valor_investido %><br />
-    <%= f.text_field :valor_investido %>
+    <%= f.label :capital %><br />
+    <%= f.text_field(:capital, {:required => 'required'}) %>
+    <p class="hint"><%= t('socio.form.capital.hint') %></p>
   </div>
   <div class="field">
     <%= f.label :cpf %><br />
-    <%= f.text_field :cpf %>
+    <%= f.text_field(:cpf, {:required => 'required'}) %>
+    <p class="hint"><%= t('socio.form.cpf.hint') %></p>
   </div>
   <div class="field">
     <%= f.label :senha %><br />
-    <%= f.password_field :senha %>
+    <%= f.password_field(:senha, {:required => 'required'}) %>
+    <p class="hint"><%= t('socio.form.senha.hint') %></p>
   </div>
   <div class="field">
     <%= f.label :senha_confirmation %><br />
     <%= f.password_field :senha_confirmation %>
+    <p class="hint"><%= t('socio.form.senha_confirmation.hint') %></p>
   </div>
   </div>
   <div class="actions">

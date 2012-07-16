@@ -3,6 +3,6 @@ class ParcelaDespesa < ActiveRecord::Base
   attr_accessible :valor, :vencimento
   
   validates :despesa, :presence => true
-  validates :valor, :presence => true
+  validates :valor, :presence => true, :numericality => true
   validates :vencimento, :presence => true
 end

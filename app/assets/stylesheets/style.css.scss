@@ -183,6 +183,10 @@ form input {
     display:none;
 }
 
+#notice {
+  font-weight: bold;
+  font-size: 18px;
+}
 
 .field:hover .hint {
     position: absolute;

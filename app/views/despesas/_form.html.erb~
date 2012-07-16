@@ -5,19 +5,19 @@
   <div class="box-left">   
   <div class="field">
     <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
+    <%= f.text_field(:nome, {:required => 'required'}) %>
+    <p class="hint"><%= t('despesa.form.nome.hint') %></p>
   </div>
   <div class="field">
     <%= f.label :tipo_despesa %><br />
-    <%= f.select(:tipo_despesa_id, options_from_collection_for_select(TipoDespesa.all, :id, :nome), {:include_blank => t('despesa.form.tipo_despesa.no_selection_label')}) %>
-  </div>
-  <div class="field">
-    <%= f.label :valor %><br />
-    <%= f.text_field :valor %>
-  </div>
+    <%= f.select(:tipo_despesa_id, options_from_collection_for_select(TipoDespesa.all, :id, :nome), {:include_blank => t('despesa.form.tipo_despesa.no_selection_label'), :required => 'required'}) %>
+    <p class="hint"><%= t('despesa.form.tipo_despesa.hint') %></p>
+  </div>  
   </div>
   <div class="actions">
-    <input type="button" onclick="location.href='<%= socios_path %>'" value="<%= t('socio.new.back_link_label') %>" />
+    <input type="button" onclick="location.href='<%= despesas_path %>'" value="<%= t('socio.new.back_link_label') %>" />
     <%= f.submit %>
-  </div>
+  </div>  
 <% end %>
+<br />
+

@@ -11,11 +11,11 @@
   <%= @despesa.tipo_despesa %>
 </p>
 
-<p>
-  <b>Valor:</b>
-  <%= @despesa.valor %>
-</p>
 </div>
 
-<%= link_to 'Edit', edit_despesa_path(@despesa) %> |
-<%= link_to 'Back', despesas_path %>
+<%= link_to 'Teste', new_despesa_parcela_despesa_path(@despesa, :format => :js), :remote => true, :id => 'new_comment_link' %>
+
+<br />
+<input type="button" onclick="location.href='<%= edit_despesa_path(@despesa) %>'" value="<%= t('despesa.show.edit_link_label') %>" />
+<input type="button" onclick="location.href='<%= despesas_path %>'" value="<%= t('despesa.show.back_link_label') %>" />
+

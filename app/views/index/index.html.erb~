@@ -1,9 +1,10 @@
 <h1>Acesso rápido</h1>
 
 <%= render 'shared/buttons', :buttons => [
-    {:link => cheques_path, :image => 'home.png', :label => 'Cheques'},
-    {:link => despesas_path, :image => 'home.png', :label => 'Despesas'},
-    {:link => bancos_path, :image => 'home.png', :label => 'Bancos'},
-    {:link => relatorios_path, :image => 'home.png', :label => 'Relatórios'}
+    {:link => cheques_path, :image => 'cheque.png', :label => 'Cheques'},
+    {:link => despesas_path, :image => 'despesa.png', :label => 'Grupos de despesas'},
+    {:link => despesas_path, :image => 'despesa.png', :label => 'Ítens de despesa'},
+    {:link => bancos_path, :image => 'banco.png', :label => 'Bancos'},
+    {:link => relatorios_path, :image => 'relatorio.png', :label => 'Relatórios'}
     ] %>
 

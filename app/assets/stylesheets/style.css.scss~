@@ -183,8 +183,12 @@ form input {
     display:none;
 }
 
+#notice {
+  font-weight: bold;
+  font-size: 14px;
+}
 
-.field:hover .hint{
+.field:hover .hint {
     position: absolute;
     display: block;
     margin: -30px 0 0 340px;

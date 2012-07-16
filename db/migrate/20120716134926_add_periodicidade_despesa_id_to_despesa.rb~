@@ -1,0 +1,8 @@
+class AddPeriodicidadeDespesaIdToDespesa < ActiveRecord::Migration
+  def change 
+    alter_table :despesa do |t|
+      t.references :periodicidade_despesa
+    end
+    add_index :despesa, :periodicidade_despesa_id
+  end
+end

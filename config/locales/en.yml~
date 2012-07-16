@@ -22,7 +22,10 @@ en:
     new:
       title: New banco  
       back_link_label: Back
-      
+    form:
+      nome:
+        hint: Name of bank
+         
   #Cheque
   cheque:
     index:
@@ -53,7 +56,7 @@ en:
         hint: Banco
         no_selection_label: Select  
       cliente:
-        hint: 
+        hint: Cliente
         no_selection_label: Select    
       situacao_cheque:
         hint: Situation of cheque
@@ -89,6 +92,9 @@ en:
     new:
       title: New cliente
       back_link_label: Back
+    form:
+      nome:
+        hint: Name of cliente
       
   #Emitente 
   emitente:
@@ -109,7 +115,9 @@ en:
     new:
       title: New emitente  
       back_link_label: Back
-  
+    form:
+      nome:
+        hint: Name of emitente
   #HistoricoCheque
   historico_cheque:
     index:
@@ -149,7 +157,10 @@ en:
     new:
       title: New Socio  
       back_link_label: Back
-  
+    form:
+      nome:
+        hint: Name of sócio
+        
   #Despesa
   despesa:
     index:

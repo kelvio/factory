@@ -1,4 +1,6 @@
 Factory::Application.routes.draw do
+  resources :periodicidade_despesas
+
   resources :tipo_juros
 
   resources :situacao_cheques
@@ -6,11 +8,10 @@ Factory::Application.routes.draw do
   resources :operacao_financeiras
 
   resources :tipo_operacao_financeiras
-
-  resources :parcela_despesas
-
+  resources :parcela_despesa
+  
   resources :despesas
-
+  
   resources :tipo_despesas
 
   resources :historico_cheques
@@ -34,7 +35,7 @@ Factory::Application.routes.draw do
   
   #Relatórios
   resource :relatorios
-  match '/relatorios#operacoes' => "relatorios#operacoes", :as => "relatorios_operacoes"
+  match '/relatorios_operacoes' => "relatorios#operacoes", :as => "relatorios_operacoes"
   
   #Index
   resource :index

@@ -5,10 +5,12 @@
   <div class="box-left">
   <div class="field">
     <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
+    <%= f.text_field(:nome, {}, {:required => 'required'}) %> 
+    <p class="hint"><%= t('cliente.form.nome.hint') %></p>
   </div>
   </div>
   <div class="actions">
+    <input type="button" onclick="location.href='<%= clientes_path %>'" value="<%= t('cliente.new.back_link_label') %>" />
     <%= f.submit %>
   </div>
 <% end %>
