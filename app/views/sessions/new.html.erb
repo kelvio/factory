@@ -1,3 +1,13 @@
+<%= javascript_include_tag "jquery.maskedinput-1.3.min.js" %>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#cpf").mask("999.999.999-99");
+        $("form").submit(function(e) {
+            $('#cpf').val($('#cpf').val().replace('.', '').replace('.', '').replace('-', ''))
+        });
+    });
+</script>
+
 <h1><%= t('session.new.title') %></h1>
 <center>
 <div style="width: 350px; height: 190px;" class="box-center">
@@ -18,3 +28,4 @@
         <% end %>
 </div>
 </center>
+

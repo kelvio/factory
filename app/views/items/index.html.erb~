@@ -11,6 +11,7 @@
     <th>Situacao item</th>    
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @items.each do |item| %>

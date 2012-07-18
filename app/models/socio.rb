@@ -1,4 +1,9 @@
+require 'digest'
+
 class Socio < ActiveRecord::Base
+
+  PASSWORD_SALT = '951737830e37c48f4f8ca0fcd4c298d1827e600e'
+  
   attr_accessible :cpf, :nome, :capital, :senha, :senha_confirmation
   
   validates :cpf, :presence => true, :uniqueness => true, :numericality => true
@@ -8,8 +13,18 @@ class Socio < ActiveRecord::Base
   
   before_save :update_montante_real_factory
   
+  before_save :hash_password
+  
   def self.autenticar(cpf, senha)
-    return find_by_cpf_and_senha(cpf, senha)
+    return find_by_cpf_and_senha(cpf, Socio.hash_string(senha))
+  end
+  
+  def hash_password
+    self.senha = Socio.hash_string(self.senha)
+  end
+  
+  def self.hash_string(string)
+    return Digest::SHA1.hexdigest(PASSWORD_SALT + string)
   end
   
   #Obtém o percentual do sócio baseado no somatório

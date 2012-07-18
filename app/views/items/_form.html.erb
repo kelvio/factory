@@ -1,10 +1,23 @@
+<%= javascript_include_tag "jquery.maskMoney.js" %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#item_valor").maskMoney({symbol:'R$ ', showSymbol:true, thousands:'.', decimal:',', symbolStay: true});
+        $('form').submit(function(e) {
+            valor = $('#item_valor').val();
+            valor = valor.replace('R$ ', '').replace('.', '').replace('.', '').replace('.', '').replace('.', '').replace(',', '.');
+            $('#item_valor').val(valor);
+        });
+    });
+</script>
+
 <%= form_for(@item) do |f| %>
 
   <%= render 'shared/error', :object => @item %>
 
   <div class="field">
     <%= f.label :despesa %><br />
-    <%= f.select(:despesa_id, options_from_collection_for_select(Despesa.all, :id, :nome), {:include_blank => t('despesa.form.tipo_despesa.no_selection_label'), :required => 'required'}) %>
+    <%= f.select(:despesa_id, Despesa.all.collect {|t| [t.nome, t.id]}, {:include_blank => t('despesa.form.tipo_despesa.no_selection_label'), :required => 'required'}) %>
     <p class="hint"><%= t('despesa.form.tipo_despesa.hint') %></p>
   </div>
   <div class="field">
@@ -17,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label :situacao_item %><br />
-    <%= f.select(:situacao_item_id, options_from_collection_for_select(SituacaoItem.all, :id, :nome), {:include_blank => t('despesa.form.tipo_despesa.no_selection_label')}, {:required => 'required'}) %>
+    <%= f.select(:situacao_item_id, SituacaoItem.all.collect {|t| [t.nome, t.id]}, {:include_blank => t('despesa.form.tipo_despesa.no_selection_label')}, {:required => 'required'}) %>
     <p class="hint"><%= t('item.form.tipo_despesa.hint') %></p>
   </div>  
   <div class="actions">

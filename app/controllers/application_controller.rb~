@@ -17,7 +17,14 @@ class ApplicationController < ActionController::Base
     
     # Set the locale from parameters
     def set_locale
+      I18n.default_locale = :pt_BR
       I18n.locale = params[:locale] unless params[:locale].blank?
+      I18n.locale = I18n.default_locale if params[:locale].blank?
+    end
+  
+    def calendar_fields_order
+      return [:day, :month, :year] if I18n.locale == :pt_BR
+      return [:year, :month, :day] if I18n.locale == :en
     end
   
     # Returns the currently logget in on nil if there isn't one
@@ -37,9 +44,14 @@ class ApplicationController < ActionController::Base
       return Capital.find(1).montante_real #Capital da factory        
     end
     
+    def montante_factory
+      return montante_real + montante_aplicado
+    end
+    
     #Disponibiliza métodos para os templates como um helper
     helper_method :montante_real
     helper_method :montante_aplicado
+    helper_method :montante_factory
     
     # Filter method to enforce a login requirement
     # Apply as a before_fileter on any controller want to protected

@@ -13,7 +13,7 @@ class Cheque < ActiveRecord::Base
   after_create :movimentar_capital_after_create
   after_create :registrar_historico_cheque_after_create
   after_update :registrar_historico_cheque_after_update
-  after_update :movimentar_capital_after_update
+  before_update :movimentar_capital_before_update
   
   validates :situacao_cheque, :presence => true
   validates :emitente, :presence => true
@@ -27,8 +27,9 @@ class Cheque < ActiveRecord::Base
   validates :valor, :presence => true
   validates :vencimento, :presence => true
   validates :taxa_juros, :presence => true
+  validates_numericality_of :taxa_juros, :greater_than => 0
   validate :has_money
-  
+
   #Verifica se a factory tem fundos para realizar a troca
   def has_money
     capital = Capital.find(1)
@@ -76,7 +77,7 @@ class Cheque < ActiveRecord::Base
   end
   
   #Movimenta capital da factory do montante aplicado para o montante real
-  def movimentar_capital_after_update
+  def movimentar_capital_before_update
     situacao_anterior = Cheque.find(self.id).situacao_cheque
     if situacao_anterior.id == 1 #Aberto
       if self.situacao_cheque.id == 2 #Compensado              

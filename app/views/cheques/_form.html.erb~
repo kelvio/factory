@@ -1,3 +1,15 @@
+<%= javascript_include_tag "jquery.maskMoney.js" %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#cheque_valor").maskMoney({symbol:'R$ ', showSymbol:true, thousands:'.', decimal:',', symbolStay: true});
+        $('form').submit(function(e) {
+            valor = $('#cheque_valor').val();
+            valor = valor.replace('R$ ', '').replace('.', '').replace('.', '').replace('.', '').replace('.', '').replace(',', '.');
+            $('#cheque_valor').val(valor);
+        });
+    });
+</script>
 
 <%= form_for(@cheque) do |f| %>
   
@@ -5,31 +17,31 @@
   
   <div class="field">
     <%= f.label :tipo_juro %><br />
-    <%= f.select(:tipo_juro_id, options_from_collection_for_select(TipoJuro.all, :id, :nome), {:include_blank => t('cheque.form.banco.no_selection_label'), :required => 'required'}) %>
+    <%= f.select(:tipo_juro_id, TipoJuro.all.collect {|t| [t.nome, t.id]} , {:include_blank => t('cheque.form.banco.no_selection_label')}, {:required => 'required'}) %>
     <p class="hint"><%= t('cheque.form.tipo_juro.hint') %></p>
   </div>
   
   <div class="field">
     <%= f.label :banco %><br />
-    <%= f.select(:banco_id, options_from_collection_for_select(Banco.all, :id, :nome), {:include_blank => t('cheque.form.banco.no_selection_label')}, {:required => 'required'}) %>
+    <%= f.select(:banco_id, Banco.all.collect {|t| [t.nome, t.id]}, {:include_blank => t('cheque.form.banco.no_selection_label')}, {:required => 'required'}) %>
     <p class="hint"><%= t('cheque.form.banco.hint') %></p>
   </div>
   
   <div class="field">
     <%= f.label :emitente %><br />
-    <%= f.select(:emitente_id, options_from_collection_for_select(Emitente.all, :id, :nome), {:include_blank => t('cheque.form.emitente.no_selection_label'), :required => 'required'}) %>
+    <%= f.select(:emitente_id, Emitente.all.collect {|t| [t.nome, t.id]}, {:include_blank => t('cheque.form.emitente.no_selection_label')}, {:required => 'required'}) %>
     <p class="hint"><%= t('cheque.form.emitente.hint') %></p>
   </div>
   
   <div class="field">
     <%= f.label :cliente %><br />
-    <%= f.select(:cliente_id, options_from_collection_for_select(Cliente.all, :id, :nome), {:include_blank => t('cheque.form.cliente.no_selection_label'), :required => 'required'}) %>
+    <%= f.select(:cliente_id, Cliente.all.collect {|t| [t.nome, t.id]}, {:include_blank => t('cheque.form.cliente.no_selection_label')}, {:required => 'required'}) %>
     <p class="hint"><%= t('cheque.form.cliente.hint') %></p>
   </div>
   
   <div class="field">
     <%= f.label :situacao_cheque %><br />
-    <%= f.select(:situacao_cheque_id, options_from_collection_for_select(SituacaoCheque.all, :id, :nome), {:include_blank => t('cheque.form.situacao_cheque.no_selection_label'), :required => 'required'}) %>
+    <%= f.select(:situacao_cheque_id, SituacaoCheque.all.collect {|t| [t.nome, t.id]}, {:include_blank => t('cheque.form.situacao_cheque.no_selection_label')}, {:required => 'required'}) %>
     <p class="hint"><%= t('cheque.form.situacao_cheque.hint') %></p>
   </div>
 
@@ -48,8 +60,7 @@
   
   <div class="field">
     <%= f.label :vencimento %><br />
-    <%= f.date_select(:vencimento, {:required => 'required'}) %>
-    <p class="hint"><%= t('cheque.form.vencimento.hint') %></p>
+    <%= f.date_select(:vencimento, options = { :order => [:day, :month, :year], :use_month_numbers => true}) %>
   </div>
   
   <div class="field">
@@ -66,7 +77,7 @@
   
   <div class="field">
     <%= f.label :taxa_juros %><br />
-    <%= f.text_field(:taxa_juros, {:required => 'required'}) %>
+    <%= f.text_field(:taxa_juros, {:required => 'required'}) %> % 
     <p class="hint"><%= t('cheque.form.taxa_juros.hint') %></p>
   </div>
   

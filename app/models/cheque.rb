@@ -27,8 +27,9 @@ class Cheque < ActiveRecord::Base
   validates :valor, :presence => true
   validates :vencimento, :presence => true
   validates :taxa_juros, :presence => true
+  validates_numericality_of :taxa_juros
   validate :has_money
-  
+
   #Verifica se a factory tem fundos para realizar a troca
   def has_money
     capital = Capital.find(1)

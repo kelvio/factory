@@ -37,7 +37,7 @@ Capital.create([{:montante_aplicado => 0, :montante_real => 0}])
 TipoJuro.create([{:nome => 'Simples'}, {:nome => 'Composto'}])
 
 #SituacaoItem
-SituacaoItem.create([{:nome => 'Aberto'}, {:nome => 'Pago'}])
+SituacaoItem.create([{:nome => 'Pendente'}, {:nome => 'Pago'}])
 
 
 

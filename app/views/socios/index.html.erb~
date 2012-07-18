@@ -19,7 +19,6 @@
     <th>Nome</th>
     <th>Percentual</th>
     <th>Cpf</th>
-    <th>Senha</th>
     <th></th>
     <th></th>
     <th></th>
@@ -30,7 +29,6 @@
     <td><%= socio.nome %></td>
     <td><%= socio.percentual %></td>
     <td><%= socio.cpf %></td>
-    <td><%= socio.senha %></td>
     <td><%= link_to t('socio.index.show_link_label'), socio %></td>
     <td><%= link_to t('socio.index.edit_link_label'), edit_socio_path(socio) %></td>
     <td><%= link_to t('socio.index.destroy_link_label'), socio, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>

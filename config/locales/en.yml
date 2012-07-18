@@ -184,6 +184,28 @@ en:
       tipo_despesa:
         no_selection_label: Select
         hint: Type of despesa
+  item:
+    index:
+      title:  Listing items
+      show_link_label: Show
+      edit_link_label: Edit
+      destroy_link_label: Destroy
+      new_button_label: New item
+      search_button_label: Search
+    show:
+      edit_link_label: Edit
+      back_link_label: Back
+    edit:
+      title: Editing Conta
+      show_link_label: Show      
+      back_link_label: Back
+    new:
+      title: New Conta  
+      back_link_label: Back
+    form:
+      tipo_despesa:
+        no_selection_label: Select
+        hint: Type of despesa
   
   #Relatório
   relatorio:

@@ -10,7 +10,7 @@
   </div>
   <div class="field">
     <%= f.label :tipo_despesa %><br />
-    <%= f.select(:tipo_despesa_id, options_from_collection_for_select(TipoDespesa.all, :id, :nome), {:include_blank => t('despesa.form.tipo_despesa.no_selection_label'), :required => 'required'}) %>
+    <%= f.select(:tipo_despesa_id, TipoDespesa.all.collect {|t| [t.nome, t.id]}, {:include_blank => t('despesa.form.tipo_despesa.no_selection_label'), :required => 'required'}) %>
     <p class="hint"><%= t('despesa.form.tipo_despesa.hint') %></p>
   </div>  
   </div>

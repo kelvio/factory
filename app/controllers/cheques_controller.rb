@@ -75,12 +75,14 @@ class ChequesController < ApplicationController
     
     respond_to do |format|
       begin
-        if @cheque.update_attributes(params[:cheque])                                                  
-          format.html { redirect_to @cheque, :notice => 'Cheque was successfully updated.' }
-          format.json { head :no_content }
-        else
-          raise ActiveRecord::Rollback
-        end
+        Cheque.transaction do 
+          if @cheque.update_attributes(params[:cheque])                                                  
+            format.html { redirect_to @cheque, :notice => 'Cheque was successfully updated.' }
+            format.json { head :no_content }
+          else
+            raise ActiveRecord::Rollback
+          end
+        end        
       rescue ActiveRecord::Rollback, ActiveRecord::RecordInvalid
         format.html { render :action => "edit" }
         format.json { render :json => @cheque.errors, :status => :unprocessable_entity }

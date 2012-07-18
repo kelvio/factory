@@ -1,3 +1,12 @@
+<%= javascript_include_tag "jquery.maskedinput-1.3.min.js" %>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#socio_cpf").mask("999.999.999-99");
+        $("form").submit(function(e) {
+            $('#socio_cpf').val($('#socio_cpf').val().replace('.', '').replace('.', '').replace('-', ''))
+        });
+    });
+</script>
 <%= form_for(@socio) do |f| %>
 
   <%= render 'shared/error', :object => @socio %>

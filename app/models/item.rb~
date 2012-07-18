@@ -5,7 +5,8 @@ class Item < ActiveRecord::Base
   
   validate :check_situacao, :on => :update
   
-  before_update :movimentar_capital_after_update
+  before_update :movimentar_capital_before_update
+  
   
   def check_situacao
     situacao_antiga = Item.find(self.id).situacao_item
@@ -22,16 +23,35 @@ class Item < ActiveRecord::Base
   end
   
   #Movimenta capital da factory do montante aplicado para o montante real
-  def movimentar_capital_after_update
+  def movimentar_capital_before_update
     situacao_anterior = Item.find(self.id).situacao_item
     if situacao_anterior.id == 1 #Pendente
       if self.situacao_item.id == 2 #Pago              
-      
-        #Move valor do montante_aplicado e vai para o montante_real
-        capital = Capital.find(1) #Caixa da factory
-        capital.montante_real -= self.valor_atual
-        raise ActiveRecord::Rollback unless capital.save
+        update_capital               
       end            
+    end
+  end
+  
+  def movimentar_capital_after_create
+    update_capital if self.situacao_item.id == 2 #Pago      
+  end
+  
+  def update_capital
+    #Move valor do montante_aplicado e vai para o montante_real
+    capital = Capital.find(1) #Caixa da factory
+    capital.montante_real -= self.valor
+    raise ActiveRecord::Rollback unless capital.save
+    update_capital_socios
+  end
+  
+  def update_capital_socios
+    #Verifica o tipo de despesa e atualiza o valor de cada sócio
+    tipo_despesa_id = self.despesa.tipo_despesa.id
+    socios = Socio.all
+    socios.each do |socio|          
+      socio.capital -= self.valor * (socio.percentual / 100) if tipo_despesa_id == 1 #Societária
+      socio.capital -= self.valor / socios.size if tipo_despesa_id == 2 #Fixa                    
+      raise ActiveRecord::Rollback unless socio.save          
     end
   end
   

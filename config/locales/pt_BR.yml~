@@ -183,6 +183,32 @@ pt_BR:
     form:
       tipo_despesa:
         no_selection_label: Selecione
+        hint: Tipo de despesa
+        
+  #Item
+  item:
+    index:
+      title:  Lista de ítens de Despesas
+      show_link_label: Detalhes
+      edit_link_label: Editar
+      destroy_link_label: Remover
+      new_button_label: Novo ítem
+      search_button_label: Pesquisar
+    show:
+      edit_link_label: Editar
+      back_link_label: Voltar
+    edit:
+      title: Editando Despesa
+      show_link_label: Detalhes    
+      back_link_label: Voltar
+    new:
+      title: Nova Despesa  
+      back_link_label: Voltar
+    form:
+      tipo_despesa:
+        no_selection_label: Selecione
+        hint: Tipo de despesa
+        
   #Session
   session:
     logout: Entrar

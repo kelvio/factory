@@ -25,7 +25,7 @@ Cliente.create([{:nome => 'Cliente da Silva'}])
 Emitente.create([{:nome => 'Emitente da Silva'}])
 
 #TipoOperacaoFinanceira
-TipoOperacaoFinanceira.create([{:nome => 'Troca de cheque'}])
+TipoOperacaoFinanceira.create([{:nome => 'Troca de cheque'}, {:nome => 'Conta / Despesa'}])
 
 #Socio
 Socio.create([{:nome => 'Sócio da Silva', :cpf => '03674090112', :senha => '12345678', :capital => 10000}])

@@ -185,7 +185,7 @@ form input {
 
 #notice {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .field:hover .hint {

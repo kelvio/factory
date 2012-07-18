@@ -46,6 +46,7 @@
                 <b>Montante aplicado da factory:</b><%= number_to_currency montante_aplicado %> <br />
                 <b>Montante da factory (ganho realizado + não ganho não realizado):</b> <%= number_to_currency montante_factory %> <br />
                 <b>Minha porcentagem individual hoje:</b><%= number_to_percentage(current_user.percentual,  :precision => 0) %> <br />
+                <b>Meu montante individual real hoje:</b> <%= number_to_currency current_user.capital %>
             </p>
 	        <% end %>
         </div>

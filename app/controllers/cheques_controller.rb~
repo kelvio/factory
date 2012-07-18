@@ -75,27 +75,15 @@ class ChequesController < ApplicationController
     
     respond_to do |format|
       begin
-        if @cheque.update_attributes(params[:cheque])
-                              
-          
-          if situacao_anterior.id == 1 #Aberto
-            if @cheque.situacao_cheque.id == 2 #Compensado
-              
-              #Move valor do montante_aplicado e vai para o montante_real
-              capital = Capital.find(1) #Caixa da factory
-              capital.montante_aplicado -= @cheque.valor
-              capital.montante_real += @cheque.valor_atual
-              if !capital.save
-                raise ActiveRecord::Rollback
-              end
-            end            
+        Cheque.transaction do 
+          if @cheque.update_attributes(params[:cheque])                                                  
+            format.html { redirect_to @cheque, :notice => 'Cheque was successfully updated.' }
+            format.json { head :no_content }
+          else
+            raise ActiveRecord::Rollback, ActiveRecord::RecordInvalid
           end
-          format.html { redirect_to @cheque, :notice => 'Cheque was successfully updated.' }
-          format.json { head :no_content }
-        else
-          raise ActiveRecord::Rollback
-        end
-      rescue ActiveRecord::Rollback
+        end        
+      rescue ActiveRecord::Rollback, ActiveRecord::RecordInvalid
         format.html { render :action => "edit" }
         format.json { render :json => @cheque.errors, :status => :unprocessable_entity }
       end      
