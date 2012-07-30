@@ -4,9 +4,9 @@
     $(document).ready(function() {
         $("#item_valor").maskMoney({symbol:'R$ ', showSymbol:true, thousands:'.', decimal:',', symbolStay: true});
         $('form').submit(function(e) {
-            valor = $('#cheque_valor').val();
+            valor = $('#item_valor').val();
             valor = valor.replace('R$ ', '').replace('.', '').replace('.', '').replace('.', '').replace('.', '').replace(',', '.');
-            $('#cheque_valor').val(valor);
+            $('#item_valor').val(valor);
         });
     });
 </script>

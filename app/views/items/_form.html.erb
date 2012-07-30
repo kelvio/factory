@@ -26,7 +26,7 @@
   </div>
   <div class="field">
     <%= f.label :vencimento %><br />
-    <%= f.date_select :vencimento %>
+    <%= f.date_select :vencimento, options = { :order => calendar_fields_order, :use_month_numbers => true} %>
   </div>
   <div class="field">
     <%= f.label :situacao_item %><br />
