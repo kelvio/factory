@@ -13,7 +13,7 @@ Capital.create([{:montante_real => 0, :montante_aplicado => 0}])
 SituacaoCheque.create([{:nome => 'Aberto'}, {:nome => 'Compensado'}, {:nome => 'Postergado'}])
 
 #TipoDespesa
-TipoDespesa.create([{:nome => 'Societaria - Relativa ao percentual'}, {:nome => 'Fixa - Dividida igualmente entre os sócios'}])
+TipoDespesa.create([{:nome => 'Societaria - Relativa ao percentual'}, {:nome => 'Fixa - Dividida igualmente'}])
 
 #Banco
 Banco.create([{:nome => 'Banco do Brasil', :codigo => '001'}])
@@ -28,7 +28,7 @@ Emitente.create([{:nome => 'Emitente da Silva'}])
 TipoOperacaoFinanceira.create([{:nome => 'Troca de cheque'}, {:nome => 'Conta / Despesa'}])
 
 #Socio
-Socio.create([{:nome => 'Sócio da Silva', :cpf => '03674090112', :senha => '12345678', :capital => 10000}])
+Socio.create([{:nome => 'Pessoa da Silva', :cpf => '03674090112', :senha => '12345678', :capital => 10000}])
 
 #Capital
 Capital.create([{:montante_aplicado => 0, :montante_real => 0}])
