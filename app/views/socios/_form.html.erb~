@@ -3,7 +3,7 @@
     $(document).ready(function() {
         $("#socio_cpf").mask("999.999.999-99");
         $("form").submit(function(e) {
-            $('#socio_cpf').val($('#socio)cpf').val().replace('.', '').replace('.', '').replace('-', ''))
+            $('#socio_cpf').val($('#socio_cpf').val().replace('.', '').replace('.', '').replace('-', ''))
         });
     });
 </script>
@@ -40,6 +40,6 @@
   </div>
   <div class="actions">
     <input type="button" onclick="location.href='<%= socios_path %>'" value="<%= t('socio.new.back_link_label') %>" />
-    <%= f.submit %>    
+    <%= f.submit :value => 'Salvar'%>    
   </div>
 <% end %>

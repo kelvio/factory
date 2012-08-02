@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   def create
     if user = Socio.autenticar(params[:cpf], params[:senha])
       session[:user_id] = user.id
-      redirect_to home_path, :notice => "Logged in successfully"
+      redirect_to home_path, :notice => "Bem vindo"
 	else
 	  flash.now[:alert] = "Invalid login/password combination"
 	  render :action => 'new'
@@ -19,6 +19,6 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to login_path, :notice => "You successfully logged out"
+    redirect_to login_path, :notice => "Você saiu com sucesso"
   end	    
 end

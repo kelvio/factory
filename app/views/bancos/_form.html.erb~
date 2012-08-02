@@ -1,3 +1,10 @@
+<script language="JavaScript">
+  window.onbeforeunload = confirmExit;
+  function confirmExit()
+  {
+    return 'message to display in dialog box;'
+  }
+</script>
 <%= form_for(@banco) do |f| %>
   
   <%= render 'shared/error', :object => @banco %>
@@ -10,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :codigo %><br />
-    <%= f.text_field(:codigo, {}, {:required => 'required'}) %>
+    <%= f.text_field(:codigo,  {:required => 'required'}) %>
     <p class="hint"><%= t('banco.form.codigo.hint') %></p>
   </div>
   </div>

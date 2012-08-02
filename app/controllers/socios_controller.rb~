@@ -1,4 +1,7 @@
 class SociosController < ApplicationController
+
+  before_filter :authenticate
+
   # GET /socios
   # GET /socios.json
   def index
@@ -44,7 +47,7 @@ class SociosController < ApplicationController
 
     respond_to do |format|
       if @socio.save
-        format.html { redirect_to @socio, :notice => 'Socio was successfully created.' }
+        format.html { redirect_to @socio, :notice => 'Socio cadastrado com sucesso.' }
         format.json { render :json => @socio, :status => :created, :location => @socio }
       else
         format.html { render :action => "new" }

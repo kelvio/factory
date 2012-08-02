@@ -27,7 +27,7 @@
 <% @socios.each do |socio| %>
   <tr>
     <td><%= socio.nome %></td>
-    <td><%= socio.percentual %></td>
+    <td><%= number_to_percentage socio.percentual, :precision => 0 %></td>
     <td><%= socio.cpf %></td>
     <td><%= link_to t('socio.index.show_link_label'), socio %></td>
     <td><%= link_to t('socio.index.edit_link_label'), edit_socio_path(socio) %></td>

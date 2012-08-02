@@ -3,7 +3,7 @@ class Despesa < ActiveRecord::Base
   has_many :item
   attr_accessible :nome,  :tipo_despesa, :tipo_despesa_id
   
-  validates :nome, :presence => true, :length => { :within => 4 ... 255 }
+  validates :nome, :uniqueness => true,  :presence => true, :length => { :within => 4 ... 255 }
   validates :tipo_despesa, :presence => true
   
   def to_s

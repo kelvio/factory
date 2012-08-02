@@ -1,6 +1,6 @@
 class Emitente < ActiveRecord::Base
   attr_accessible :nome
-  
+  has_many :cheque
   validates :nome, :presence => true, :length => { :within => 10 ... 255}
   
   def to_s

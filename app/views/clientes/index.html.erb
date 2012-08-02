@@ -25,7 +25,7 @@
     <td><%= cliente.nome %></td>
     <td><%= link_to t('cliente.index.show_link_label'), cliente %></td>
     <td><%= link_to t('cliente.index.edit_link_label'), edit_cliente_path(cliente) %></td>
-    <td><%= link_to t('cliente.index.destroy_link_label'), cliente, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td><%= link_to t('cliente.index.destroy_link_label'), cliente, :method => :delete, :data => { :confirm => t('general.are_you_rure') } %></td>
   </tr>
 <% end %>
 </table>

@@ -1,21 +1,14 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-pt_BR:
+activerecord.errors.models.emitente.attributes.nome.too_short
+pt_Br:
   activerecord:
     errors:
       models:
         emitente:
           attributes:
             nome:
-              too_short: Valor muito curto para o nome
-        despesa:
-          attributes:
-            nome:
-              taken: Nome já cadastrado
-  general:
-    are_you_rure: Você tem certeza que deseja excluir este registro?
-    prohibited_this_object_from_being_saved: impede (m) que este objeto seja salvo
-    error: Erro
+              to_short: Valor muito curto para o nome
   #Banco
   banco:
     index:
@@ -177,14 +170,6 @@ pt_BR:
     form:
       nome:
         hint: Nome do sócio
-      capital:
-        hint: Capital investido
-      cpf:
-        hint: CPF
-      senha:
-        hint: Senha
-      senha_confirmation:
-        hint: Confirmação da senha
   #Despesa
   despesa:
     index:

@@ -1,13 +1,16 @@
 <h1><%= t('banco.index.title') %></h1>
 
 
-
+<center>
+<div class="box-center">
 <%= form_tag bancos_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :nome, params[:nome] %>
     <%= submit_tag t('banco.index.search_button_label'), :name => nil %>
   </p>
 <% end %>
+</div>
+</center>
 
 
 
@@ -30,7 +33,13 @@
     <td><%= banco.codigo %></td>
     <td><%= link_to t('banco.index.show_link_label'), banco %></td>
     <td><%= link_to t('banco.index.edit_link_label'), edit_banco_path(banco) %></td>
-    <td><%= link_to t('banco.index.destroy_link_label'), banco, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td>
+    <% if(banco.cheque.count == 0): %>
+    <%= link_to t('banco.index.destroy_link_label'), banco, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+    <% else %>
+    Remover
+    <% end %>
+    </td>
   </tr>
 <% end %>
 </table>

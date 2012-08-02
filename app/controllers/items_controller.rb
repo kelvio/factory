@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
                   :descricao => 'Conta / Despesa paga.',
                   :valor => @item.valor}) if @item.situacao_item.id == 2 #Pago
         end 
-        format.html { redirect_to @item, :notice => 'Item was successfully created.' }
+        format.html { redirect_to @item, :notice => 'Item cadastrado com sucesso.' }
         format.json { render :json => @item, :status => :created, :location => @item }
       rescue
         format.html { render :action => "new" }
@@ -78,7 +78,7 @@ class ItemsController < ApplicationController
                   :valor => @item.valor})
               end
             end
-            format.html { redirect_to @item, :notice => 'Item was successfully updated.' }
+            format.html { redirect_to @item, :notice => 'Item atualizado com sucesso.' }
             format.json { head :no_content }
           else
             raise ActiveRecord::Rollback  

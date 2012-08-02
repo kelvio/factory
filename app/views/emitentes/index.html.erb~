@@ -26,7 +26,13 @@
     <td><%= emitente.nome %></td>
     <td><%= link_to t('emitente.index.show_link_label') , emitente %></td>
     <td><%= link_to t('emitente.index.edit_link_label'), edit_emitente_path(emitente) %></td>
-    <td><%= link_to t('emitente.index.destroy_link_label'), emitente, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td>
+      <% if(emitente.cheque.count == 0): %>
+      <%= link_to t('emitente.index.destroy_link_label'), emitente, :method => :delete, :data => { :confirm => 'Tem certeza?' } %>
+      <% else %>
+      Remover
+      <% end %>
+    </td>
   </tr>
 <% end %>
 </table>
@@ -39,4 +45,5 @@
 
 <br />
 
-<%= link_to t('emitente.index.new_button_label'), new_emitente_path %>
+<br />
+<input type="button" onclick="location.href='<%= new_emitente_path %>'" value="<%= t('emitente.index.new_button_label') %>" />

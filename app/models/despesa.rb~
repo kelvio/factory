@@ -1,6 +1,6 @@
 class Despesa < ActiveRecord::Base
   belongs_to :tipo_despesa
-  has_many :ocorrencium
+  has_many :item
   attr_accessible :nome,  :tipo_despesa, :tipo_despesa_id
   
   validates :nome, :presence => true, :length => { :within => 4 ... 255 }

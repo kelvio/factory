@@ -60,7 +60,7 @@ class DespesasController < ApplicationController
 
     respond_to do |format|
       if @despesa.update_attributes(params[:despesa])
-        format.html { redirect_to @despesa, :notice => 'Despesa atualizada com sucesso.' }
+        format.html { redirect_to @despesa, :notice => 'Despesa was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

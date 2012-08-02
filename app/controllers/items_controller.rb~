@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all.paginate(:page => params[:page], :per_page => 20)
+    @items = Item.paginate(:page => params[:page], :per_page => 20)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
                   :descricao => 'Conta / Despesa paga.',
                   :valor => @item.valor}) if @item.situacao_item.id == 2 #Pago
         end 
-        format.html { redirect_to @item, :notice => 'Item was successfully created.' }
+        format.html { redirect_to @item, :notice => 'Item cadastrado com sucesso.' }
         format.json { render :json => @item, :status => :created, :location => @item }
       rescue
         format.html { render :action => "new" }

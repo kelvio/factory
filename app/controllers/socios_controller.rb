@@ -47,7 +47,7 @@ class SociosController < ApplicationController
 
     respond_to do |format|
       if @socio.save
-        format.html { redirect_to @socio, :notice => 'Socio was successfully created.' }
+        format.html { redirect_to @socio, :notice => 'Socio cadastrado com sucesso.' }
         format.json { render :json => @socio, :status => :created, :location => @socio }
       else
         format.html { render :action => "new" }
@@ -63,7 +63,7 @@ class SociosController < ApplicationController
 
     respond_to do |format|
       if @socio.update_attributes(params[:socio])
-        format.html { redirect_to @socio, :notice => 'Socio was successfully updated.' }
+        format.html { redirect_to @socio, :notice => 'Socio atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

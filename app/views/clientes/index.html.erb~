@@ -37,5 +37,5 @@
 <%= will_paginate @clientes %>
 
 <br />
+<input type="button" onclick="location.href='<%= new_cliente_path %>'" value="<%= t('cliente.index.new_button_label') %>" />
 
-<%= link_to t('cliente.index.new_button_label'), new_cliente_path %>

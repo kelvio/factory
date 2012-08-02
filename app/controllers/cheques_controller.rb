@@ -55,7 +55,7 @@ class ChequesController < ApplicationController
            :descricao => 'Troca de cheque',
            :valor => @cheque.valor})                                                                                      
         end        
-        format.html { redirect_to @cheque, :notice => 'Cheque was successfully created.' }
+        format.html { redirect_to @cheque, :notice => 'Cheque criado com sucesso.' }
         format.json { render :json => @cheque, :status => :created, :location => @cheque }
       rescue ActiveRecord::Rollback, ActiveRecord::RecordInvalid
         format.html { render :action => "new" }
@@ -77,7 +77,7 @@ class ChequesController < ApplicationController
       begin
         Cheque.transaction do 
           if @cheque.update_attributes(params[:cheque])                                                  
-            format.html { redirect_to @cheque, :notice => 'Cheque was successfully updated.' }
+            format.html { redirect_to @cheque, :notice => 'Cheque atualizado com sucesso.' }
             format.json { head :no_content }
           else
             raise ActiveRecord::Rollback

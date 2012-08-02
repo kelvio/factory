@@ -2,9 +2,14 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $("#socio_cpf").mask("999.999.999-99");
+        $("#socio_capital").maskMoney({symbol:'R$ ', showSymbol:true, thousands:'.', decimal:',', symbolStay: true});
+        
         $("form").submit(function(e) {
             $('#socio_cpf').val($('#socio_cpf').val().replace('.', '').replace('.', '').replace('-', ''))
-        });
+            valor = $('#socio_capital').val();
+            valor = valor.replace('R$ ', '').replace('.', '').replace('.', '').replace('.', '').replace('.', '').replace(',', '.');
+            $('#socio_capital').val(valor);
+        });        
     });
 </script>
 <%= form_for(@socio) do |f| %>
@@ -40,6 +45,6 @@
   </div>
   <div class="actions">
     <input type="button" onclick="location.href='<%= socios_path %>'" value="<%= t('socio.new.back_link_label') %>" />
-    <%= f.submit %>    
+    <%= f.submit :value => 'Salvar'%>    
   </div>
 <% end %>

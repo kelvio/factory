@@ -1,8 +1,9 @@
+
 <% if object.errors.any? %>
     <div class="ui-widget">
 		<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
 			<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
-		    <strong><%= pluralize(object.errors.count, "error") %>:</strong> prohibited this object from being saved:</p>		    
+		    <strong><%= pluralize(object.errors.count, t('general.error')) %>:</strong> <%= t('general.prohibited_this_object_from_being_saved') %></p>		    
             <% object.errors.full_messages.each do |msg| %>
                 <%= msg %> <br />
             <% end %>            

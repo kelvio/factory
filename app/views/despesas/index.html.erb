@@ -26,7 +26,7 @@
     <td><%= despesa.tipo_despesa %></td>
     <td><%= link_to 'Show', despesa %></td>
     <td><%= link_to 'Edit', edit_despesa_path(despesa) %></td>
-    <td><%= link_to 'Destroy', despesa, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', despesa, :method => :delete, :data => { :confirm => t('general.are_you_rure') } %></td>
   </tr>
 <% end %>
 </table>

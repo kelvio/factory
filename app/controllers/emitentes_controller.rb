@@ -47,7 +47,7 @@ class EmitentesController < ApplicationController
 
     respond_to do |format|
       if @emitente.save
-        format.html { redirect_to @emitente, :notice => 'Emitente was successfully created.' }
+        format.html { redirect_to @emitente, :notice => 'Emitente cadastrado com sucesso.' }
         format.json { render :json => @emitente, :status => :created, :location => @emitente }
       else
         format.html { render :action => "new" }
@@ -63,7 +63,7 @@ class EmitentesController < ApplicationController
 
     respond_to do |format|
       if @emitente.update_attributes(params[:emitente])
-        format.html { redirect_to @emitente, :notice => 'Emitente was successfully updated.' }
+        format.html { redirect_to @emitente, :notice => 'Emitente atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

@@ -33,7 +33,13 @@
     <td><%= banco.codigo %></td>
     <td><%= link_to t('banco.index.show_link_label'), banco %></td>
     <td><%= link_to t('banco.index.edit_link_label'), edit_banco_path(banco) %></td>
-    <td><%= link_to t('banco.index.destroy_link_label'), banco, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td>
+    <% if(banco.cheque.count == 0): %>
+    <%= link_to t('banco.index.destroy_link_label'), banco, :method => :delete, :data => { :confirm => t('general.are_you_rure') } %>
+    <% else %>
+    Remover
+    <% end %>
+    </td>
   </tr>
 <% end %>
 </table>

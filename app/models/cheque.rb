@@ -29,6 +29,7 @@ class Cheque < ActiveRecord::Base
   validates :taxa_juros, :presence => true
   validates_numericality_of :taxa_juros
   validate :has_money
+  validate :vencimento_futuro
 
   #Verifica se a factory tem fundos para realizar a troca
   def has_money
@@ -36,6 +37,11 @@ class Cheque < ActiveRecord::Base
     if capital.montante_real < self.valor
       errors.add(:cheque_id, "O montante real da factory não pode cobrir o valor do cheque.")
     end
+  end
+  
+  #Verifica se a data de vencimento é uma data futura
+  def vencimento_futuro
+    errors.add(:vencimento, "A data de vencimento deve ser uma data futura ou no mínimo a data atual") if self.vencimento.mjd < Date.today.mjd
   end
   
   #Número de dias de prazo para o cheque
@@ -88,6 +94,16 @@ class Cheque < ActiveRecord::Base
         capital.montante_real += self.valor_atual
         raise ActiveRecord::Rollback unless capital.save
       end            
+    elsif situacao_anterior.id == 2 #Compensado
+      if self.situacao_cheque.id == 1 #Aberto
+      
+        #Move valor do montante_real e vai para o montante_aplicado
+        capital = Capital.find(1) #Caixa da factory
+        capital.montante_aplicado += self.valor
+        capital.montante_real -= self.valor_atual
+        raise ActiveRecord::Rollback unless capital.save
+      end
+        
     end
   end
   
