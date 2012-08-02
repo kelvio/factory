@@ -9,7 +9,7 @@ set :user, "kelvio.matias@gmail.com"
 
 role :web, "186.202.46.18"                          # Your HTTP server, Apache/etc
 role :app, "186.202.46.18"                          # This may be the same as your `Web` server
-role :db,  "186.202.46.18", :primary => true # This is where Rails migrations will run
+role :db,  "localhost", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
 # if you want to clean up old releases on each deploy uncomment this:

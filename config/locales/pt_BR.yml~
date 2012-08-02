@@ -7,7 +7,7 @@ pt_BR:
         emitente:
           attributes:
             nome:
-              to_short: "Valor muito curto para o nome"
+              too_short: Valor muito curto para o nome
         despesa:
           attributes:
             nome:
@@ -16,6 +16,7 @@ pt_BR:
     are_you_rure: Você tem certeza que deseja excluir este registro?
     prohibited_this_object_from_being_saved: impede (m) que este objeto seja salvo
     error: Erro
+    logout_message: Você saiu com sucesso
   #Banco
   banco:
     index:

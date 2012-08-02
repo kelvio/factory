@@ -16,6 +16,8 @@ pt_BR:
     are_you_rure: Você tem certeza que deseja excluir este registro?
     prohibited_this_object_from_being_saved: impede (m) que este objeto seja salvo
     error: Erro
+    logout_message: Você saiu com sucesso
+    welcome: Bem vindo
   #Banco
   banco:
     index:
