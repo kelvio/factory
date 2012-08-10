@@ -2,7 +2,7 @@
   $('#calculadora').dialog({
     autoOpen: true,
     width: 640,
-    height: 420											
+    height: 380											
   });
 </script>
 <div id="calculadora" title="Calculadora">
@@ -30,7 +30,7 @@
         </div>
         
         <div class="actions">
-            <%= submit_tag 'Calcular' %>
+            <button onclick="alert('Não suportado ainda.')">Calcular</button>
         </div>
       <% end %>
     </div>
