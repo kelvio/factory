@@ -1,0 +1,11 @@
+class CreateUfs < ActiveRecord::Migration
+  def change
+    create_table :ufs do |t|
+      t.string :nome
+      t.references :paises
+
+      t.timestamps
+    end
+#    add_index :paises, :pais_id
+  end
+end

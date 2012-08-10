@@ -23,18 +23,53 @@
 					halign : 'center'
 				}
 			);
-    });               
+			
+			
+    // Dialog
+				$('#dialog').dialog({
+					autoOpen: true,
+					width: 600,
+					buttons: {
+						"Ok": function() {
+							$(this).dialog("close");
+						}						
+					}
+				});
+			
+			  // Calculadora
+  //$('#calculadora').dialog({
+	//  autoOpen: false,
+  //  width: 400,
+  //  height: 600											
+  //});
+			  
+      
+        // Calculadora Link
+				$('#calculadora_link').click(function(){
+					  $('body').append('<div id="calculadora_app"></div>')
+	  				$('#calculadora_app').load("<%= calculadora_path %>");
+				});
+			
+    });  
+                 
     </script>
 </head>
-<body>
+<body>    
+    
+
     <div class="ui-widget">
+        
         <div class="ui-state-highlight ui-corner-all" style="margin-top: 5px; padding: 0 .7em;">
 	        <p>
 		        <strong><%= link_to 'Factory', home_path %></strong> versão <%= application_version %>
 		    </p>
 		    
 		    <% if notice != nil %>
-		    <p id="notice"><%= notice %></p>
+		    <!-- ui-dialog -->
+		    <div id="dialog" title="Factory">
+			    <p id="notice"><%= notice %></p>
+		    </div>
+		    
 		    <% end %>
 		    
 		    <% if logged_in? %>
@@ -55,6 +90,7 @@
     
 <!--dock -->
 <% if logged_in? %>
+
 <div style="bottom: 0px; position: fixed; width: 100%; margin: auto; " >
 <div class="dock" id="dock2" >    
     <div class="dock-container2">
@@ -64,10 +100,11 @@
 	    <a class="dock-item2" href="<%= clientes_path %>"><span>Clientes</span><%= image_tag 'cliente.png' %></a> 
 	    <a class="dock-item2" href="<%= emitentes_path %>"><span>Emitentes</span><%= image_tag 'emitente.png' %></a> 
 	    <a class="dock-item2" href="<%= socios_path %>"><span>Sócios</span><%= image_tag 'socio.png' %></a> 
-	    <a class="dock-item2" href="<%= despesas_path %>"><span>Grupos de despesas</span><%= image_tag 'despesa.png' %></a>
+	    <a class="dock-item2" href="<%= despesas_path %>"><span>Grupos de despesas</span><%= image_tag 'grupo_despesa.png' %></a>
 	    <a class="dock-item2" href="<%= items_path %>"><span>Ítens de despesa</span><%= image_tag 'despesa.png' %></a>  
+	    <a class="dock-item2" href="#" id="calculadora_link"><span>Calculadora</span><%= image_tag 'calculator.png' %></a>
 	    <a class="dock-item2" href="<%= relatorios_path %>"><span>Relatórios</span><%= image_tag 'relatorio.png' %></a> 
-	    <a class="dock-item2" href="<%= logout_path %>"><span>Sair</span><%= image_tag 'sair.png' %></a> 
+	    <a class="dock-item2" href="<%= logout_path %>"><span>Sair</span><%= image_tag 'sair_2.png' %></a> 
     </div>
 </div>
 </div>

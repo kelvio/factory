@@ -10,13 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120716194905) do
+ActiveRecord::Schema.define(:version => 20120809144948) do
 
   create_table "bancos", :force => true do |t|
     t.string   "nome"
     t.string   "codigo"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "site"
   end
 
   create_table "capitals", :force => true do |t|
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120716194905) do
     t.datetime "updated_at",         :null => false
     t.decimal  "taxa_juros"
     t.integer  "tipo_juro_id"
+    t.date     "data_troca"
   end
 
   add_index "cheques", ["banco_id"], :name => "index_cheques_on_banco_id"
@@ -52,9 +54,22 @@ ActiveRecord::Schema.define(:version => 20120716194905) do
 
   create_table "clientes", :force => true do |t|
     t.string   "nome"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "tipo_cliente_id"
+    t.integer  "municipio_dominio_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "cnpj"
+    t.string   "logradouro"
+    t.string   "bairro"
+    t.string   "cep"
+    t.string   "numero"
+    t.string   "email"
+    t.string   "telefone"
+    t.string   "cpf"
   end
+
+  add_index "clientes", ["municipio_dominio_id"], :name => "index_clientes_on_municipio_dominio_id"
+  add_index "clientes", ["tipo_cliente_id"], :name => "index_clientes_on_tipo_cliente_id"
 
   create_table "despesas", :force => true do |t|
     t.string   "nome"
@@ -69,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20120716194905) do
     t.string   "nome"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "cpf"
   end
 
   create_table "historico_cheques", :force => true do |t|
@@ -96,6 +112,15 @@ ActiveRecord::Schema.define(:version => 20120716194905) do
   add_index "items", ["despesa_id"], :name => "index_items_on_despesa_id"
   add_index "items", ["situacao_item_id"], :name => "index_items_on_situacao_item_id"
 
+  create_table "municipio_dominios", :force => true do |t|
+    t.string   "nome"
+    t.integer  "uf_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "municipio_dominios", ["uf_id"], :name => "index_municipio_dominios_on_uf_id"
+
   create_table "operacao_financeiras", :force => true do |t|
     t.string   "descricao"
     t.integer  "socio_id"
@@ -107,6 +132,12 @@ ActiveRecord::Schema.define(:version => 20120716194905) do
 
   add_index "operacao_financeiras", ["socio_id"], :name => "index_operacao_financeiras_on_socio_id"
   add_index "operacao_financeiras", ["tipo_operacao_financeira_id"], :name => "index_operacao_financeiras_on_tipo_operacao_financeira_id"
+
+  create_table "pais_dominios", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -137,6 +168,13 @@ ActiveRecord::Schema.define(:version => 20120716194905) do
     t.string   "senha"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "email"
+  end
+
+  create_table "tipo_clientes", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "tipo_despesas", :force => true do |t|
@@ -156,5 +194,14 @@ ActiveRecord::Schema.define(:version => 20120716194905) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "ufs", :force => true do |t|
+    t.string   "nome"
+    t.integer  "pais_dominio_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "ufs", ["pais_dominio_id"], :name => "index_ufs_on_pais_dominio_id"
 
 end

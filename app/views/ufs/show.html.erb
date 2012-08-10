@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @uf.nome %>
+</p>
+
+<p>
+  <b>Pais dominio:</b>
+  <%= @uf.pais_dominio %>
+</p>
+
+
+<%= link_to 'Edit', edit_uf_path(@uf) %> |
+<%= link_to 'Back', ufs_path %>

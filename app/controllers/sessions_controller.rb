@@ -10,15 +10,19 @@ class SessionsController < ApplicationController
   def create
     if user = Socio.autenticar(params[:cpf], params[:senha])
       session[:user_id] = user.id
-      redirect_to home_path, :notice => t('general.welcome')
+      notice = t('general.welcome') + ' ' + self.current_user.nome + "."
+      cv = Cheque.get_lista_cheques_vencendo
+      if cv.size > 0
+        notice += 'Você tem '+ cv.size.to_s + '  cheque (s) vencendo nos próximos 7 dias.'
+      end
+      redirect_to home_path, :notice => notice
 	else
-	  flash.now[:alert] = "Invalid login/password combination"
-	  render :action => 'new'
+	  redirect_to login_path, :notice => 'Login ou senha inválidos'
 	end
   end
 
   def destroy
     reset_session
-    redirect_to login_path, :notice => t('general.logout_message')
+    redirect_to login_path
   end	    
 end

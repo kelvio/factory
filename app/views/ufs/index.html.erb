@@ -1,0 +1,25 @@
+<h1>Listing ufs</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Pais dominio</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ufs.each do |uf| %>
+  <tr>
+    <td><%= uf.nome %></td>
+    <td><%= uf.pais_dominio %></td>
+    <td><%= link_to 'Show', uf %></td>
+    <td><%= link_to 'Edit', edit_uf_path(uf) %></td>
+    <td><%= link_to 'Destroy', uf, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Uf', new_uf_path %>

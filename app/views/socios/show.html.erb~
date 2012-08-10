@@ -7,7 +7,7 @@
 
 <p>
   <b>Percentual:</b>
-  <%= number_to_percent @socio.percentual, :precision => 0 %>
+  <%= number_to_percentage @socio.percentual, :precision => 0 %>
 </p>
 
 <p>

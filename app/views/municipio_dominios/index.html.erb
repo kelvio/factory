@@ -1,0 +1,25 @@
+<h1>Listing municipio_dominios</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Uf</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @municipio_dominios.each do |municipio_dominio| %>
+  <tr>
+    <td><%= municipio_dominio.nome %></td>
+    <td><%= municipio_dominio.uf %></td>
+    <td><%= link_to 'Show', municipio_dominio %></td>
+    <td><%= link_to 'Edit', edit_municipio_dominio_path(municipio_dominio) %></td>
+    <td><%= link_to 'Destroy', municipio_dominio, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Municipio dominio', new_municipio_dominio_path %>

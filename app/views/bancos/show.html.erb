@@ -11,6 +11,11 @@
   <b>Codigo:</b>
   <%= @banco.codigo %>
 </p>
+
+<p>
+  <b>Site:</b>
+  <%= @banco.site %>
+</p>
 </div>
 <br />
 <input type="button" onclick="location.href='<%= edit_banco_path(@banco) %>'" value="<%= t('banco.show.edit_link_label') %>" />

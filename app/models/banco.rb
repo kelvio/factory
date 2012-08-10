@@ -1,5 +1,5 @@
 class Banco < ActiveRecord::Base
-  attr_accessible :codigo, :nome
+  attr_accessible :codigo, :nome, :site
   has_many :cheque
   
   validates :codigo, :presence => true, :uniqueness => true, :numericality => true

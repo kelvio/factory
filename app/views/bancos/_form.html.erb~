@@ -1,10 +1,4 @@
-<script language="JavaScript">
-  window.onbeforeunload = confirmExit;
-  function confirmExit()
-  {
-    return 'message to display in dialog box;'
-  }
-</script>
+
 <%= form_for(@banco) do |f| %>
   
   <%= render 'shared/error', :object => @banco %>

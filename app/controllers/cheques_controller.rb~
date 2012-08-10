@@ -77,7 +77,7 @@ class ChequesController < ApplicationController
       begin
         Cheque.transaction do 
           if @cheque.update_attributes(params[:cheque])                                                  
-            format.html { redirect_to @cheque, :notice => 'Cheque was successfully updated.' }
+            format.html { redirect_to @cheque, :notice => 'Cheque atualizado com sucesso.' }
             format.json { head :no_content }
           else
             raise ActiveRecord::Rollback

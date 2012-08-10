@@ -16,6 +16,7 @@
 <table>
   <tr>
     <th>Nome</th>
+    <th>CPF</th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,12 +24,14 @@
 
 <% @emitentes.each do |emitente| %>
   <tr>
+    
     <td><%= emitente.nome %></td>
+    <td><%= emitente.cpf %></td>
     <td><%= link_to t('emitente.index.show_link_label') , emitente %></td>
     <td><%= link_to t('emitente.index.edit_link_label'), edit_emitente_path(emitente) %></td>
     <td>
       <% if(emitente.cheque.count == 0): %>
-      <%= link_to t('emitente.index.destroy_link_label'), emitente, :method => :delete, :data => { :confirm => 'Tem certeza?' } %>
+      <%= link_to t('emitente.index.destroy_link_label'), emitente, :method => :delete, :data => { :confirm => t('general.are_you_rure') } %>
       <% else %>
       Remover
       <% end %>

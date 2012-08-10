@@ -60,7 +60,7 @@
   
   <div class="field">
     <%= f.label :vencimento %><br />
-    <%= f.date_select(:vencimento, options = { :order => [:day, :month, :year], :use_month_numbers => true}) %>
+    <%= f.date_select(:vencimento, options = { :order => calendar_fields_order, :use_month_numbers => true}) %>
   </div>
   
   <div class="field">

@@ -1,0 +1,38 @@
+<script type="text/javascript">
+  $('#calculadora').dialog({
+    autoOpen: true,
+    width: 640,
+    height: 380											
+  });
+</script>
+<div id="calculadora" title="Calculadora">
+    <div  class="box-center">
+      <%= form_tag calculadora_path do %>
+        <div class="field" style="display: inline;">
+          <%= label_tag :valor, 'Valor' %><br />
+          <%= text_field_tag(:valor, {}, {:required => 'required'}) %>
+          <p class="hint"><%= t('calculadora.valor.hint') %></p>
+        </div>
+        <br  />
+        <div class="field" style="display: inline;">
+          <%= label_tag :taxa, 'Taxa de juros' %><br />
+          <%= text_field_tag(:taxa, {}, {:required => 'required'}) %> %
+          <p class="hint"><%= t('calculadora.taxa.hint') %></p>
+        </div>
+        <br  />
+        <div class="field" style="display: inline; ">
+          <%= label_tag :vencimento %><br />
+          <%= select_date(data = Date.current, options = { :order => calendar_fields_order, :use_month_numbers => true}) %>
+        </div>        
+        <br />
+        <div class="field" style="text-align: left; margin-top: 30px; margin-bottom: 30px;">
+        <b>Total:</b><div id="total"></div> <br />
+        </div>
+        
+        <div class="actions">
+            <%= submit_tag 'Calcular' %>
+        </div>
+      <% end %>
+    </div>
+</div>
+

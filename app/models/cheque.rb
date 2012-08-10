@@ -8,7 +8,7 @@ class Cheque < ActiveRecord::Base
   
   has_many :historico_cheque
   
-  attr_accessible :agencia, :conta, :numero, :valor, :vencimento, :banco, :emitente, :cliente, :socio, :banco_id, :emitente_id, :cliente_id, :socio_id, :situacao_cheque, :situacao_cheque_id, :taxa_juros, :tipo_juro, :tipo_juro_id
+  attr_accessible :agencia, :conta, :numero, :valor, :vencimento, :banco, :emitente, :cliente, :socio, :banco_id, :emitente_id, :cliente_id, :socio_id, :situacao_cheque, :situacao_cheque_id, :taxa_juros, :tipo_juro, :tipo_juro_id, :data_troca
   
   after_create :movimentar_capital_after_create
   after_create :registrar_historico_cheque_after_create
@@ -39,6 +39,10 @@ class Cheque < ActiveRecord::Base
     end
   end
   
+  def valor_pago_factory
+    return self.valor - self.valor_total_juros
+  end
+  
   #Verifica se a data de vencimento é uma data futura
   def vencimento_futuro
     errors.add(:vencimento, "A data de vencimento deve ser uma data futura ou no mínimo a data atual") if self.vencimento.mjd < Date.today.mjd
@@ -46,17 +50,24 @@ class Cheque < ActiveRecord::Base
   
   #Número de dias de prazo para o cheque
   def numero_dias
-    return self.vencimento.mjd - self.created_at.to_date.mjd
+    return self.vencimento.mjd - self.data_troca.mjd#created_at.to_date.mjd
   end
   
   #Número de dias passados desde o cadastro do cheque até hoje
   def numero_dias_hoje
-    return self.created_at.to_date.mjd - Date.today.mjd
+    return Date.today.mjd - self.data_troca.mjd#created_at.to_date.mjd
+  end
+  
+  
+  
+  def valor_total_juros
+    return self.valor * (self.taxa_juros / 100)
   end
   
   def valor_taxa_diaria
-    nd = numero_dias
-    return (self.valor * (self.taxa_juros / 100)) / (nd > 0 ? nd : 1)
+    nd = 30 #numero_dias
+    #return (self.valor * (self.taxa_juros / 100)) / (nd > 0 ? nd : 1)     
+    return self.valor_total_juros / nd
   end
   
   #Obtém o valor atual do cheque.
@@ -64,13 +75,22 @@ class Cheque < ActiveRecord::Base
   def valor_atual
     #taxa_diaria = (((self.valor * (self.taxa_juros / 100))) / Time.days_in_month(Date.today.month, Date.today.year))
     incremento = valor_taxa_diaria
-    val = self.valor
-    (0 .. numero_dias_hoje).each do 
+    val = self.valor_pago_factory
+    (0 .. self.numero_dias).each do 
         val += incremento
+    end
+    if self.valor < 200
+      (0 .. 4).each do
+        val += incremento
+      end
     end
     return val  
   end
   
+  
+  def self.get_lista_cheques_vencendo
+    return Cheque.where('vencimento - current_date < 8 and situacao_cheque_id = 1')
+  end
   
   def movimentar_capital_after_create
   

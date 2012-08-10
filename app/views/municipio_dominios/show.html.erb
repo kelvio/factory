@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @municipio_dominio.nome %>
+</p>
+
+<p>
+  <b>Uf:</b>
+  <%= @municipio_dominio.uf %>
+</p>
+
+
+<%= link_to 'Edit', edit_municipio_dominio_path(@municipio_dominio) %> |
+<%= link_to 'Back', municipio_dominios_path %>

@@ -1,5 +1,19 @@
 class RelatoriosController < ApplicationController
-  def operacoes
-    @operacao_financeiras = OperacaoFinanceira.order('created_at desc')
+
+  def new_operacoes
   end
+
+  def operacoes
+    @operacao_financeiras = OperacaoFinanceira.find(:all, :conditions => ['created_at >= ? and created_at <= ? ', Date.new(params[:inicio][:year].to_i, params[:inicio][:month].to_i, params[:inicio][:day].to_i), Date.new(2012, 12, 12)])
+  end
+  
+  def clientes
+  end
+  
+  def emitentes
+  end
+  
+  def cheques
+  end
+  
 end

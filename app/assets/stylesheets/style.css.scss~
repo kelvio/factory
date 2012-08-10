@@ -61,6 +61,8 @@ img {
 }
 
 
+
+
 /* dock - top */
 .dock {
 	position: relative;
@@ -191,7 +193,7 @@ form input {
 .field:hover .hint {
     position: absolute;
     display: block;
-    margin: -30px 0 0 340px;
+    margin: -30px 0 0 540px;
     color: #FFFFFF;
     padding: 7px 10px;
     background: rgba(0, 0, 0, 0.6);

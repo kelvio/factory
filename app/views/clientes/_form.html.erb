@@ -1,13 +1,153 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+  
+    //Esconde CPF e CNPJ até que seja selecionado um tipo de cliente
+    if (!$('#cliente_tipo_cliente_id').val()) {
+      $('#cnpj_field').hide();
+      $('#cpf_field').hide();
+    }
+  
+    //TipoCliente
+    $('#cliente_tipo_cliente_id').change(function() {
+      selected = $('#cliente_tipo_cliente_id').val();
+      if (selected == 1) {
+          $('#cpf_field').show();
+          //$('#cliente_cpf').attr('required', 'required');
+          $('#cnpj_field').hide();
+          //$('#cliente_cnpj').attr('required', '');
+      } else if (selected == 2) {
+          $('#cnpj_field').show();
+          //$('#cliente_cnpj').attr('required', 'required');
+          $('#cpf_field').hide();          
+          //$('#cliente_cpf').attr('required', '');
+      }
+    });
+  
+    //País
+    $('#pais').change(function(){
+      $.getJSON('<%= ufs_path %>', {pais_dominio_id : $('#pais').val()} ,function(data) {
+        $('#uf').empty();
+        $.each(data, function(i,item){
+          $("<option value=\"" + item.id + "\">" + item.nome + "</option>").appendTo('select[name*="uf"]');
+        });
+      })
+    });
+    
+    
+    //Uf
+    $('#uf').change(function() {
+      $.getJSON('<%= municipio_dominios_path %>', {uf_id : $('#uf').val()},function(data) {
+        $('#cliente_municipio_dominio_id').empty();
+        $.each(data, function(i,item){
+          $("<option value=\"" + item.id + "\">" + item.nome + "</option>").appendTo('select[name*="cliente[municipio_dominio_id]"]');
+        });
+      })
+    });
+    
+    //CPF
+    $("#cliente_cpf").mask("999.999.999-99");
+    
+    //CNPJ
+    $("#cliente_cnpj").mask("99.999.999/9999-99");
+    
+    //TELEFONE
+    $("#cliente_telefone").mask("(99)99999999");
+    
+    //CEP
+    $("#cliente_cep").mask("99999-999");
+    
+    $("form").submit(function(e) {
+      $('#cliente_cpf').val($('#cliente_cpf').val().replace('.', '').replace('.', '').replace('-', ''))
+      $('#cliente_cnpj').val($('#cliente_cnpj').val().replace('.', '').replace('.', '').replace('/', '').replace('-', ''))
+      $('#cliente_telefone').val($('#cliente_telefone').val().replace('(', '').replace(')', ''))
+      $('#cliente_cep').val($('#cliente_cep').val().replace('-', ''))
+    });
+  });
+</script>
 <%= form_for(@cliente) do |f| %>
 
-    <%= render 'shared/error', :object => @cliente %>
+  <%= render 'shared/error', :object => @cliente %>
 
   <div class="box-left">
   <div class="field">
     <%= f.label :nome %><br />
-    <%= f.text_field(:nome,  {:required => 'required'}) %> 
+    <%= f.text_field(:nome) %> 
     <p class="hint"><%= t('cliente.form.nome.hint') %></p>
   </div>
+
+  <div class="field">
+    <%= f.label :tipo_cliente %><br />
+    <%= f.select(:tipo_cliente_id, TipoCliente.all.collect {|t| [t.nome, t.id]} , {:include_blank => t('cliente.form.tipo_cliente.no_selection_label')}) %>
+    <p class="hint"><%= t('cliente.form.tipo_cliente.hint') %></p>
+  </div>
+  
+  <div class="field">
+    <%= label_tag 'País' %><br />
+    <%= select_tag "pais", options_from_collection_for_select(PaisDominio.all, "id", "nome"), {:include_blank => t('cliente.form.tipo_cliente.no_selection_label')} %>
+    <p class="hint"><%= t('cliente.form.tipo_cliente.hint') %></p>
+  </div>
+  
+  <div class="field">
+    <%= label_tag 'UF' %><br />
+    <%= select_tag "uf", [], {:include_blank => t('cliente.form.tipo_cliente.no_selection_label')}%>
+    <p class="hint"><%= t('cliente.form.tipo_cliente.hint') %></p>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Município' %><br />
+    <%= f.select(:municipio_dominio_id, [], {:include_blank => t('cliente.form.tipo_cliente.no_selection_label')}) %>
+    <p class="hint"><%= t('cliente.form.tipo_cliente.hint') %></p>
+  </div>
+  
+  <div class="field" id="cpf_field">
+    <%= f.label :cpf %><br />
+    <%= f.text_field(:cpf) %> 
+    <p class="hint"><%= t('cliente.form.cpf.hint') %></p>
+  </div>
+    
+  <div class="field" id="cnpj_field">
+    <%= f.label :cnpj %><br />
+    <%= f.text_field(:cnpj) %> 
+    <p class="hint"><%= t('cliente.form.cnpj.hint') %></p>
+  </div>
+  
+  <div class="field">
+    <%= f.label :logradouro %><br />
+    <%= f.text_field(:logradouro) %> 
+    <p class="hint"><%= t('cliente.form.logradouro.hint') %></p>
+  </div>
+  
+  <div class="field">
+    <%= f.label :bairro %><br />
+    <%= f.text_field(:bairro) %> 
+    <p class="hint"><%= t('cliente.form.bairro.hint') %></p>
+  </div>
+  
+  <div class="field">
+    <%= f.label :cep %><br />
+    <%= f.text_field(:cep) %> 
+    <p class="hint"><%= t('cliente.form.cep.hint') %></p>
+  </div>
+  
+  <div class="field">
+    <%= f.label :numero %><br />
+    <%= f.text_field(:numero) %> 
+    <p class="hint"><%= t('cliente.form.numero.hint') %></p>
+  </div>
+  
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field(:email) %> 
+    <p class="hint"><%= t('cliente.form.email.hint') %></p>
+  </div>
+  
+  
+  <div class="field">
+    <%= f.label :telefone %><br />
+    <%= f.text_field(:telefone) %> 
+    <p class="hint"><%= t('cliente.form.telefone.hint') %></p>
+  </div>
+    
   </div>
   <div class="actions">
     <input type="button" onclick="location.href='<%= clientes_path %>'" value="<%= t('cliente.new.back_link_label') %>" />

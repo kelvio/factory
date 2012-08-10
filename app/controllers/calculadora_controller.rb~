@@ -1,0 +1,10 @@
+class CalculadoraController < ApplicationController
+
+  def index  
+    respond_to do |format|
+      format.html {render :template => nil} # index.html.erb
+      format.json { render :json => @bancos }
+    end
+  end
+  
+end

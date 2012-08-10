@@ -4,12 +4,13 @@ class Socio < ActiveRecord::Base
 
   PASSWORD_SALT = '951737830e37c48f4f8ca0fcd4c298d1827e600e'
   
-  attr_accessible :cpf, :nome, :capital, :senha, :senha_confirmation
+  attr_accessible :cpf, :nome, :capital, :senha, :senha_confirmation, :email
   
   validates :cpf, :presence => true, :uniqueness => true, :numericality => true
   validates :nome, :presence => true, :length => { :within => 3 ... 255}
   validates :senha, :presence => true, :confirmation => true, :length => { :within => 8 ... 64}
   validates :capital, :presence => true, :numericality => true
+  validates :email, :presence => true, :length => {:within => 10 ... 255 }
   
   before_save :update_montante_real_factory
   

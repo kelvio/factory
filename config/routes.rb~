@@ -1,4 +1,28 @@
 Factory::Application.routes.draw do
+  resources :municipio_dominios
+
+  resources :pais_dominios
+
+  resources :paises
+
+  resources :countries
+
+  resources :municipios
+
+  resources :ufs
+
+  resources :pais
+
+  resources :tipo_clientes
+
+  resources :items
+
+  resources :situacao_items
+
+  resources :ocorrencia
+
+  resources :situacao_ocorrencia
+
   resources :periodicidade_despesas
 
   resources :tipo_juros
@@ -10,6 +34,7 @@ Factory::Application.routes.draw do
   resources :tipo_operacao_financeiras
   resources :parcela_despesa
   
+  
   resources :despesas
   
   resources :tipo_despesas
@@ -17,11 +42,12 @@ Factory::Application.routes.draw do
   resources :historico_cheques
 
   resources :cheques
-
+  match '/new_lote' => "cheques#new_lote", :as => "new_lote"
+  
   resources :socios
 
   resources :clientes
-
+    
   resources :emitentes
 
   resources :bancos
@@ -35,11 +61,24 @@ Factory::Application.routes.draw do
   
   #Relatórios
   resource :relatorios
-  match '/relatorios_operacoes' => "relatorios#operacoes", :as => "relatorios_operacoes"
+  #new
+  match '/relatorios_new_operacoes' => 'relatorios#new_operacoes', :as => "relatorio_new_operacoes"
+  match '/relatorios_new_clientes' => 'relatorios#new_clientes', :as => "relatorio_new_clientes"
+  match '/relatorios_new_emitentes' => 'relatorios#new_emitentes', :as => "relatorio_new_emitentes"
+  match '/relatorios_new_cheques' => 'relatorios#new_cheques', :as => "relatorio_new_cheques"
+  
+  #show
+  match '/relatorios_operacoes' => "relatorios#operacoes", :as => "relatorio_operacoes"  
+  match '/relatorios_emitentes' => "relatorios#emitentes", :as => "relatorio_emitentes"
+  match '/relatorios_clientes' => "relatorios#clientes", :as => "relatorio_clientes"
+  match '/relatorios_cheques' => "relatorios#cheques", :as => "relatorio_cheques"
   
   #Index
   resource :index
   match '/' => "index#index", :as => 'home'
+
+  resource :calculadora
+  match '/calculadora' => "calculadora#index", :as => 'calculadora'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,18 @@
+<h1>Selecione o período</h1>
+
+<%= form_tag relatorio_clientes_path do %>
+  <div class="field" style="display: inline; ">
+    <%= label_tag :inicio %><br />
+    <%= select_date(data = Date.current, options = { :order => calendar_fields_order, :use_month_numbers => true}) %>
+  </div>
+  <br />
+  <div class="field" style="display: inline; ">
+    <%= label_tag :fim %><br />
+    <%= select_date(data = Date.current, options = { :order => calendar_fields_order, :use_month_numbers => true}) %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= submit_tag t('relatorio.new_operacoes.submit_button') %>
+  </div>
+<% end %>
+

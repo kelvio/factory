@@ -1,0 +1,83 @@
+class MunicipioDominiosController < ApplicationController
+  # GET /municipio_dominios
+  # GET /municipio_dominios.json
+  def index
+    @municipio_dominios = MunicipioDominio.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @municipio_dominios }
+    end
+  end
+
+  # GET /municipio_dominios/1
+  # GET /municipio_dominios/1.json
+  def show
+    @municipio_dominio = MunicipioDominio.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => @municipio_dominio }
+    end
+  end
+
+  # GET /municipio_dominios/new
+  # GET /municipio_dominios/new.json
+  def new
+    @municipio_dominio = MunicipioDominio.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render :json => @municipio_dominio }
+    end
+  end
+
+  # GET /municipio_dominios/1/edit
+  def edit
+    @municipio_dominio = MunicipioDominio.find(params[:id])
+  end
+
+  # POST /municipio_dominios
+  # POST /municipio_dominios.json
+  def create
+    @municipio_dominio = MunicipioDominio.new(params[:municipio_dominio])
+
+    respond_to do |format|
+      if @municipio_dominio.save
+        format.html { redirect_to @municipio_dominio, :notice => 'Municipio dominio was successfully created.' }
+        format.json { render :json => @municipio_dominio, :status => :created, :location => @municipio_dominio }
+      else
+        format.html { render :action => "new" }
+        format.json { render :json => @municipio_dominio.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /municipio_dominios/1
+  # PUT /municipio_dominios/1.json
+  def update
+    @municipio_dominio = MunicipioDominio.find(params[:id])
+
+    respond_to do |format|
+      if @municipio_dominio.update_attributes(params[:municipio_dominio])
+        format.html { redirect_to @municipio_dominio, :notice => 'Municipio dominio was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render :action => "edit" }
+        format.json { render :json => @municipio_dominio.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /municipio_dominios/1
+  # DELETE /municipio_dominios/1.json
+  def destroy
+    @municipio_dominio = MunicipioDominio.find(params[:id])
+    @municipio_dominio.destroy
+
+    respond_to do |format|
+      format.html { redirect_to municipio_dominios_url }
+      format.json { head :no_content }
+    end
+  end
+end

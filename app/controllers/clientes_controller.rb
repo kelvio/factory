@@ -56,6 +56,12 @@ class ClientesController < ApplicationController
     end
   end
 
+  def uf_list
+    respond_to do |format|
+      format.json { render :json => [] }
+    end
+  end
+
   # PUT /clientes/1
   # PUT /clientes/1.json
   def update

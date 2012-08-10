@@ -1,3 +1,13 @@
+<%= javascript_include_tag "jquery.maskedinput-1.3.min.js" %>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#emitente_cpf").mask("999.999.999-99");
+        
+        $("form").submit(function(e) {
+            $('#emitente_cpf').val($('#emitente_cpf').val().replace('.', '').replace('.', '').replace('-', ''))
+        });        
+    });
+</script>
 <%= form_for(@emitente) do |f| %>
 
   <%= render 'shared/error', :object => @emitente %>
@@ -7,6 +17,11 @@
     <%= f.label :nome %><br />
     <%= f.text_field(:nome, {:required => 'required'}) %>
     <p class="hint"><%= t('emitente.form.nome.hint') %></p>
+  </div>
+  <div class="field">
+    <%= f.label :cpf %><br />
+    <%= f.text_field(:cpf, {:required => 'required'}) %>
+    <p class="hint"><%= t('emitente.form.cpf.hint') %></p>
   </div>
   </div>
   <div class="actions">

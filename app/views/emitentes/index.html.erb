@@ -16,14 +16,16 @@
 <table>
   <tr>
     <th>Nome</th>
+    <th>CPF</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @emitentes.each do |emitente| %>
-  <tr>
+  <tr>    
     <td><%= emitente.nome %></td>
+    <td><%= emitente.cpf %></td>
     <td><%= link_to t('emitente.index.show_link_label') , emitente %></td>
     <td><%= link_to t('emitente.index.edit_link_label'), edit_emitente_path(emitente) %></td>
     <td>

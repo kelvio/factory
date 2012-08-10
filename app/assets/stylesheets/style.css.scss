@@ -8,6 +8,16 @@ img {
 	border: none;
 }
 
+.wrapper {
+	position: absolute;
+	top: 48%;
+	left: 50%;
+	width: 660px;
+	height: 340px;
+	margin: -190px 0 0 -330px;
+}
+
+
 #corpo{
     width:90%;
     margin: auto;
@@ -59,6 +69,8 @@ img {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+
 
 
 /* dock - top */

@@ -1,0 +1,23 @@
+<h1>Listing paises</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @paises.each do |pais| %>
+  <tr>
+    <td><%= pais.nome %></td>
+    <td><%= link_to 'Show', pais %></td>
+    <td><%= link_to 'Edit', edit_pais_path(pais) %></td>
+    <td><%= link_to 'Destroy', pais, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pais', new_pais_path %>

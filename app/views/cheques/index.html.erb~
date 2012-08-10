@@ -43,7 +43,7 @@
     <td><%= cheque.socio %></td>
     <td><%= link_to t('cheque.index.show_link_label'), cheque %></td>
     <td><%= link_to t('cheque.index.edit_link_label'), edit_cheque_path(cheque) %></td>
-    <td><%= link_to t('cheque.index.destroy_link_label'), cheque, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td><%= link_to t('cheque.index.destroy_link_label'), cheque, :method => :delete, :data => { :confirm => t('general.are_you_rure') } %></td>
   </tr>
 <% end %>
 </table>
@@ -57,4 +57,5 @@
 
 <br />
 <input type="button" onclick="location.href='<%= new_cheque_path %>'" value="<%= t('cheque.index.new_button_label') %>" />
+<input type="button" onclick="location.href='<%= new_cheque_path %>'" value="<%= t('cheque.index.new_lote_button_label') %>" />
 

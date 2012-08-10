@@ -1,0 +1,3 @@
+class Pai < ActiveRecord::Base
+  attr_accessible :nome
+end

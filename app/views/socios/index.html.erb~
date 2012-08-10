@@ -17,8 +17,10 @@
 <table>
   <tr>
     <th>Nome</th>
-    <th>Percentual</th>
+    <th>Capital</th>
+    <th>Percentual</th>    
     <th>Cpf</th>
+    <th>Sócio</th>
     <th></th>
     <th></th>
     <th></th>
@@ -27,11 +29,13 @@
 <% @socios.each do |socio| %>
   <tr>
     <td><%= socio.nome %></td>
+    <td><%= number_to_currency socio.capital %></td>
     <td><%= number_to_percentage socio.percentual, :precision => 0 %></td>
     <td><%= socio.cpf %></td>
+    <td><%= socio.email %></td>
     <td><%= link_to t('socio.index.show_link_label'), socio %></td>
     <td><%= link_to t('socio.index.edit_link_label'), edit_socio_path(socio) %></td>
-    <td><%= link_to t('socio.index.destroy_link_label'), socio, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td><%= link_to t('socio.index.destroy_link_label'), socio, :method => :delete, :data => { :confirm => t('general.are_you_rure') } %></td>
   </tr>
 <% end %>
 </table>

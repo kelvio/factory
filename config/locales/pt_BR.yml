@@ -11,13 +11,22 @@ pt_BR:
         despesa:
           attributes:
             nome:
-              taken: Nome já cadastrado
+              taken: Nome já cadastrado 
   general:
     are_you_rure: Você tem certeza que deseja excluir este registro?
     prohibited_this_object_from_being_saved: impede (m) que este objeto seja salvo
     error: Erro
     logout_message: Você saiu com sucesso
     welcome: Bem vindo
+    please_login_to_continue: Por favor, se identifique para continuar
+  #Calculadora
+  calculadora:
+    valor:
+      hint: Valor 
+    taxa:
+      hint: Taxa
+    submit_button:
+      hint: Calcular
   #Banco
   banco:
     index:
@@ -42,6 +51,8 @@ pt_BR:
         hint: Nome do banco
       codigo:
         hint: Código do banco
+      site:
+        hint: Site
       
   #Cheque
   cheque:
@@ -51,17 +62,20 @@ pt_BR:
       edit_link_label: Editar
       destroy_link_label: Remover
       new_button_label: Novo Cheque
+      new_lote_button_label: Novo Lote de Cheques
       search_button_label: Pesquisar
     show:
       edit_link_label: Editar
       back_link_label: Voltar
     edit:
-      title: Editaring cheque
+      title: Editando cheque
       show_link_label: Detalhes      
       back_link_label: Voltar
     new:
       title: Novo cheque  
       back_link_label: Voltar
+    new_lote:
+      title: Novo lote de cheques
     form:
       tipo_juro:       
         hint: Tipo de juro
@@ -113,6 +127,9 @@ pt_BR:
     form:
       nome:
         hint: Nome do cliente   
+      tipo_cliente:
+        no_selection_label: Selecione
+        hint: Tipo de cliente
   #Emitente 
   emitente:
     index:
@@ -187,6 +204,8 @@ pt_BR:
         hint: Senha
       senha_confirmation:
         hint: Confirmação da senha
+      email:
+        hint: E-mail
   #Despesa
   despesa:
     index:
@@ -243,12 +262,18 @@ pt_BR:
       new:
       title: Login
       cpf: CPF
-      cpf_hint: The CPF
+      cpf_hint: CPF
       senha: Senha
-      senha_hint: The password
-      submit_button: Submit      
+      senha_hint: Senha
+      submit_button: Entrar      
       
   #Relatório
   relatorio:
     index:
       title: Relatórios
+    new_operacoes:
+      submit_button: Processar
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Próxima &#8594;"
+    page_gap: "&hellip;

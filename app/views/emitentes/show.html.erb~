@@ -6,5 +6,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_emitente_path(@emitente) %> |
-<%= link_to 'Back', emitentes_path %>
+<%= link_to t('emitente.show.edit_link_label') , edit_emitente_path(@emitente) %> |
+<%= link_to t('emitente.show.back_link_label') , emitentes_path %>

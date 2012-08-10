@@ -17,14 +17,14 @@ class ApplicationController < ActionController::Base
     
     # Set the locale from parameters
     def set_locale
-#      I18n.default_locale = :pt_BR
+      I18n.default_locale = :pt_BR
       I18n.locale = params[:locale] unless params[:locale].blank?
-#      I18n.locale = I18n.default_locale if params[:locale].blank?
+      I18n.locale = I18n.default_locale if params[:locale].blank?
     end
   
     def calendar_fields_order
-      return [:day, :month, :year] #if I18n.locale == :pt_BR
-#      return [:year, :month, :day] if I18n.locale == :en
+      return [:day, :month, :year] if I18n.locale == :pt_BR
+      return [:year, :month, :day] if I18n.locale == :en
     end
     
     helper_method :calendar_fields_order
@@ -70,6 +70,6 @@ class ApplicationController < ActionController::Base
     helper_method :logged_in?
     
     def access_denied
-        redirect_to login_path, :notice => "Please log in to continue" and return false
+        redirect_to login_path, :notice => t('general.please_login_to_continue') and return false
     end
 end

@@ -14,6 +14,10 @@
   <b>Cpf:</b>
   <%= @socio.cpf %>
 </p>
+<p>
+  <b>E-mail:</b>
+  <%= @socio.email %>
+</p>
 </div>
 <br />
 <input type="button" onclick="location.href='<%= edit_socio_path(@socio) %>'" value="<%= t('socio.show.edit_link_label') %>" />

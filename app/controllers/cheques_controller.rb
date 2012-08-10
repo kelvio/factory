@@ -35,6 +35,9 @@ class ChequesController < ApplicationController
     end
   end
 
+  def new_lote    
+  end
+
   # GET /cheques/1/edit
   def edit
     @cheque = Cheque.find(params[:id])

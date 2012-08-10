@@ -1,5 +1,5 @@
 class Emitente < ActiveRecord::Base
-  attr_accessible :nome
+  attr_accessible :nome, :cpf
   has_many :cheque
   validates :nome, :presence => true, :length => { :within => 10 ... 255}
   
