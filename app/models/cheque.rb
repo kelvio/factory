@@ -5,10 +5,11 @@ class Cheque < ActiveRecord::Base
   belongs_to :banco
   belongs_to :cliente
   belongs_to :socio
+  belongs_to :lote_cheque
   
   has_many :historico_cheque
   
-  attr_accessible :agencia, :conta, :numero, :valor, :vencimento, :banco, :emitente, :cliente, :socio, :banco_id, :emitente_id, :cliente_id, :socio_id, :situacao_cheque, :situacao_cheque_id, :taxa_juros, :tipo_juro, :tipo_juro_id, :data_troca
+  attr_accessible :agencia, :conta, :numero, :valor, :vencimento, :banco, :emitente, :cliente, :socio, :banco_id, :emitente_id, :cliente_id, :socio_id, :situacao_cheque, :situacao_cheque_id, :taxa_juros, :tipo_juro, :tipo_juro_id, :data_troca, :lote_cheque_id, :lote_cheque
   
   after_create :movimentar_capital_after_create
   after_create :registrar_historico_cheque_after_create

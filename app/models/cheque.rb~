@@ -5,6 +5,7 @@ class Cheque < ActiveRecord::Base
   belongs_to :banco
   belongs_to :cliente
   belongs_to :socio
+  belongs_to :lote_cheque
   
   has_many :historico_cheque
   
@@ -76,11 +77,13 @@ class Cheque < ActiveRecord::Base
     #taxa_diaria = (((self.valor * (self.taxa_juros / 100))) / Time.days_in_month(Date.today.month, Date.today.year))
     incremento = valor_taxa_diaria
     val = self.valor_pago_factory
-    dias = self.numero_dias
-    dias += 4 if self.valor < 200
-    
-    (0 .. dias).each do 
+    (0 .. self.numero_dias).each do 
         val += incremento
+    end
+    if self.valor < 200
+      (0 .. 4).each do
+        val += incremento
+      end
     end
     return val  
   end

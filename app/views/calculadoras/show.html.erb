@@ -1,13 +1,17 @@
+<%= javascript_include_tag "jquery.maskMoney.js" %>
 <script type="text/javascript">
   $('#calculadora').dialog({
     autoOpen: true,
     width: 640,
     height: 380											
   });
+  $("#valor").maskMoney({symbol:'R$ ', showSymbol:true, thousands:'.', decimal:',', symbolStay: true});
 </script>
+
+
 <div id="calculadora" title="Calculadora">
     <div  class="box-center">
-      <%= form_tag calculadora_path do %>
+      <%= form_tag calculadora_path, :remote => true do %>
         <div class="field" style="display: inline;">
           <%= label_tag :valor, 'Valor' %><br />
           <%= text_field_tag(:valor, {}, {:required => 'required'}) %>
@@ -29,8 +33,8 @@
         <b>Total:</b><div id="total"></div> <br />
         </div>
         
-        <div class="actions">
-            <button onclick="alert('Não implementado ainda.')">Calcular</button>
+        <div class="actions">            
+            <button>Calcular</button>
         </div>
       <% end %>
     </div>

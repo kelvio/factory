@@ -265,12 +265,21 @@ pt_BR:
       cpf_hint: CPF
       senha: Senha
       senha_hint: Senha
-      submit_button: Entrar      
+      submit_button: Entrar    
+  
+  #LoteCheque
+  lote_cheque:
+    show: 
+      edit_link_label: Editar
+      back_link_label: Voltar  
+      new_cheque_label: Novo cheque
       
   #Relatório
   relatorio:
     index:
       title: Relatórios
+    new_operacoes:
+      submit_button: Processar
   will_paginate:
     previous_label: "&#8592; Anterior"
     next_label: "Próxima &#8594;"

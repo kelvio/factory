@@ -16,6 +16,7 @@
 <center>
 <table>
   <tr>
+    <th>Lote</th>
     <th>Numero</th>
     <th>Valor</th>
     <th>Vencimento</th>
@@ -32,6 +33,7 @@
 
 <% @cheques.each do |cheque| %>
   <tr>
+    <td><%= cheque.lote_cheque ? cheque.lote_cheque : 'Não vinculado a nenhum lote' %></td>
     <td><%= cheque.numero %></td>
     <td><%= number_to_currency cheque.valor %></td>
     <td><%= cheque.vencimento %></td>
@@ -57,5 +59,5 @@
 
 <br />
 <input type="button" onclick="location.href='<%= new_cheque_path %>'" value="<%= t('cheque.index.new_button_label') %>" />
-<input type="button" onclick="location.href='<%= new_lote_path %>'" value="<%= t('cheque.index.new_lote_button_label') %>" />
+<input type="button" onclick="location.href='<%= new_lote_cheque_path %>'" value="<%= t('cheque.index.new_lote_button_label') %>" />
 

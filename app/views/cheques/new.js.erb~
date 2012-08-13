@@ -1,0 +1,5 @@
+$("<%= escape_javascript render(:file => 'cheques/ajax_new.html.erb') %>").insertBefore('#cheques');
+$("#new_cheque_link").hide();
+$("#new_cheque").hide();
+$("#new_cheque").slideDown();
+

@@ -1,0 +1,21 @@
+<%= form_for(@lote_cheque) do |f| %>
+  <% if @lote_cheque.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lote_cheque.errors.count, "error") %> prohibited this lote_cheque from being saved:</h2>
+
+      <ul>
+      <% @lote_cheque.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

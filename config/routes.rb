@@ -1,4 +1,8 @@
 Factory::Application.routes.draw do
+  resources :lote_cheques do 
+    resources :cheques
+  end
+
   resources :municipio_dominios
 
   resources :pais_dominios
@@ -42,7 +46,7 @@ Factory::Application.routes.draw do
   resources :historico_cheques
 
   resources :cheques
-  match '/new_lote' => "cheques#new_lote", :as => "new_lote"
+  #match '/new_lote' => "cheques#new_lote", :as => "new_lote"
   
   resources :socios
 

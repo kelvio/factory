@@ -1,0 +1,5 @@
+class LoteCheque < ActiveRecord::Base
+  has_many :cheque
+  attr_accessible :nome
+  
+end

@@ -1,0 +1,10 @@
+$('#notice').val('<%= @cheque.errors.full_messages.to_sentence %>');
+$('#dialog').dialog({
+					autoOpen: true,
+					width: 600,
+					buttons: {
+						"Ok": function() {
+							$(this).dialog("close");
+						}						
+					}
+				});

@@ -6,6 +6,7 @@ class CreateCheques < ActiveRecord::Migration
       t.references :banco
       t.references :cliente
       t.references :socio
+      t.references :lote_cheque
       t.string :numero
       t.decimal :valor
       t.date :vencimento
@@ -19,5 +20,6 @@ class CreateCheques < ActiveRecord::Migration
     add_index :cheques, :banco_id
     add_index :cheques, :cliente_id
     add_index :cheques, :socio_id
+    add_index :cheques, :lote_cheque_id
   end
 end

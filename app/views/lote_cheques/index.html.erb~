@@ -1,0 +1,46 @@
+<h1>Lista de lotes de cheque</h1>
+
+<center>
+<div class="box-center">
+<%= form_tag lote_cheques_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :nome, params[:nome] %>
+    <%= submit_tag t('lote_cheque.index.search_button_label'), :name => nil %>
+  </p>
+<% end %>
+</div>
+</center>
+
+<div class="box-left">
+<div class="list">
+<center>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Quantidade de cheques</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lote_cheques.each do |lote_cheque| %>
+  <tr>
+    <td ><%= lote_cheque.nome %></td>
+    <td><%= lote_cheque.cheque.size %></td>
+    <td><%= link_to 'Detalhes', lote_cheque %></td>
+    <td><%= link_to 'Editar', edit_lote_cheque_path(lote_cheque) %></td>
+    <td><%= link_to 'Remover', lote_cheque, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+</center>
+</div>
+</div>
+<br />
+
+<%= will_paginate @cheques %>
+
+</br>
+
+<input type="button" onclick="location.href='<%= new_lote_cheques_path %>'" value="Novo lote de cheques" />
+

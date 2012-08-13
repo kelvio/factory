@@ -11,7 +11,7 @@
     });
 </script>
 
-<%= form_for([@lote_cheque, @lote_cheque.cheque.new], :remote => true) do |f| %>
+<%= form_for([@lote_cheque, @lote_cheque.cheque.new], :remote => true, :html => {:style => 'display: none;'}) do |f| %>
   
   <%= render 'shared/error', :object => @cheque %>
   
@@ -89,7 +89,6 @@
   
   
   <div class="actions">
-    <input type="button" onclick="location.href='<%= cheques_path %>'" value="<%= t('cheque.new.back_link_label') %>" />
     <%= f.submit %>
   </div>
   

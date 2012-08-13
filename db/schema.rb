@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20120809144948) do
     t.integer  "banco_id"
     t.integer  "cliente_id"
     t.integer  "socio_id"
+    t.integer  "lote_cheque_id"
     t.string   "numero"
     t.decimal  "valor"
     t.date     "vencimento"
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20120809144948) do
   add_index "cheques", ["banco_id"], :name => "index_cheques_on_banco_id"
   add_index "cheques", ["cliente_id"], :name => "index_cheques_on_cliente_id"
   add_index "cheques", ["emitente_id"], :name => "index_cheques_on_emitente_id"
+  add_index "cheques", ["lote_cheque_id"], :name => "index_cheques_on_lote_cheque_id"
   add_index "cheques", ["situacao_cheque_id"], :name => "index_cheques_on_situacao_cheque_id"
   add_index "cheques", ["socio_id"], :name => "index_cheques_on_socio_id"
   add_index "cheques", ["tipo_juro_id"], :name => "index_cheques_on_tipo_juro_id"
@@ -111,6 +113,12 @@ ActiveRecord::Schema.define(:version => 20120809144948) do
 
   add_index "items", ["despesa_id"], :name => "index_items_on_despesa_id"
   add_index "items", ["situacao_item_id"], :name => "index_items_on_situacao_item_id"
+
+  create_table "lote_cheques", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "municipio_dominios", :force => true do |t|
     t.string   "nome"

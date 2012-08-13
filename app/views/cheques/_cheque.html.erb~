@@ -1,0 +1,105 @@
+<h2>Cheque <%= cheque.numero %></h2>
+<div class="box-left">
+
+
+<p>
+  <b>Numero:</b>
+  <%= cheque.numero %>
+</p>
+
+<p>
+  <b>Agencia:</b>
+  <%= cheque.agencia %>
+</p>
+
+<p>
+  <b>Conta:</b>
+  <%= cheque.conta %>
+</p>
+
+<p>
+  <b>Banco:</b>
+  <%= cheque.banco %>
+</p>
+
+<p>
+  <b>Emitente:</b>
+  <%= cheque.emitente %>
+</p>
+
+<p>
+  <b>Cliente:</b>
+  <%= cheque.cliente %>
+</p>
+
+<p>
+  <b>Socio:</b>
+  <%= cheque.socio %>
+</p>
+<p>
+  <b>Situação:</b>
+  <%= cheque.situacao_cheque %>
+</p>
+
+
+<p>
+  <b>Taxa de juros:</b>
+  <%= number_to_percentage(cheque.taxa_juros, :precision => 0)  %>
+</p>
+
+<p>
+  <b>Tipo de juros:</b>
+  <%= cheque.tipo_juro %>
+</p>
+
+<p>
+  <b>Taxa diária:</b>
+  <%= number_to_currency cheque.valor_taxa_diaria %>
+</p>
+
+<p>
+  <b>Valor do cheque:</b>
+  <%= number_to_currency cheque.valor %>
+</p>
+
+<p>
+  <b>Valor pago pela Factory:</b>
+  <%= number_to_currency cheque.valor_pago_factory %>
+</p>
+
+<p>
+  <b>Valor do cheque acumulado até hoje:</b>
+  <%= number_to_currency cheque.valor_atual %>
+</p>
+
+<p>
+  <b>Vencimento:</b>
+  <%= cheque.vencimento %>
+</p>
+
+<p>
+  <b>Total de dias de prazo:</b>
+  <%= cheque.numero_dias %>
+</p>
+
+<p>
+  <b>Data da troca:</b>
+  <%= cheque.data_troca %>
+</p>
+
+<p>
+  <b>Data do cadastro:</b>
+  <%= cheque.created_at %>
+</p>
+
+<p>
+  <b>Número de dias desde o cadastro até hoje:</b>
+  <%= cheque.numero_dias_hoje %>
+</p>
+
+</div>
+
+<br />
+<input type="button" onclick="location.href='<%= edit_cheque_path(cheque) %>'" value="<%= t('cheque.show.edit_link_label') %>" />
+<input type="button" onclick="location.href='<%= cheques_path %>'" value="<%= t('cheque.show.back_link_label') %>" />
+

@@ -1,0 +1,10 @@
+$('#notice').val('Cheque cadastrado com sucesso.');
+$('#dialog').dialog({
+					autoOpen: true,
+					width: 600,
+					buttons: {
+						"Ok": function() {
+							$(this).dialog("close");
+						}						
+					}
+				});

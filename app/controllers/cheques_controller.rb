@@ -1,7 +1,8 @@
 class ChequesController < ApplicationController
 
   before_filter :authenticate
-
+  before_filter :load_lote_cheque, :except => 'destroy'
+  
   # GET /cheques
   # GET /cheques.json
   def index
@@ -32,11 +33,10 @@ class ChequesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @cheque }
+      format.js 
     end
   end
 
-  def new_lote    
-  end
 
   # GET /cheques/1/edit
   def edit
@@ -49,6 +49,8 @@ class ChequesController < ApplicationController
     @cheque = Cheque.new(params[:cheque])
     @cheque.socio = Socio.find(session[:user_id])
     
+    @cheque.lote_cheque = @lote_cheque 
+    
     respond_to do |format|
       begin
         Cheque.transaction do          
@@ -60,9 +62,11 @@ class ChequesController < ApplicationController
         end        
         format.html { redirect_to @cheque, :notice => 'Cheque criado com sucesso.' }
         format.json { render :json => @cheque, :status => :created, :location => @cheque }
+        format.js 
       rescue ActiveRecord::Rollback, ActiveRecord::RecordInvalid
         format.html { render :action => "new" }
         format.json { render :json => @cheque.errors, :status => :unprocessable_entity }
+        format.js { render 'fail_create.js.erb' }
       end            
     end    
   end
@@ -104,4 +108,10 @@ class ChequesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+    def load_lote_cheque
+      @lote_cheque = LoteCheque.find(params[:lote_cheque_id]) if params[:lote_cheque_id]
+    end
+  
 end
