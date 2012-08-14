@@ -1,17 +1,34 @@
 <%= javascript_include_tag "jquery.maskMoney.js" %>
 <script type="text/javascript">
+  $('#calculadora_form').submit(function() {
+    valor = $('#valor').val();
+            valor = valor.replace('R$ ', '').replace('.', '').replace('.', '').replace('.', '').replace('.', '').replace(',', '.');
+            $('#valor').val(valor);
+            
+  });
   $('#calculadora').dialog({
     autoOpen: true,
     width: 640,
     height: 380											
   });
   $("#valor").maskMoney({symbol:'R$ ', showSymbol:true, thousands:'.', decimal:',', symbolStay: true});
+  $('#gravar_cheque').click(function(e) {
+    $('#calculadora_form')[0].action = '<%= new_cheque_path %>';
+    url = '<%= new_cheque_path %>';
+    url += "?"
+    url += ("valor=" + $('#valor').val().replace('R$ ', '').replace('.', '').replace('.', '').replace('.', '').replace('.', '').replace(',', '.'))
+    url += ("&taxa=" + $('#taxa').val());
+    url += ("&date[day]=" + $('date_day').val());
+    url += ("&date[month]=" + $('date_month').val());
+    url += ("&date[year]=" + $('date_year').val());
+    window.location.href=url    
+  });
 </script>
 
 
 <div id="calculadora" title="Calculadora">
     <div  class="box-center">
-      <%= form_tag calculadora_path, :remote => true do %>
+      <%= form_tag calculadora_path, :remote => true, :id => 'calculadora_form' do %>
         <div class="field" style="display: inline;">
           <%= label_tag :valor, 'Valor' %><br />
           <%= text_field_tag(:valor, {}, {:required => 'required'}) %>
@@ -30,11 +47,12 @@
         </div>        
         <br />
         <div class="field" style="text-align: left; margin-top: 30px; margin-bottom: 30px;">
-        <b>Total:</b><div id="total"></div> <br />
+        <b>Resultado:</b><div id="total"></div> <br />
         </div>
         
-        <div class="actions">
-            <button>Calcular</button>
+        <div class="actions"> 
+            <input type="submit" value="Calcular" />
+            <input type="submit"  id="gravar_cheque" value="Gravar" />
         </div>
       <% end %>
     </div>

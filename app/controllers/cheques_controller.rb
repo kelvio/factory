@@ -27,9 +27,11 @@ class ChequesController < ApplicationController
 
   # GET /cheques/new
   # GET /cheques/new.json
-  def new
+  def new    
     @cheque = Cheque.new
-
+    @cheque.valor = params[:valor] if params[:valor]    
+    @cheque.taxa_juros = params[:taxa] if params[:taxa]
+    @cheque.vencimento = Date.new(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i) if params[:date]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @cheque }
