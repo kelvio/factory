@@ -1,5 +1,16 @@
-<h1>Relatório de operações por cliente</h1>
+<h1>Relatório de cheques</h1>
+<div class="box-left">
+<div class="list">
 <center>
-<%= image_tag 'construcao.png', {:width => '30%', :height => '30%'} %>
-<p>Em construção...</p>
+
+<% if @cheques %>
+  <% @cheques.each do |cheque| %>
+    <%= render cheque %>
+  <% end %>
+<% else %>
+  Nenhum resultado.
+<% end %>
+
 </center>
+</div>
+</div>

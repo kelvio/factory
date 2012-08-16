@@ -3,12 +3,12 @@
 <%= form_tag relatorio_cheques_path do %>
   <div class="field" style="display: inline; ">
     <%= label_tag :inicio %><br />
-    <%= select_date(data = Date.current, options = { :order => calendar_fields_order, :use_month_numbers => true}) %>
+    <%= select_date(data = Date.current, options = {:prefix => 'inicio', :order => calendar_fields_order, :use_month_numbers => true}) %>
   </div>
   <br />
   <div class="field" style="display: inline; ">
     <%= label_tag :fim %><br />
-    <%= select_date(data = Date.current, options = { :order => calendar_fields_order, :use_month_numbers => true}) %>
+    <%= select_date(data = Date.current, options = {:prefix => 'fim', :order => calendar_fields_order, :use_month_numbers => true}) %>
   </div>
   <br />
   <div class="actions">

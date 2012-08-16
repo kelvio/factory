@@ -11,7 +11,7 @@
     });
 </script>
 
-<%= form_for([@lote_cheque, @lote_cheque.cheque.new], :remote => true) do |f| %>
+<%= form_for(@cheque) do |f| %>
   
   <%= render 'shared/error', :object => @cheque %>
   
@@ -29,7 +29,7 @@
   
   <div class="field">
     <%= f.label :emitente %><br />
-    <%= f.select(:emitente_id, Emitente.all.collect {|t| [t.nome, t.id]}, {:include_blank => t('cheque.form.emitente.no_selection_label')}, {:required => 'required'}) %>
+    <%= select_tag "emitente", options_from_collection_for_select(Emitente.all, "id", "nome"), {:include_blank => t('cliente.form.tipo_cliente.no_selection_label')} %>
     <p class="hint"><%= t('cheque.form.emitente.hint') %></p>
   </div>
   

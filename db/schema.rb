@@ -132,12 +132,16 @@ ActiveRecord::Schema.define(:version => 20120809144948) do
   create_table "operacao_financeiras", :force => true do |t|
     t.string   "descricao"
     t.integer  "socio_id"
+    t.integer  "cheque_id"
+    t.integer  "item_id"
     t.integer  "tipo_operacao_financeira_id"
     t.decimal  "valor"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
   end
 
+  add_index "operacao_financeiras", ["cheque_id"], :name => "index_operacao_financeiras_on_cheque_id"
+  add_index "operacao_financeiras", ["item_id"], :name => "index_operacao_financeiras_on_item_id"
   add_index "operacao_financeiras", ["socio_id"], :name => "index_operacao_financeiras_on_socio_id"
   add_index "operacao_financeiras", ["tipo_operacao_financeira_id"], :name => "index_operacao_financeiras_on_tipo_operacao_financeira_id"
 

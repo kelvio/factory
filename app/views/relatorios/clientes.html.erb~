@@ -1,14 +1,13 @@
-<h1>Operações financeiras</h1>
-
+<h1>Relatório de operações para o cliente "<%= @cliente %>"</h1>
 <div class="box-left">
 <div class="list">
 <center>
 <table>
   <tr>
-    <th>Data</th>
+    <th>Data da ocorrência</th>
     <th>Descrição</th>
-    <th>Sócio</th>
     <th>Tipo de operação</th>
+    <th>Sócio</th>
     <th>Valor</th>
   </tr>
 
@@ -16,12 +15,11 @@
   <tr>
     <td><%= operacao_financeira.created_at %></td>
     <td><%= operacao_financeira.descricao %></td>
-    <td><%= operacao_financeira.socio %></td>
     <td><%= operacao_financeira.tipo_operacao_financeira %></td>
+    <td><%= operacao_financeira.socio %></td>    
     <td><%= operacao_financeira.valor %></td>
   </tr>
 <% end %>
 </table>
 </center>
-</div>
-</div>
+

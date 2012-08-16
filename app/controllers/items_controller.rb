@@ -75,7 +75,8 @@ class ItemsController < ApplicationController
                 OperacaoFinanceira.create({:socio => Socio.find(session[:user_id]),
                   :tipo_operacao_financeira => TipoOperacaoFinanceira.find(2), #Conta
                   :descricao => 'Conta / Despesa paga.',
-                  :valor => @item.valor})
+                  :valor => @item.valor,
+                  :item => @item})
               end
             end
             format.html { redirect_to @item, :notice => 'Item atualizado com sucesso.' }

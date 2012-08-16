@@ -1,5 +1,18 @@
 <h1>Relatório de cheques</h1>
-<center>
-<%= image_tag 'construcao.png', {:width => '30%', :height => '30%'} %>
-<p>Em construção...</p>
-</center>
+<div class="box-left">
+<div class="list">
+
+
+<% if @cheques.size > 0 %>
+  <center>
+  <% @cheques.each do |cheque| %>
+    <%= render cheque %>
+  <% end %>
+  </center>
+<% else %>
+  Nenhum resultado.
+<% end %>
+
+
+</div>
+</div>

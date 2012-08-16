@@ -60,7 +60,8 @@ class ChequesController < ApplicationController
           OperacaoFinanceira.create({:socio => Socio.find(session[:user_id]),
            :tipo_operacao_financeira => TipoOperacaoFinanceira.find(1),
            :descricao => 'Troca de cheque',
-           :valor => @cheque.valor})                                                                                      
+           :valor => @cheque.valor,
+           :cheque => @cheque})                                                                                      
         end        
         format.html { redirect_to @cheque, :notice => 'Cheque criado com sucesso.' }
         format.json { render :json => @cheque, :status => :created, :location => @cheque }

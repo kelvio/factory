@@ -1,7 +1,7 @@
 <h1><%= t('relatorio.index.title') %></h1>
 <%= render 'shared/buttons', :buttons => [
-  {:link => new_operacoes_path, :image => 'operacoes_socio.png', :label => 'Operações financeiras'},
-  {:link => new_emitentes_path, :image => 'emitente.png', :label => 'Cheques por emitentes'},
-  {:link => new_clientes_path, :image => 'operacoes_cliente.png', :label => 'Operações por cliente'},
-  {:link => new_cheques_path, :image => 'cheque.png', :label => 'Relatório de cheques'}
+  {:link => relatorio_new_operacoes_path, :image => 'operacoes_socio.png', :label => 'Operações financeiras'},
+  {:link => relatorio_new_emitentes_path, :image => 'emitente.png', :label => 'Cheques por emitentes'},
+  {:link => relatorio_new_clientes_path, :image => 'operacoes_cliente.png', :label => 'Operações por cliente'},
+  {:link => relatorio_new_cheques_path, :image => 'cheque.png', :label => 'Relatório de cheques'}
   ] %>

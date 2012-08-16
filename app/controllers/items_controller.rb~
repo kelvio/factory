@@ -78,7 +78,7 @@ class ItemsController < ApplicationController
                   :valor => @item.valor})
               end
             end
-            format.html { redirect_to @item, :notice => 'Item was successfully updated.' }
+            format.html { redirect_to @item, :notice => 'Item atualizado com sucesso.' }
             format.json { head :no_content }
           else
             raise ActiveRecord::Rollback  

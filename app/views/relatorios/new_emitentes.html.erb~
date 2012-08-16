@@ -1,14 +1,18 @@
 <h1>Selecione o período</h1>
 
-<%= form_tag relatorios_operacoes_path do %>
+<%= form_tag relatorio_emitentes_path do %>
+  <div class="field">
+    <%= label_tag :emitente %><br />
+    <%= select_tag "emitente", options_from_collection_for_select(Emitente.all, "id", "nome"), {:include_blank => 'Selecione'} %>
+  </div>
   <div class="field" style="display: inline; ">
     <%= label_tag :inicio %><br />
-    <%= select_date(data = Date.current, options = { :order => calendar_fields_order, :use_month_numbers => true}) %>
+    <%= select_date(data = Date.current, options = {:prefix => 'inicio', :order => calendar_fields_order, :use_month_numbers => true}) %>
   </div>
   <br />
   <div class="field" style="display: inline; ">
     <%= label_tag :fim %><br />
-    <%= select_date(data = Date.current, options = { :order => calendar_fields_order, :use_month_numbers => true}) %>
+    <%= select_date(data = Date.current, options = {:prefix => 'inicio', :order => calendar_fields_order, :use_month_numbers => true}) %>
   </div>
   <br />
   <div class="actions">

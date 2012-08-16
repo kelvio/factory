@@ -8,9 +8,11 @@ class Cheque < ActiveRecord::Base
   belongs_to :lote_cheque
   
   has_many :historico_cheque
+  has_many :operacao_financeira
   
-  attr_accessible :agencia, :conta, :numero, :valor, :vencimento, :banco, :emitente, :cliente, :socio, :banco_id, :emitente_id, :cliente_id, :socio_id, :situacao_cheque, :situacao_cheque_id, :taxa_juros, :tipo_juro, :tipo_juro_id, :data_troca
+  attr_accessible :agencia, :conta, :numero, :valor, :vencimento, :banco, :emitente, :cliente, :socio, :banco_id, :emitente_id, :cliente_id, :socio_id, :situacao_cheque, :situacao_cheque_id, :taxa_juros, :tipo_juro, :tipo_juro_id, :data_troca, :lote_cheque_id, :lote_cheque
   
+  before_save :verificar_dia_util
   after_create :movimentar_capital_after_create
   after_create :registrar_historico_cheque_after_create
   after_update :registrar_historico_cheque_after_update
@@ -31,6 +33,19 @@ class Cheque < ActiveRecord::Base
   validates_numericality_of :taxa_juros
   validate :has_money
   validate :vencimento_futuro
+
+  def verificar_dia_util
+    if self.is_feriado(self.vencimento.month, self.vencimento.day)
+      self.vencimento = self.vencimento + 1
+    end
+
+    dia = self.vencimento.wday
+    self.vencimento = self.vencimento + (dia == 0 ? 1 : dia == 6 ? 2 : 0)
+  end
+  
+  def is_feriado(mes, dia)
+    return 1
+  end
 
   #Verifica se a factory tem fundos para realizar a troca
   def has_money

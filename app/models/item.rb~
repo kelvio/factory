@@ -7,6 +7,7 @@ class Item < ActiveRecord::Base
   
   before_update :movimentar_capital_before_update
   
+  after_create :movimentar_capital_after_create
   
   def check_situacao
     situacao_antiga = Item.find(self.id).situacao_item

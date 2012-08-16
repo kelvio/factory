@@ -1,6 +1,9 @@
 class Item < ActiveRecord::Base
   belongs_to :situacao_item
   belongs_to :despesa
+  
+  has_many :operacao_financeira
+  
   attr_accessible :valor, :vencimento, :situacao_item, :situacao_item_id, :despesa, :despesa_id
   
   validate :check_situacao, :on => :update

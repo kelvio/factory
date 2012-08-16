@@ -1,6 +1,6 @@
 <h1>Selecione o período</h1>
 
-<%= form_tag relatorios_operacoes_path do %>
+<%= form_tag relatorio_clientes_path do %>
   <div class="field" style="display: inline; ">
     <%= label_tag :inicio %><br />
     <%= select_date(data = Date.current, options = { :order => calendar_fields_order, :use_month_numbers => true}) %>

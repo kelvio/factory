@@ -1,5 +1,23 @@
-<h1>Relatório de cheques</h1>
+<h1>Relatório de operações para o emitente "<%= @emitente %>"</h1>
+<div class="box-left">
+<div class="list">
 <center>
-<%= image_tag 'construcao.png', {:width => '30%', :height => '30%'} %>
-<p>Em construção...</p>
+<table>
+  <tr>
+    <th>Data da ocorrência</th>
+    <th>Descrição</th>
+    <th>Sócio</th>
+    <th>Valor</th>
+  </tr>
+
+<% @operacao_financeiras.each do |operacao_financeira| %>
+  <tr>
+    <td><%= operacao_financeira.created_at %></td>
+    <td><%= operacao_financeira.descricao %></td>
+    <td><%= operacao_financeira.socio %></td>
+    <td><%= operacao_financeira.valor %></td>
+  </tr>
+<% end %>
+</table>
 </center>
+
