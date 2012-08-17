@@ -10,10 +10,10 @@
 PaisDominio.create([{:nome => 'Brasil'}])
 
 #Uf
-Uf.create([{:nome => 'Brasília', :pais_dominio => PaisDominio.find(1)}])
+Uf.create([{:nome => 'Goiás', :pais_dominio => PaisDominio.find(1)}])
 
 #Município
-MunicipioDominio.create([{:nome => 'Brasília', :uf => Uf.find(1)}])
+MunicipioDominio.create([{:nome => 'Formosa', :uf => Uf.find(1)}])
 
 #TipoCliente
 TipoCliente.create([{:nome => 'Pessoa Física'}, {:nome => 'Pessoa Jurídica'}])

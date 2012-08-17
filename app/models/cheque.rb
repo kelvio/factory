@@ -44,7 +44,29 @@ class Cheque < ActiveRecord::Base
   end
   
   def is_feriado(mes, dia)
-    return false
+    case mes
+      when 1
+        return true if dia == 1
+      when 2
+        return true if dia == 21
+      when 4
+        return true if dia == 6
+        return true if dia == 21
+      when 5
+        return true if dia == 1
+      when 6
+        return true if dia == 7
+      when 9
+        return true if dia == 7        
+      when 10
+        return true if dia == 12
+      when 11
+        return true if dia == 2
+        return true if dia == 15
+      when 12
+        return true if dia == 25
+    end        
+    return false    
   end
 
   #Verifica se a factory tem fundos para realizar a troca

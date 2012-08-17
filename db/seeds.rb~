@@ -10,10 +10,10 @@
 PaisDominio.create([{:nome => 'Brasil'}])
 
 #Uf
-Uf.create([{:nome => 'Brasília', :pais_dominio => PaisDominio.find(1)}])
+Uf.create([{:nome => 'Goiás', :pais_dominio => PaisDominio.find(1)}])
 
 #Município
-MunicipioDominio.create([{:nome => 'Brasília', :uf => Uf.find(1)}])
+MunicipioDominio.create([{:nome => 'Formosa', :uf => Uf.find(1)}])
 
 #TipoCliente
 TipoCliente.create([{:nome => 'Pessoa Física'}, {:nome => 'Pessoa Jurídica'}])
@@ -136,25 +136,25 @@ Banco.create([{:nome => 'BANESTES S.A. Banco do Estado do Espírito Santo', :cod
 Banco.create([{:nome => 'Banif-Banco Internacional do Funchal (Brasil)S.A.', :codigo => '719', :site => 'www.banif.com.br'}])
 Banco.create([{:nome => 'Bank of America Merrill Lynch Banco Múltiplo S.A.', :codigo => '755', :site => 'www.ml.com'}])
 Banco.create([{:nome => 'BB Banco Popular do Brasil S.A.', :codigo => '73', :site => 'www.bancopopulardobrasil.com.br'}])
-Banco.create([{:nome => 'BCV - Banco de Crédito e Varejo S.A.', :codigo => '250', :site => ''}])
-Banco.create([{:nome => 'BES Investimento do Brasil S.A.-Banco de Investimento', :codigo => '78', :site => ''}])
-Banco.create([{:nome => 'BPN Brasil Banco Múltiplo S.A.', :codigo => '69', :site => ''}])
-Banco.create([{:nome => 'BRB - Banco de Brasília S.A.', :codigo => '70', :site => ''}])
-Banco.create([{:nome => 'Caixa Econômica Federal', :codigo => '104', :site => ''}])
-Banco.create([{:nome => 'Citibank S.A.', :codigo => '477', :site => ''}])
-Banco.create([{:nome => 'Concórdia Banco S.', :codigo => '081-7', :site => ''}])
-Banco.create([{:nome => 'Deutsche Bank S.A. - Banco Alemão', :codigo => '487', :site => ''}])
-Banco.create([{:nome => 'Goldman Sachs do Brasil Banco Múltiplo S.', :codigo => '64', :site => ''}])
-Banco.create([{:nome => 'Hipercard Banco Múltiplo S.A.', :codigo => '62', :site => ''}])
-Banco.create([{:nome => 'HSBC Bank Brasil S.A. - Banco Múltiplo', :codigo => '399', :site => ''}])
-Banco.create([{:nome => 'ING Bank N.V.', :codigo => '492', :site => ''}])
-Banco.create([{:nome => 'Itaú Unibanco Holding S.A.', :codigo => '652', :site => ''}])
-Banco.create([{:nome => 'Itaú Unibanco S.A.', :codigo => '341', :site => ''}])
-Banco.create([{:nome => 'JPMorgan Chase Bank', :codigo => '488', :site => ''}])
-Banco.create([{:nome => 'Scotiabank Brasil S.A. Banco Múltiplo', :codigo => '517', :site => ''}])
-Banco.create([{:nome => 'Standard Chartered Bank (Brasil) S/A–Bco Invest.', :codigo => '-----', :site => ''}])
-Banco.create([{:nome => 'UNIBANCO - União de Bancos Brasileiros S.A.', :codigo => '409', :site => ''}])
-Banco.create([{:nome => 'Unicard Banco Múltiplo S.A.', :codigo => '230', :site => ''}])
+Banco.create([{:nome => 'BCV - Banco de Crédito e Varejo S.A.', :codigo => '250', :site => 'www.bancobcv.com.br'}])
+Banco.create([{:nome => 'BES Investimento do Brasil S.A.-Banco de Investimento', :codigo => '78', :site => 'www.besinvestimento.com.br'}])
+Banco.create([{:nome => 'BPN Brasil Banco Múltiplo S.A.', :codigo => '69', :site => 'www.bpnbrasil.com.br'}])
+Banco.create([{:nome => 'BRB - Banco de Brasília S.A.', :codigo => '70', :site => 'www.brb.com.br'}])
+Banco.create([{:nome => 'Caixa Econômica Federal', :codigo => '104', :site => 'www.caixa.gov.br'}])
+Banco.create([{:nome => 'Citibank S.A.', :codigo => '477', :site => 'www.citibank.com/brasil'}])
+Banco.create([{:nome => 'Concórdia Banco S.', :codigo => '081-7', :site => 'www.concordiabanco.com'}])
+Banco.create([{:nome => 'Deutsche Bank S.A. - Banco Alemão', :codigo => '487', :site => 'www.deutsche-bank.com.br'}])
+Banco.create([{:nome => 'Goldman Sachs do Brasil Banco Múltiplo S.', :codigo => '64', :site => 'www.goldmansachs.com'}])
+Banco.create([{:nome => 'Hipercard Banco Múltiplo S.A.', :codigo => '62', :site => 'www.hipercard.com.br'}])
+Banco.create([{:nome => 'HSBC Bank Brasil S.A. - Banco Múltiplo', :codigo => '399', :site => 'www.hsbc.com.br'}])
+Banco.create([{:nome => 'ING Bank N.V.', :codigo => '492', :site => 'www.ing.com'}])
+Banco.create([{:nome => 'Itaú Unibanco Holding S.A.', :codigo => '652', :site => 'www.itau.com.br'}])
+Banco.create([{:nome => 'Itaú Unibanco S.A.', :codigo => '341', :site => 'www.itau.com.br'}])
+Banco.create([{:nome => 'JPMorgan Chase Bank', :codigo => '488', :site => 'www.jpmorganchase.com'}])
+Banco.create([{:nome => 'Scotiabank Brasil S.A. Banco Múltiplo', :codigo => '517', :site => 'www.br.scotiabank.com'}])
+Banco.create([{:nome => 'Standard Chartered Bank (Brasil) S/A–Bco Invest.', :codigo => '-----', :site => 'www.standardchartered.'}])
+Banco.create([{:nome => 'UNIBANCO - União de Bancos Brasileiros S.A.', :codigo => '409', :site => 'www.unibanco.com.br'}])
+Banco.create([{:nome => 'Unicard Banco Múltiplo S.A.', :codigo => '230', :site => 'www.unicard.com.br'}])
 
 
 #Cliente
