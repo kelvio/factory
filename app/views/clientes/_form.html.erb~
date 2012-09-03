@@ -12,14 +12,14 @@
       selected = $('#cliente_tipo_cliente_id').val();
       if (selected == 1) {
           $('#cpf_field').show();
-          $('#cliente_cpf').attr('required', 'required');
+          //$('#cliente_cpf').attr('required', 'required');
           $('#cnpj_field').hide();
-          $('#cliente_cnpj').attr('required', '');
+          //$('#cliente_cnpj').attr('required', '');
       } else if (selected == 2) {
           $('#cnpj_field').show();
-          $('#cliente_cnpj').attr('required', 'required');
+          //$('#cliente_cnpj').attr('required', 'required');
           $('#cpf_field').hide();          
-          $('#cliente_cpf').attr('required', '');
+          //$('#cliente_cpf').attr('required', '');
       }
     });
   

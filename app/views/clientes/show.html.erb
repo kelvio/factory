@@ -8,8 +8,13 @@
   <%= @cliente.tipo_cliente %>
 </p>
 </div>
+
+<h2>Cheques deste cliente</h2>
+<%= render @cliente.cheque %>
+
 <br />
 <input type="button" onclick="location.href='<%= edit_cliente_path(@cliente) %>'" value="<%= t('cliente.show.edit_link_label') %>" />
 <input type="button" onclick="location.href='<%= clientes_path %>'" value="<%= t('cliente.show.back_link_label') %>" />
+<input type="button" onclick="location.href='<%= new_divida_path(@cliente) %>'" value="Gerar dívida...  " />
 
 

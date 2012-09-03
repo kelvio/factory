@@ -82,6 +82,22 @@ ActiveRecord::Schema.define(:version => 20120809144948) do
 
   add_index "despesas", ["tipo_despesa_id"], :name => "index_despesas_on_tipo_despesa_id"
 
+  create_table "divida_clientes", :force => true do |t|
+    t.integer  "situacao_divida_cliente_id"
+    t.integer  "cliente_id"
+    t.integer  "socio_id"
+    t.string   "descricao"
+    t.decimal  "valor"
+    t.decimal  "taxa_juros"
+    t.date     "vencimento"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  add_index "divida_clientes", ["cliente_id"], :name => "index_divida_clientes_on_cliente_id"
+  add_index "divida_clientes", ["situacao_divida_cliente_id"], :name => "index_divida_clientes_on_situacao_divida_cliente_id"
+  add_index "divida_clientes", ["socio_id"], :name => "index_divida_clientes_on_socio_id"
+
   create_table "emitentes", :force => true do |t|
     t.string   "nome"
     t.datetime "created_at", :null => false
@@ -133,6 +149,7 @@ ActiveRecord::Schema.define(:version => 20120809144948) do
     t.string   "descricao"
     t.integer  "socio_id"
     t.integer  "cheque_id"
+    t.integer  "divida_cliente_id"
     t.integer  "item_id"
     t.integer  "tipo_operacao_financeira_id"
     t.decimal  "valor"
@@ -141,6 +158,7 @@ ActiveRecord::Schema.define(:version => 20120809144948) do
   end
 
   add_index "operacao_financeiras", ["cheque_id"], :name => "index_operacao_financeiras_on_cheque_id"
+  add_index "operacao_financeiras", ["divida_cliente_id"], :name => "index_operacao_financeiras_on_divida_cliente_id"
   add_index "operacao_financeiras", ["item_id"], :name => "index_operacao_financeiras_on_item_id"
   add_index "operacao_financeiras", ["socio_id"], :name => "index_operacao_financeiras_on_socio_id"
   add_index "operacao_financeiras", ["tipo_operacao_financeira_id"], :name => "index_operacao_financeiras_on_tipo_operacao_financeira_id"
@@ -162,6 +180,12 @@ ActiveRecord::Schema.define(:version => 20120809144948) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "situacao_cheques", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "situacao_divida_clientes", :force => true do |t|
     t.string   "nome"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

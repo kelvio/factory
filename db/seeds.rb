@@ -21,6 +21,10 @@ TipoCliente.create([{:nome => 'Pessoa Física'}, {:nome => 'Pessoa Jurídica'}])
 #Capital
 Capital.create([{:montante_real => 0, :montante_aplicado => 0}])
 
+#SituacaoDividaCliente
+SituacaoDividaCliente.create([{:nome => 'Aberta'}, {:nome => 'Compensada'}])
+
+
 #SituacaoCheque
 SituacaoCheque.create([{:nome => 'Aberto'}, {:nome => 'Compensado'}, {:nome => 'Postergado'}])
 

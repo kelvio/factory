@@ -51,12 +51,16 @@ Factory::Application.routes.draw do
   resources :socios
 
   resources :clientes
-    
+  match '/new_divida/:id' => 'clientes#new_divida', :as => 'new_divida'  
+  match '/create_divida' => 'clientes#create_divida', :as => 'create_divida'
+  
   resources :emitentes
 
   resources :bancos
 
   resources :relatorios
+  
+  resources :divida_clientes
   
   #Sessions
   resource :session
