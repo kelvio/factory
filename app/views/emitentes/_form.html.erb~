@@ -4,7 +4,7 @@
         $("#emitente_cpf").mask("999.999.999-99");
         
         $("form").submit(function(e) {
-            $('#emitente_cpf').val($('#socio_cpf').val().replace('.', '').replace('.', '').replace('-', ''))
+            $('#emitente_cpf').val($('#emitente_cpf').val().replace('.', '').replace('.', '').replace('-', ''))
         });        
     });
 </script>

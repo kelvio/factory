@@ -72,16 +72,56 @@
 		    
 		    <% end %>
 		    
+		    
+		    
 		    <% if logged_in? %>
-		    <p>Logado como  <b><%= current_user.nome %></b></p>
-		    <p>
-                <b>Montante real da factory:</b><%= number_to_currency montante_real %> <br />
-                <b>Montante aplicado da factory:</b><%= number_to_currency montante_aplicado %> <br />
-                <b>Montante da factory (ganho realizado + não ganho não realizado):</b> <%= number_to_currency montante_factory %> <br />
+		    
+		    <div id="statusreport">
+		    		      
+		    
+		      <script type="text/javascript">
+		        $(document).ready(function() {
+		          $('#factory_info').hide();
+		          
+		          $('#statusreportswitch').click(function(event) {
+		            event.preventDefault();
+                if ($('#statusreportswitch').html() == '+') {
+                  //Expande
+                  $('#factory_info').show('fast');
+                  $('#statusreportswitch').html('-')
+                  
+                  
+                  
+                } else {
+                  //Recolhe
+                  $('#factory_info').hide('fast');
+                  $('#statusreportswitch').html('+')
+                }
+		          });
+		        });
+		      </script>
+		    
+		      
+
+		      
+		      <p>Logado como  <b><%= current_user.nome %></b></p>
+		      
+		      <div style="text-align: right; margin-bottom: 2px;"><button id="statusreportswitch" style="height: 27px;">+</button></div>
+		      
+		      <div id="factory_info">
+		      <p>
+                <b>Montante real da factory:</b><%= number_to_currency montante_real, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %> <br />
+                <b>Montante aplicado da factory:</b><%= number_to_currency montante_aplicado, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %> <br />
+                <b>Montante da factory (ganho realizado + não ganho não realizado):</b> <%= number_to_currency montante_factory, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %> <br />
                 <b>Minha porcentagem individual hoje:</b><%= number_to_percentage(current_user.percentual,  :precision => 0) %> <br />
-                <b>Meu montante individual real hoje:</b> <%= number_to_currency current_user.capital %>
-            </p>
-	        <% end %>
+                <b>Meu montante individual real hoje:</b> <%= number_to_currency current_user.capital, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %>
+          </p>
+		      </div>
+		      
+		    </div>
+		    
+		    
+	      <% end %>
         </div>
     </div>
     <div id="corpo">       

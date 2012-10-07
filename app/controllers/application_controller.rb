@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     
-  VERSION = "0.5"
+  VERSION = "0.6"
   
   protect_from_forgery
   before_filter :set_locale
@@ -22,12 +22,30 @@ class ApplicationController < ActionController::Base
       I18n.locale = I18n.default_locale if params[:locale].blank?
     end
   
+    def money_symbol
+      return 'R$' if I18n.locale == :pt_BR
+    end
+    
+    helper_method :money_symbol
+  
     def calendar_fields_order
       return [:day, :month, :year] if I18n.locale == :pt_BR
       return [:year, :month, :day] if I18n.locale == :en
     end
     
     helper_method :calendar_fields_order
+  
+    def money_separator
+      return ',' if I18n.locale == :pt_BR
+    end
+    
+    helper_method :money_separator
+    
+    def money_delimiter
+      return '.' if I18n.locale == :pt_BR
+    end
+
+    helper_method :money_delimiter
   
     # Returns the currently logget in on nil if there isn't one
     def current_user

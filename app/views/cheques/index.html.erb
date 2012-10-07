@@ -35,7 +35,7 @@
   <tr>
     <td><%= cheque.lote_cheque ? cheque.lote_cheque : 'Não vinculado a nenhum lote' %></td>
     <td><%= cheque.numero %></td>
-    <td><%= number_to_currency cheque.valor %></td>
+    <td><%= number_to_currency cheque.valor, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %></td>
     <td><%= cheque.vencimento %></td>
     <td><%= cheque.agencia %></td>
     <td><%= cheque.conta %></td>

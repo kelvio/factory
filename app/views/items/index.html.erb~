@@ -11,14 +11,13 @@
     <th>Situacao item</th>    
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @items.each do |item| %>
   <tr>
     <td><%= item.despesa %></td>
     <td><%= item.vencimento %></td>
-    <td><%= number_to_currency item.valor %></td>    
+    <td><%= number_to_currency item.valor, :unit => money_symbol %></td>    
     <td><%= item.situacao_item %></td>    
     <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>

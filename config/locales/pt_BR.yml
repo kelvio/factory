@@ -19,6 +19,7 @@ pt_BR:
     logout_message: Você saiu com sucesso
     welcome: Bem vindo
     please_login_to_continue: Por favor, se identifique para continuar
+    save: Salvar
   #Calculadora
   calculadora:
     valor:
@@ -40,7 +41,7 @@ pt_BR:
       edit_link_label: Editar
       back_link_label: Voltar
     edit:
-      title: Editaring banco
+      title: Editar banco
       show_link_label: Detalhes      
       back_link_label: Voltar
     new:

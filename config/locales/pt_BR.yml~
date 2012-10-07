@@ -40,7 +40,7 @@ pt_BR:
       edit_link_label: Editar
       back_link_label: Voltar
     edit:
-      title: Editaring banco
+      title: Editar banco
       show_link_label: Detalhes      
       back_link_label: Voltar
     new:
@@ -269,6 +269,8 @@ pt_BR:
   
   #LoteCheque
   lote_cheque:
+    index:
+      search_button_label: Pesquisar
     show: 
       edit_link_label: Editar
       back_link_label: Voltar  

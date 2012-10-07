@@ -52,6 +52,7 @@
     
     //TELEFONE
     $("#cliente_telefone").mask("(99)99999999");
+    $("#cliente_telefone2").mask("(99)99999999");
     
     //CEP
     $("#cliente_cep").mask("99999-999");
@@ -60,6 +61,7 @@
       $('#cliente_cpf').val($('#cliente_cpf').val().replace('.', '').replace('.', '').replace('-', ''))
       $('#cliente_cnpj').val($('#cliente_cnpj').val().replace('.', '').replace('.', '').replace('/', '').replace('-', ''))
       $('#cliente_telefone').val($('#cliente_telefone').val().replace('(', '').replace(')', ''))
+      $('#cliente_telefone2').val($('#cliente_telefone').val().replace('(', '').replace(')', ''))
       $('#cliente_cep').val($('#cliente_cep').val().replace('-', ''))
     });
   });
@@ -147,10 +149,16 @@
     <%= f.text_field(:telefone) %> 
     <p class="hint"><%= t('cliente.form.telefone.hint') %></p>
   </div>
+  
+  <div class="field">
+    <%= f.label :telefone2 %><br />
+    <%= f.text_field(:telefone2) %> 
+    <p class="hint"><%= t('cliente.form.telefone.hint') %></p>
+  </div>
     
   </div>
   <div class="actions">
     <input type="button" onclick="location.href='<%= clientes_path %>'" value="<%= t('cliente.new.back_link_label') %>" />
-    <%= f.submit %>
+    <%= f.submit t('general.save') %>
   </div>
 <% end %>

@@ -2,7 +2,7 @@
 <div class="box-left">
 <p>
   <b>Valor:</b>
-  <%= number_to_currency @item.valor %>
+  <%= number_to_currency @item.valor, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %>
 </p>
 
 <p>

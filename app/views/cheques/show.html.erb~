@@ -84,7 +84,7 @@
 
 <p>
   <b>Data da troca:</b>
-  <%= @cheque.created_at %>
+  <%= @cheque.data_troca %>
 </p>
 
 <p>

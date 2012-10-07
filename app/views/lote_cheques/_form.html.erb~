@@ -16,6 +16,7 @@
     <%= f.text_field :nome %>
   </div>
   <div class="actions">
+    <input type="button" onclick="location.href='<%= lote_cheques_path %>'" value="Voltar" />
     <%= f.submit %>
   </div>
 <% end %>

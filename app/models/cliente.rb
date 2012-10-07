@@ -1,5 +1,5 @@
 class Cliente < ActiveRecord::Base
-  attr_accessible :nome, :tipo_cliente, :tipo_cliente_id, :cnpj, :logradouro, :bairro, :cep, :numero, :email, :telefone, :cpf, :municipio_dominio, :municipio_dominio_id
+  attr_accessible :nome, :tipo_cliente, :tipo_cliente_id, :cnpj, :logradouro, :bairro, :cep, :numero, :email, :telefone, :telefone2, :cpf, :municipio_dominio, :municipio_dominio_id
   belongs_to :tipo_cliente
   belongs_to :municipio_dominio
   has_many :cheque

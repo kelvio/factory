@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120809144948) do
+ActiveRecord::Schema.define(:version => 20121007014200) do
 
   create_table "bancos", :force => true do |t|
     t.string   "nome"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20120809144948) do
     t.string   "email"
     t.string   "telefone"
     t.string   "cpf"
+    t.string   "telefone2"
   end
 
   add_index "clientes", ["municipio_dominio_id"], :name => "index_clientes_on_municipio_dominio_id"
