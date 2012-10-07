@@ -132,41 +132,9 @@
 <% if logged_in? %>
 
 <div style="bottom: 0px; position: fixed; width: 100%; margin: auto; " >
-<div class="dock" id="dock2" >    
-    <div class="dock-container2">
-        <a class="dock-item2" href="<%= home_path %>"><span>Início</span><%= image_tag 'home.png' %></a>
-        <a class="dock-item2" href="<%= bancos_path %>"><span>Bancos</span><%= image_tag 'banco.png' %></a> 
-      <a class="dock-item2" href="<%= lote_cheques_path %>"><span>Lotes de cheques</span><%= image_tag 'lote_cheque.png' %></a> 
-	    <a class="dock-item2" href="<%= cheques_path %>"><span>Cheques</span><%= image_tag 'cheque.png' %></a> 
-	    <a class="dock-item2" href="<%= divida_clientes_path %>"><span>Dívidas</span><%= image_tag 'operacoes_cliente.png' %></a> 
-	    <a class="dock-item2" href="<%= clientes_path %>"><span>Clientes</span><%= image_tag 'cliente.png' %></a> 
-	    <a class="dock-item2" href="<%= emitentes_path %>"><span>Emitentes</span><%= image_tag 'emitente.png' %></a> 
-	    <a class="dock-item2" href="<%= socios_path %>"><span>Sócios</span><%= image_tag 'socio.png' %></a> 
-	    <a class="dock-item2" href="<%= despesas_path %>"><span>Grupos de despesas</span><%= image_tag 'grupo_despesa.png' %></a>
-	    <a class="dock-item2" href="<%= items_path %>"><span>Ítens de despesa</span><%= image_tag 'despesa.png' %></a>  
-	    <a class="dock-item2" href="#" id="calculadora_link"><span>Calculadora</span><%= image_tag 'calculator.png' %></a>
-	    <a class="dock-item2" href="<%= relatorios_path %>"><span>Relatórios</span><%= image_tag 'relatorio.png' %></a> 
-	    <a class="dock-item2" href="<%= logout_path %>"><span>Sair</span><%= image_tag 'sair_2.png' %></a> 
-    </div>
+<%= render 'shared/dock'%>
 </div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#dock2').Fisheye(
-				{
-					maxWidth: 60,
-					items: 'a',
-					itemsText: 'span',
-					container: '.dock-container2',
-					itemWidth: 40,
-					proximity: 80,
-					alignment : 'left',
-					valign: 'bottom',
-					halign : 'center'
-				}
-			);
-    });
-</script>
+
 <% end %>	   
 </body>
 </html>

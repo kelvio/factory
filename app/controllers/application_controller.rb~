@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
     helper_method :calendar_fields_order
   
     def money_separator
-      return ',' if I18n.locale == :pt_BT
+      return ',' if I18n.locale == :pt_BR
     end
     
     helper_method :money_separator

@@ -111,10 +111,10 @@
 		      <div id="factory_info">
 		      <p>
                 <b>Montante real da factory:</b><%= number_to_currency montante_real, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %> <br />
-                <b>Montante aplicado da factory:</b><%= number_to_currency montante_aplicado, :unit => money_symbol %> <br />
-                <b>Montante da factory (ganho realizado + não ganho não realizado):</b> <%= number_to_currency montante_factory, :unit => money_symbol %> <br />
+                <b>Montante aplicado da factory:</b><%= number_to_currency montante_aplicado, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %> <br />
+                <b>Montante da factory (ganho realizado + não ganho não realizado):</b> <%= number_to_currency montante_factory, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %> <br />
                 <b>Minha porcentagem individual hoje:</b><%= number_to_percentage(current_user.percentual,  :precision => 0) %> <br />
-                <b>Meu montante individual real hoje:</b> <%= number_to_currency current_user.capital %>
+                <b>Meu montante individual real hoje:</b> <%= number_to_currency current_user.capital, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %>
           </p>
 		      </div>
 		      
@@ -132,41 +132,46 @@
 <% if logged_in? %>
 
 <div style="bottom: 0px; position: fixed; width: 100%; margin: auto; " >
-<div class="dock" id="dock2" >    
-    <div class="dock-container2">
-        <a class="dock-item2" href="<%= home_path %>"><span>Início</span><%= image_tag 'home.png' %></a>
-        <a class="dock-item2" href="<%= bancos_path %>"><span>Bancos</span><%= image_tag 'banco.png' %></a> 
-      <a class="dock-item2" href="<%= lote_cheques_path %>"><span>Lotes de cheques</span><%= image_tag 'lote_cheque.png' %></a> 
-	    <a class="dock-item2" href="<%= cheques_path %>"><span>Cheques</span><%= image_tag 'cheque.png' %></a> 
-	    <a class="dock-item2" href="<%= divida_clientes_path %>"><span>Dívidas</span><%= image_tag 'operacoes_cliente.png' %></a> 
-	    <a class="dock-item2" href="<%= clientes_path %>"><span>Clientes</span><%= image_tag 'cliente.png' %></a> 
-	    <a class="dock-item2" href="<%= emitentes_path %>"><span>Emitentes</span><%= image_tag 'emitente.png' %></a> 
-	    <a class="dock-item2" href="<%= socios_path %>"><span>Sócios</span><%= image_tag 'socio.png' %></a> 
-	    <a class="dock-item2" href="<%= despesas_path %>"><span>Grupos de despesas</span><%= image_tag 'grupo_despesa.png' %></a>
-	    <a class="dock-item2" href="<%= items_path %>"><span>Ítens de despesa</span><%= image_tag 'despesa.png' %></a>  
-	    <a class="dock-item2" href="#" id="calculadora_link"><span>Calculadora</span><%= image_tag 'calculator.png' %></a>
-	    <a class="dock-item2" href="<%= relatorios_path %>"><span>Relatórios</span><%= image_tag 'relatorio.png' %></a> 
-	    <a class="dock-item2" href="<%= logout_path %>"><span>Sair</span><%= image_tag 'sair_2.png' %></a> 
-    </div>
+
+<%= render 'shared/dock'%>
+
+<div class="dock">
+				<ul>
+					<li id="mail">
+						<a href="#mail">
+							<em><span>Início</span></em>
+							<%= image_tag 'home.png', :alt => 'Home' %>
+						</a>
+					</li>
+					<li id="ical">
+						<a href="#ical">
+							<em><span>iCal</span></em>
+							<img src="images/icon-ical.png" alt="iCal" />
+						</a>
+					</li>
+					<li id="addressbook">
+						<a href="#addressbook">
+							<em><span>Address Book</span></em>
+							<img src="images/icon-addressbook.png" alt="Address Book" />
+						</a>
+					</li>
+					<li id="iphoto">
+						<a href="#iphoto">
+							<em><span>iPhoto</span></em>
+							<img src="images/icon-iphoto.png" alt="iPhoto" />
+						</a>
+					</li>
+					<li id="idisk">
+						<a href="#idisk">
+							<em><span>iDisk</span></em>
+							<img src="images/icon-idisk.png" alt="iDisk" />
+						</a>
+					</li>
+				</ul>
+			</div>
+
+
 </div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#dock2').Fisheye(
-				{
-					maxWidth: 60,
-					items: 'a',
-					itemsText: 'span',
-					container: '.dock-container2',
-					itemWidth: 40,
-					proximity: 80,
-					alignment : 'left',
-					valign: 'bottom',
-					halign : 'center'
-				}
-			);
-    });
-</script>
 <% end %>	   
 </body>
 </html>
