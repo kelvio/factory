@@ -99,7 +99,3 @@
 
 </div>
 
-<br />
-<input type="button" onclick="location.href='<%= edit_cheque_path(cheque) %>'" value="<%= t('cheque.show.edit_link_label') %>" />
-<input type="button" onclick="location.href='<%= cheques_path %>'" value="<%= t('cheque.show.back_link_label') %>" />
-

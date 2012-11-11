@@ -1,5 +1,17 @@
-<h2>Cheque <%= cheque.numero %></h2>
+<h1>Cheque</h1>
 <div class="box-left">
+
+
+<p>
+  <b>Valor do cheque:</b>
+  <%= number_to_currency cheque.valor, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %>
+</p>
+
+
+<p>
+  <b>Vencimento:</b>
+  <%= cheque.vencimento %>
+</p>
 
 
 <p>
@@ -54,28 +66,9 @@
 
 <p>
   <b>Taxa diária:</b>
-  <%= number_to_currency cheque.valor_taxa_diaria %>
+  <%= number_to_currency cheque.valor_taxa_diaria, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %>
 </p>
 
-<p>
-  <b>Valor do cheque:</b>
-  <%= number_to_currency cheque.valor %>
-</p>
-
-<p>
-  <b>Valor pago pela Factory:</b>
-  <%= number_to_currency cheque.valor_pago_factory %>
-</p>
-
-<p>
-  <b>Valor do cheque acumulado até hoje:</b>
-  <%= number_to_currency cheque.valor_atual %>
-</p>
-
-<p>
-  <b>Vencimento:</b>
-  <%= cheque.vencimento %>
-</p>
 
 <p>
   <b>Total de dias de prazo:</b>
@@ -97,5 +90,17 @@
   <%= cheque.numero_dias_hoje %>
 </p>
 
+<p>
+  <b>Valor pago pela Factory:</b>
+  <%= number_to_currency cheque.valor_pago_factory, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %>
+</p>
+
+<p>
+  <b>Valor do cheque acumulado até hoje:</b>
+  <%= number_to_currency cheque.valor_atual, :unit => money_symbol, :separator => money_separator, :delimiter => money_delimiter %>
+</p>
+
+
 </div>
 
+<br />

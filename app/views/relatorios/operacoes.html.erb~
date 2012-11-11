@@ -10,9 +10,6 @@
     <th>Sócio</th>
     <th>Tipo de operação</th>
     <th>Valor</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @operacao_financeiras.each do |operacao_financeira| %>

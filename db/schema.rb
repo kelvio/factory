@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121007014200) do
+ActiveRecord::Schema.define(:version => 20120809144948) do
 
   create_table "bancos", :force => true do |t|
     t.string   "nome"
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(:version => 20121007014200) do
     t.string   "email"
     t.string   "telefone"
     t.string   "cpf"
-    t.string   "telefone2"
   end
 
   add_index "clientes", ["municipio_dominio_id"], :name => "index_clientes_on_municipio_dominio_id"
@@ -82,22 +81,6 @@ ActiveRecord::Schema.define(:version => 20121007014200) do
   end
 
   add_index "despesas", ["tipo_despesa_id"], :name => "index_despesas_on_tipo_despesa_id"
-
-  create_table "divida_clientes", :force => true do |t|
-    t.integer  "situacao_divida_cliente_id"
-    t.integer  "cliente_id"
-    t.integer  "socio_id"
-    t.string   "descricao"
-    t.decimal  "valor"
-    t.decimal  "taxa_juros"
-    t.date     "vencimento"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-  end
-
-  add_index "divida_clientes", ["cliente_id"], :name => "index_divida_clientes_on_cliente_id"
-  add_index "divida_clientes", ["situacao_divida_cliente_id"], :name => "index_divida_clientes_on_situacao_divida_cliente_id"
-  add_index "divida_clientes", ["socio_id"], :name => "index_divida_clientes_on_socio_id"
 
   create_table "emitentes", :force => true do |t|
     t.string   "nome"

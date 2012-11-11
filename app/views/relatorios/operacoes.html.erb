@@ -5,20 +5,24 @@
 <center>
 <table>
   <tr>
-    <th>Data</th>
-    <th>Descrição</th>
+    <th>Data</th>    
     <th>Sócio</th>
     <th>Tipo de operação</th>
+    <th>Descrição</th>
+    
     <th>Valor</th>
   </tr>
 
 <% @operacao_financeiras.each do |operacao_financeira| %>
   <tr>
     <td><%= operacao_financeira.created_at %></td>
-    <td><%= operacao_financeira.descricao %></td>
     <td><%= operacao_financeira.socio %></td>
-    <td><%= operacao_financeira.tipo_operacao_financeira %></td>
-    <td><%= operacao_financeira.valor %></td>
+<td><%= operacao_financeira.tipo_operacao_financeira %></td>    
+
+<td><%= operacao_financeira.descricao %></td>
+    <td><%= operacao_financeira.valor %></td>    
+    
+
   </tr>
 <% end %>
 </table>

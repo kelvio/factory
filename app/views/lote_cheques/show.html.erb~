@@ -7,7 +7,11 @@
 </div>
 
 <%= link_to t('lote_cheque.show.new_cheque_label'), new_lote_cheque_cheque_path(@lote_cheque, :format => :js), :remote => true, :id => 'new_cheque_link' %>
-<%= button_to 'Teste', new_lote_cheque_cheque_path(@lote_cheque, :format => :js), :remote => true, :id => 'new_cheque_link'
+
+
+<input type="button" onclick="location.href='<%=new_lote_cheque_cheque_path(@lote_cheque, :format => :js) %>'" value="Novo Cheque" />
+
+ 
 <input type="button" onclick="location.href='<%= edit_lote_cheque_path(@lote_cheque) %>'" value="<%= t('lote_cheque.show.edit_link_label') %>" />
 <input type="button" onclick="location.href='<%= lote_cheques_path %>'" value="<%= t('lote_cheque.show.back_link_label') %>" />
 
