@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     
-  VERSION = "0.7"
+  VERSION = "0.8"
   
   protect_from_forgery
   before_filter :set_locale
